@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:House.Thems"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="options">
+
+    <!--登陆背景-->
+    <ImageBrush x:Key="LoginBackground"
+                Stretch="Fill"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg" />
+
+    <!--喇叭-->
+    <ImageBrush x:Key="SpeakerBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/laba.png" />
+
+    <!--主菜单按钮的图形-->
+    <ImageBrush x:Key="NewHouseBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/xinfang.png" />
+    <ImageBrush x:Key="OldHouseBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/ershoufang.png" />
+    <ImageBrush x:Key="RentHouseBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/zufang.png" />
+    <ImageBrush x:Key="CalcBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/fangdaijisuanqi.png" />
+    <ImageBrush x:Key="DecorateBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/zhuangxiu.png" />
+    <ImageBrush x:Key="HomemakingBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/jiazheng.png" />
+    <ImageBrush x:Key="TravelBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/lvyou.png" />
+    <ImageBrush x:Key="ActivityBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/huodong.png" />
+    <ImageBrush x:Key="FinanceBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/jinrong.png" />
+    <ImageBrush x:Key="TicketBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/menpiao.png" />
+
+</ResourceDictionary>

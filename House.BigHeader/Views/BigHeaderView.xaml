@@ -1,0 +1,39 @@
+﻿<House:MyUserControlBase x:Class="House.BigHeader.Views.BigHeaderView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:local="clr-namespace:House.BigHeader.Views"
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
+                         xmlns:userInfo="clr-namespace:House.UserInfo.Views;assembly=House.Header"
+                         Height="70">
+    <UserControl.DataContext>
+        <Binding Path="BigHeaderViewModel"
+                 Source="{StaticResource ResourceKey=Locator}"></Binding>
+    </UserControl.DataContext>
+    <Grid Background="{DynamicResource AccentColorBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*">
+            </ColumnDefinition>
+            <ColumnDefinition Width="2*">
+            </ColumnDefinition>
+            <ColumnDefinition Width="1*">
+            </ColumnDefinition>
+            <ColumnDefinition Width="1*">
+            </ColumnDefinition>
+            <ColumnDefinition Width="1*">
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="新房天下，新房，经纪人信息可以使用House.Header控件"></TextBlock>
+
+        <userInfo:UserInfoView Grid.Column="1"
+                               DataContext="{Binding UserInfoViewModel}"></userInfo:UserInfoView>
+        <!--<TextBlock Text=" 此处放置共通的BigHeader，igbHeader控件在House.UserControls项目中定义 "></TextBlock>-->
+        <Button Grid.Column="2" Content="退出"></Button>
+
+    </Grid>
+</House:MyUserControlBase>

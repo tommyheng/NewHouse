@@ -1,0 +1,182 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="options">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/House.Thems;component/ColorBrush.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--橘黄色按钮-->
+    <Style x:Key="ButtonDefaultStyle"
+           TargetType="{x:Type Button}">
+        <!--<Setter Property="FontFamily"
+                Value="{DynamicResource FontFamily}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ContentFontSize}" />-->
+        <Setter Property="Foreground"
+                Value="{DynamicResource HouseAccentColorBrush3}" />
+        <Setter Property="Background"
+                Value="{DynamicResource HouseAccentColorBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="-0.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.95"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="-0.5" />-->
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <!--<Setter Property="Background"
+                                    Value="{DynamicResource ButtonNormalBackground}" />-->
+                            <Setter Property="Opacity"
+                                    Value="0.6"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--橘红色按钮-->
+    <Style x:Key="ButtonStyle2"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource ButtonDefaultStyle}">
+        <!--<Setter Property="FontFamily"
+                Value="{DynamicResource FontFamily}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ContentFontSize}" />-->
+        <Setter Property="Foreground"
+                Value="{DynamicResource HouseAccentColorBrush3}" />
+        <Setter Property="Background"
+                Value="{DynamicResource HouseAccentColorBrush2}" />
+    </Style>
+
+    <!--主菜单按钮样式-->
+    <Style x:Key="NewHouseButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource NewHouseBrush}" />
+        <Setter Property="Width"
+                Value="120" />
+        <Setter Property="Height"
+                Value="115" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            Margin="11"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}">
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="9.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.95"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="10.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="OldHouseButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource OldHouseBrush}" />
+    </Style>
+    <Style x:Key="RentHouseButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource RentHouseBrush}" />
+    </Style>
+    <Style x:Key="CalcButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource CalcBrush}" />
+    </Style>
+    <Style x:Key="DecorateButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource DecorateBrush}" />
+    </Style>
+    <Style x:Key="HomemakingButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource HomemakingBrush}" />
+    </Style>
+    <Style x:Key="TravelButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource TravelBrush}" />
+    </Style>
+    <Style x:Key="ActivityButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource ActivityBrush}" />
+    </Style>
+    <Style x:Key="FinanceButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource FinanceBrush}" />
+    </Style>
+    <Style x:Key="TicketButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource TicketBrush}" />
+    </Style>
+
+</ResourceDictionary>
