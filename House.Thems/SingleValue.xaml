@@ -8,4 +8,6 @@
     <!-- region 控件的圆角半径-->
     <sysWin:CornerRadius x:Key="ControlCornerRadius">4,4,4,4</sysWin:CornerRadius>
 
+    <sysWin:CornerRadius x:Key="ControlCornerRadius2">0,4,4,0</sysWin:CornerRadius>
+
 </ResourceDictionary>
