@@ -16,24 +16,34 @@
     </UserControl.DataContext>
     <Grid Background="{DynamicResource AccentColorBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*">
-            </ColumnDefinition>
-            <ColumnDefinition Width="2*">
-            </ColumnDefinition>
-            <ColumnDefinition Width="1*">
-            </ColumnDefinition>
-            <ColumnDefinition Width="1*">
-            </ColumnDefinition>
-            <ColumnDefinition Width="1*">
-            </ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="2*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="1*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="1*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="1*">
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Background="{DynamicResource LogoBrush}" ></Grid>
+            <TextBlock Text="新房天下，新房，经纪人信息可以使用House.Header控件"></TextBlock>
 
-        <TextBlock Text="新房天下，新房，经纪人信息可以使用House.Header控件"></TextBlock>
+            <userInfo:UserInfoView Grid.Column="1"
+                                   DataContext="{Binding UserInfoViewModel}"></userInfo:UserInfoView>
+            <!--<TextBlock Text=" 此处放置共通的BigHeader，igbHeader控件在House.UserControls项目中定义 "></TextBlock>-->
+            <Button Grid.Column="2"
+                    Content="退出"></Button>
 
-        <userInfo:UserInfoView Grid.Column="1"
-                               DataContext="{Binding UserInfoViewModel}"></userInfo:UserInfoView>
-        <!--<TextBlock Text=" 此处放置共通的BigHeader，igbHeader控件在House.UserControls项目中定义 "></TextBlock>-->
-        <Button Grid.Column="2" Content="退出"></Button>
-
+        </Grid>
     </Grid>
+
+   
 </House:MyUserControlBase>

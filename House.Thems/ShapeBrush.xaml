@@ -9,6 +9,10 @@
     <ImageBrush x:Key="LoginBackground"
                 Stretch="Fill"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg" />
+    <!--白色logo-->
+    <ImageBrush x:Key="LogoBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/logo1.png" />
 
     <!--喇叭-->
     <ImageBrush x:Key="SpeakerBrush"
