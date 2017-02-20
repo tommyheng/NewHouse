@@ -59,6 +59,7 @@
     <Compile Include="MessengerToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewInfo.cs" />
+    <Compile Include="WPFModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
