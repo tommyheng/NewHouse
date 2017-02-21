@@ -3,6 +3,16 @@
                     xmlns:local="clr-namespace:House.Thems"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="aa">aaaa</sys:String>
+    <!--文字-->
+    <!--报备-->
+    <sys:String x:Key="BaoBei.Details">查看报备详情</sys:String>
+    <sys:String x:Key="BaoBei.HousesName">楼盘名称</sys:String>
+    <sys:String x:Key="BaoBei.Customer">客户</sys:String>
+    <sys:String x:Key="BaoBei.Broker">经纪人</sys:String>
+    <sys:String x:Key="BaoBei.Commissions">应结佣金</sys:String>
+    <sys:String x:Key="BaoBei.PaidCommissions">已结佣金</sys:String>
+    <sys:String x:Key="BaoBei.OutStandingCommissions">未结佣金</sys:String>
+
+    <sys:String x:Key="MoneyUnit">元</sys:String>
 
 </ResourceDictionary>

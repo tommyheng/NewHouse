@@ -61,11 +61,18 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FooterViewModel.cs" />
+    <Compile Include="Views\BaoBei.xaml.cs">
+      <DependentUpon>BaoBei.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FooterViewC.xaml.cs">
       <DependentUpon>FooterViewC.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\BaoBei.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FooterViewC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +85,10 @@
     <ProjectReference Include="..\House.Models\House.Models.csproj">
       <Project>{10e51932-7f07-4928-b1db-7a9ae008e3e6}</Project>
       <Name>House.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.Thems\House.Thems.csproj">
+      <Project>{525007b0-b040-460f-8e49-54d8bb885bd3}</Project>
+      <Name>House.Thems</Name>
     </ProjectReference>
     <ProjectReference Include="..\House.Utility\House.Utility.csproj">
       <Project>{ff1c850c-b7e6-4b15-b5c5-b867ef5099ba}</Project>
