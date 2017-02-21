@@ -65,4 +65,15 @@
                      Color="{StaticResource HouseAccentColor5}"
                      options:Freeze="True" />
 
+    <!--页脚前景色-->
+    <Color x:Key="HouseAccentColor6">#257303</Color>
+    <SolidColorBrush x:Key="HouseAccentColorBrush6"
+                     Color="{StaticResource HouseAccentColor6}"
+                     options:Freeze="True" />
+    <!--页脚背景色-->
+    <Color x:Key="HouseAccentColor7">#BFECAB</Color>
+    <SolidColorBrush x:Key="HouseAccentColorBrush7"
+                     Color="{StaticResource HouseAccentColor7}"
+                     options:Freeze="True" />
+
 </ResourceDictionary>

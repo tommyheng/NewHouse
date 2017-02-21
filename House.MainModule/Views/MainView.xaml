@@ -29,7 +29,8 @@
         </userInfo:UserInfoView>
 
         <headerNews:HeaderNewsView Grid.Row="1"
-                                   DataContext="{Binding HeaderNewsViewModel}">
+                                   ScrollingText="沈阳龙湖房地产拓展有限公司公告-近期购房有优惠"
+                                   Hyperlink="http://www.fang101.com/Show/Index">
         </headerNews:HeaderNewsView>
 
         <mainMenu:MainMenuView  Grid.Row="2"

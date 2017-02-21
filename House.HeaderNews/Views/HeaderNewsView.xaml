@@ -4,10 +4,16 @@
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:local="clr-namespace:House.HeaderNews.Views"
+                         xmlns:uc="clr-namespace:House.UserControls;assembly=House.UserControls"
+                         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
                          mc:Ignorable="d"
                          d:DesignHeight="300"
                          d:DesignWidth="300"
                          Height="25"
+                         Cursor="Hand"
+                         MouseDown="MyUserControlBase_MouseDown"
+                        
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility">
     <UserControl.DataContext>
         <Binding Path="HeaderNewsViewModel"
@@ -18,15 +24,57 @@
             <ColumnDefinition Width="25"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid   Grid.Column="0"
+        <!--<Grid   Grid.Column="0"
                 Width="18"
                 Height="18"
                 Margin="5 0 0 0"
-                Background="{DynamicResource SpeakerBrush}"></Grid>
-        <TextBlock VerticalAlignment="Center"
+                Background="{DynamicResource SpeakerBrush}"></Grid>-->
+        <iconPacks:PackIconOcticons  Grid.Column="0"
+                                     Foreground="White"
+                                     VerticalAlignment="Center"
+                                     Margin="5 0 0 0"
+                                     Kind="Unmute" />
+        <!--<TextBlock VerticalAlignment="Center"
                    Foreground="White"
                    FontSize="15"
                    Grid.Column="1"
-                   Text=" 公告，沈阳楼盘大减价"></TextBlock>
+                   Text=" 公告，沈阳楼盘大减价"></TextBlock>-->
+        <!--<TextBlock x:Name="tickerTape"
+                   Height="30"
+                   FontSize="18"
+                   Text=" 公告，沈阳楼盘大减价"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>-->
+        <!--<Controls:TransitioningContentControl x:Name="transitioning"
+                                              Foreground="White"
+                                              VerticalAlignment="Center"
+                                              Grid.Column="1"
+                                              FontSize="15"
+                                              Transition="d" />-->
+
+        <!--<local:ScrollingTextControl Content="12345"
+                                    Height="52"
+                                    HorizontalAlignment="Left"
+                                    Margin="10,10,0,0"
+                                    x:Name="scrollingTextControl1"
+                                    VerticalAlignment="Top"
+                                    Width="121"
+                                    Foreground="Black" />-->
+        <!--<local:ScrollingTextControl></local:ScrollingTextControl>-->
+        <uc:ScrollingTextControl x:Name="scrollingTextControle"
+                                 VerticalAlignment="Center"
+                                 Foreground="White"
+                                 FontSize="13"
+                                 Grid.Column="1"
+                                 Content="沈阳龙湖房地产拓展有限公司公告-近期购房有优惠"></uc:ScrollingTextControl>
     </Grid>
 </House:MyUserControlBase>

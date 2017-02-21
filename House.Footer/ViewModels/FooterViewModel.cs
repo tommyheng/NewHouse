@@ -18,34 +18,31 @@ namespace House.Footer.ViewModels
 
         private void initCommand()
         {
-            NavigateUserHomeCommand = new GalaSoft.MvvmLight.Command.RelayCommand(OnExecuteNavigateUserHomeCommand);
+            NavigateWebHostCommand = new GalaSoft.MvvmLight.Command.RelayCommand(OnExecuteNavigateWebHostCommand);
         }
 
         #region ConfirmCommand
 
 
-        public ICommand NavigateUserHomeCommand { get; private set; }
+        public GalaSoft.MvvmLight.Command.RelayCommand NavigateWebHostCommand { get; set; }
 
-        private void OnExecuteNavigateUserHomeCommand()
+        private void OnExecuteNavigateWebHostCommand()
         {
+            System.Diagnostics.Process.Start("http://www.fang101.com/Show/Index");
 
-
-            //Messenger.Default.Send<object>(null, Models.MessengerToken.Navigate);
         }
 
         #endregion
 
 
-        //#region HeaderModel
 
-        //private Models.HeaderModel headerModel = new Models.HeaderModel();
-        //public Models.HeaderModel HeaderModel
-        //{
-        //    get { return headerModel; }
-        //    set { Set(() => HeaderModel, ref headerModel, value); }
-        //}
 
-        //#endregion
+        private string msg = "下载手机版";
+        public string Msg
+        {
+            get { return msg; }
+            set { Set(() => Msg, ref msg, value); }
+        }
 
     }
 }

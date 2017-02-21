@@ -44,7 +44,7 @@ namespace House.MainModule
 
             SimpleIoc.Default.Register<MainModule.ViewModels.MainViewModel>();
             SimpleIoc.Default.Register<UserInfo.ViewModels.UserInfoViewModel>();
-            SimpleIoc.Default.Register<HeaderNews.ViewModels.HeaderNewsViewModel>();
+            //SimpleIoc.Default.Register<HeaderNews.ViewModels.HeaderNewsViewModel>();
             SimpleIoc.Default.Register<MainMenu.ViewModels.MainMenuViewModel>();
             SimpleIoc.Default.Register<Footer.ViewModels.FooterViewModel>();
         }
@@ -64,13 +64,13 @@ namespace House.MainModule
             }
         }
 
-        public HeaderNews.ViewModels.HeaderNewsViewModel HeaderNewsViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<HeaderNews.ViewModels.HeaderNewsViewModel>();
-            }
-        }
+        //public HeaderNews.ViewModels.HeaderNewsViewModel HeaderNewsViewModel
+        //{
+        //    get
+        //    {
+        //        return ServiceLocator.Current.GetInstance<HeaderNews.ViewModels.HeaderNewsViewModel>();
+        //    }
+        //}
 
         public MainMenu.ViewModels.MainMenuViewModel MainMenuViewModel
         {
@@ -92,7 +92,7 @@ namespace House.MainModule
             // TODO Clear the ViewModels
             SimpleIoc.Default.Unregister<MainModule.ViewModels.MainViewModel>();
             SimpleIoc.Default.Unregister<UserInfo.ViewModels.UserInfoViewModel>();
-            SimpleIoc.Default.Unregister<HeaderNews.ViewModels.HeaderNewsViewModel>();
+            //SimpleIoc.Default.Unregister<HeaderNews.ViewModels.HeaderNewsViewModel>();
             SimpleIoc.Default.Unregister<MainMenu.ViewModels.MainMenuViewModel>();
             SimpleIoc.Default.Unregister<Footer.ViewModels.FooterViewModel>();
 

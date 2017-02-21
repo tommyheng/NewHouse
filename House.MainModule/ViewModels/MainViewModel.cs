@@ -55,16 +55,16 @@ namespace House.MainModule.ViewModels
 
         #endregion
 
-        #region HeaderNewsModel
+        //#region HeaderNewsModel
 
-        private HeaderNews.ViewModels.HeaderNewsViewModel headerNewsViewModel = new HeaderNews.ViewModels.HeaderNewsViewModel();
-        public HeaderNews.ViewModels.HeaderNewsViewModel HeaderNewsViewModel
-        {
-            get { return headerNewsViewModel; }
-            set { Set(() => HeaderNewsViewModel, ref headerNewsViewModel, value); }
-        }
+        //private HeaderNews.ViewModels.HeaderNewsViewModel headerNewsViewModel = new HeaderNews.ViewModels.HeaderNewsViewModel();
+        //public HeaderNews.ViewModels.HeaderNewsViewModel HeaderNewsViewModel
+        //{
+        //    get { return headerNewsViewModel; }
+        //    set { Set(() => HeaderNewsViewModel, ref headerNewsViewModel, value); }
+        //}
 
-        #endregion
+        //#endregion
 
         #region MainMenuViewModel
 
