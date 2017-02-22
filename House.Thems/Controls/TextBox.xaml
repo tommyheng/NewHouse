@@ -17,12 +17,12 @@
     <Style x:Key="LoginInputTextBoxStyle"
            TargetType="{x:Type TextBox}">
         <Setter Property="Margin"
-                Value="4" />
+                Value="50 210 160 80" />
         <Setter Property="BorderThickness"
                 Value="0" />
-        
-        <!--<Setter Property=""
-                Value=" " />-->
+
+        <Setter Property="FontSize"
+                Value="15 " />
         <Setter Property="Background"
                 Value="White" />
         <!--<Setter Property="Template">

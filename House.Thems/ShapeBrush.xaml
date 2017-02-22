@@ -8,7 +8,7 @@
     <!--登陆背景-->
     <ImageBrush x:Key="LoginBackground"
                 Stretch="Fill"
-                ImageSource="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg" />
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/登录背景.png" />
     <!--白色logo-->
     <ImageBrush x:Key="LogoBrush"
                 Stretch="Uniform"
@@ -50,5 +50,26 @@
     <ImageBrush x:Key="TicketBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/menpiao.png" />
+
+    <ImageBrush x:Key="LoginButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户登录.png" />
+    <ImageBrush x:Key="LoginButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户登录2.png" />
+
+    <ImageBrush x:Key="ForgetButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/忘记密码.png" />
+    <ImageBrush x:Key="ForgetButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/忘记密码2.png" />
+
+    <ImageBrush x:Key="RegisterButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户注册.png" />
+    <ImageBrush x:Key="RegisterButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户注册2.png" />
 
 </ResourceDictionary>

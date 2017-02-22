@@ -111,6 +111,15 @@
     <Resource Include="Images\zhuangxiu.png" />
     <Resource Include="Images\zufang.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Login\忘记密码.png" />
+    <Resource Include="Images\Login\忘记密码2.png" />
+    <Resource Include="Images\Login\用户注册.png" />
+    <Resource Include="Images\Login\用户注册2.png" />
+    <Resource Include="Images\Login\用户登录.png" />
+    <Resource Include="Images\Login\用户登录2.png" />
+    <Resource Include="Images\Login\登录背景.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

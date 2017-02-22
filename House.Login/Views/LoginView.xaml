@@ -9,12 +9,12 @@
                       Style="{DynamicResource UseNoneWindowStyle}"
                       WindowTitleBrush="{DynamicResource AccentColorBrush}"
                       NonActiveWindowTitleBrush="{DynamicResource AccentColorBrush}"
-                      Height="300"
-                      MinHeight="300"
-                      MaxHeight="300"
-                      Width="400"
-                      MinWidth="400"
-                      MaxWidth="400"
+                      Height="320"
+                      MinHeight="320"
+                      MaxHeight="320"
+                      Width="450"
+                      MinWidth="450"
+                      MaxWidth="450"
                       TitleCharacterCasing="Normal"
                       ShowMaxRestoreButton="False"
                       WindowStartupLocation="CenterScreen"
@@ -23,7 +23,7 @@
     <Border Background="{DynamicResource LoginBackground}"
             CornerRadius="{DynamicResource ControlCornerRadius}"
             MouseDown="Border_MouseDown">
-        <Grid>
+        <!--<Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
                 <RowDefinition Height="6*" />
@@ -36,25 +36,27 @@
                         Content="-"
                         FontWeight="Bold"
                         FontSize="19"
-                        Foreground="White"
-                        Style="{DynamicResource LightMetroWindowButtonStyle}"
+                        Style="{DynamicResource WindowButtonStyle}"
                         Click="minBtn_Click"></Button>
                 <Button x:Name="closeBtne"
                         Content="x"
                         FontWeight="Bold"
                         FontSize="19"
-                        Foreground="White"
-                        Style="{DynamicResource LightMetroWindowButtonStyle}"
+                        Style="{DynamicResource WindowButtonStyle}"
                         Click="closeBtne_Click"></Button>
             </StackPanel>
 
-            <!--下部输入内容-->
+            -->
+        <!--下部输入内容-->
+        <!--
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"></ColumnDefinition>
                     <ColumnDefinition  Width="3*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <!--左边文本框-->
+                -->
+        <!--左边文本框-->
+        <!--
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -81,7 +83,9 @@
                     </Border>
 
                 </Grid>
-                <!--右边按钮-->
+                -->
+        <!--右边按钮-->
+        <!--
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -103,7 +107,65 @@
 
             </Grid>
 
+        </Grid>-->
+
+        <Grid ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="207"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="17"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45"></ColumnDefinition>
+                <ColumnDefinition  Width="230"></ColumnDefinition>
+                <ColumnDefinition  Width="40"></ColumnDefinition>
+                <ColumnDefinition  Width="*"></ColumnDefinition>
+                <ColumnDefinition  Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     FontSize="16"
+                     BorderThickness="0"
+                     controls:TextBoxHelper.Watermark="请输入手机号码"></TextBox>
+            <PasswordBox Grid.Row="3"
+                         Grid.Column="1"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         FontSize="16"
+                         BorderThickness="0"
+                         controls:TextBoxHelper.Watermark="请输密码"></PasswordBox>
+
+            <Grid Grid.Row=" 1"
+                  Grid.Column="3"
+                  Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0"
+                        Style="{DynamicResource ButtonDefaultStyle}"
+                        Content="用户登陆"
+                        Click="Button_Click"></Button>
+                <Button Grid.Row="2"
+                        Content="用户注册"
+                        Click="Button_Click_1"
+                        Style="{DynamicResource ButtonStyle2}"></Button>
+                <Button Grid.Row="4"
+                        Content="忘记密码"
+                        Click="Button_Click_1"></Button>
+            </Grid>
         </Grid>
+        <!--<TextBox Margin="50 210 150 90"
+                 Style="{DynamicResource LoginInputTextBoxStyle}"></TextBox>-->
+
     </Border>
 
 </controls:MetroWindow>
