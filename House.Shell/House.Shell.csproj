@@ -123,6 +123,10 @@
       <Project>{45f70948-bcbc-4fa1-8292-2e519aa71c0f}</Project>
       <Name>House.MainModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\House.Models\House.Models.csproj">
+      <Project>{10e51932-7f07-4928-b1db-7a9ae008e3e6}</Project>
+      <Name>House.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Thems\House.Thems.csproj">
       <Project>{525007b0-b040-460f-8e49-54d8bb885bd3}</Project>
       <Name>House.Thems</Name>
