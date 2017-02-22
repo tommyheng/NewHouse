@@ -50,21 +50,21 @@ namespace House.Shell
         {
             try
             {
-                //加载对应环境的资源
-                var thems = LoadComponent(new Uri(@"/House.Thems;component/Default.xaml", UriKind.Relative)) as ResourceDictionary;
-                if (Resources.MergedDictionaries.Count > 0)
-                {
-                    Resources.MergedDictionaries.Clear();
-                }
-                //加载默认的资源
+                ////加载对应环境的资源
+                //var thems = LoadComponent(new Uri(@"/House.Thems;component/Default.xaml", UriKind.Relative)) as ResourceDictionary;
+                //if (Resources.MergedDictionaries.Count > 0)
+                //{
+                //    Resources.MergedDictionaries.Clear();
+                //}
+                ////加载默认的资源
 
-                Resources.MergedDictionaries.Add(thems);
+                //Resources.MergedDictionaries.Add(thems);
 
-                //MVVMLight 的 ViewModelLocator
-                ResourceDictionary mvvmRes = new ResourceDictionary();
-                //mvvmRes.Add(@"Locator", new SuperSoft.View.ViewModel.ViewModelLocator());
-                mvvmRes.Add(@"Locator", ServiceLocator.Current.GetInstance<House.MainModule.ViewModelLocator>());
-                Resources.MergedDictionaries.Add(mvvmRes);
+                ////MVVMLight 的 ViewModelLocator
+                //ResourceDictionary mvvmRes = new ResourceDictionary();
+                ////mvvmRes.Add(@"Locator", new SuperSoft.View.ViewModel.ViewModelLocator());
+                //mvvmRes.Add(@"Locator", ServiceLocator.Current.GetInstance<House.MainModule.ViewModelLocator>());
+                //Resources.MergedDictionaries.Add(mvvmRes);
 
                 //启动对象
                 StartupUri = new Uri(@"/House.Shell;component/MainWindow.xaml", UriKind.Relative);

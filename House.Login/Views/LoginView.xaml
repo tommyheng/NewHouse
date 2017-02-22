@@ -109,7 +109,7 @@
 
         </Grid>-->
 
-        <Grid ShowGridLines="True">
+        <Grid ShowGridLines="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="207"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
@@ -125,6 +125,27 @@
                 <ColumnDefinition  Width="*"></ColumnDefinition>
                 <ColumnDefinition  Width="20"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Row=" 0" Grid.ColumnSpan="5 ">
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right">
+                    <Button x:Name="minBtn"
+                            Content="-"
+                            FontWeight="Bold"
+                            FontSize="19"
+                            Style="{DynamicResource WindowButtonStyle}"
+                            Click="minBtn_Click"></Button>
+                    <Button x:Name="closeBtne"
+                            Content="x"
+                            FontWeight="Bold"
+                            FontSize="19"
+                            Style="{DynamicResource WindowButtonStyle}"
+                            Click="closeBtne_Click"></Button>
+                </StackPanel>
+            </Grid>
+          
+            
             <TextBox Grid.Row="1"
                      Grid.Column="1"
                      VerticalAlignment="Center"

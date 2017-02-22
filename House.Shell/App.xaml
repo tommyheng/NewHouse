@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:House.Shell"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodel="clr-namespace:House.MainModule;assembly=House.MainModule"
              d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/House.Thems;component/Default.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <viewmodel:ViewModelLocator x:Key="Locator"
+                                        d:IsDataSource="True" />
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
