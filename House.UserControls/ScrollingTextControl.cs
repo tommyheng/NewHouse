@@ -116,7 +116,8 @@ namespace House.UserControls
             _SignTime = DateTime.Now;
 
             fontsize = this.FontSize;
-            FontFamily = "Microsoft YaHei"; this.FontFamily.ToString();
+            FontFamily = "Microsoft YaHei";
+            this.FontFamily.ToString();
 
 
         }
