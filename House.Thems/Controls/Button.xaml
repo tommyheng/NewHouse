@@ -233,44 +233,139 @@
     <Style x:Key="LoginButtonStyle"
            TargetType="{x:Type Button}">
         <Setter Property="Background"
-                Value="{StaticResource LoginButtonNormalBrush}" />
+                Value="{DynamicResource LoginButtonNormalBrush}" />
         <!--<Setter Property="Width"
                 Value="120" />
         <Setter Property="Height"
                 Value="115" />-->
-        <!--<Setter Property="Template">
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
                             Background="{TemplateBinding Background}">
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver"
                                  Value="True">
-                            <Setter Property="Background"
-                                    Value="{StaticResource LoginButtonNormalBrush}" />
-                            --><!--<Setter Property="Opacity"
-                                    Value="0.95"></Setter>--><!--
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource LoginButtonHoverBrush}" />
+                            <!--<Setter Property="Opacity"
+                                    Value="0.95"></Setter>-->
                         </Trigger>
                         <Trigger Property="IsPressed"
                                  Value="True">
-                            --><!--<Setter TargetName="Border"
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource LoginButtonHoverBrush}" />
+                            <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />
                             <Setter Property="Opacity"
-                                    Value="0.9"></Setter>--><!--
-                            <Setter Property="Background"
-                                    Value="{StaticResource LoginButtonNormalBrush}" />
-
+                                    Value="0.9"></Setter>-->
                         </Trigger>
                         <Trigger Property="IsEnabled"
                                  Value="False">
                             <Setter Property="Opacity"
-                                    Value="0.3"></Setter>
+                                    Value="0.4"></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>-->
+        </Setter>
     </Style>
+
+    <Style x:Key="ForgetButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource ForgetButtonNormalBrush}" />
+        <!--<Setter Property="Width"
+                Value="120" />
+        <Setter Property="Height"
+                Value="115" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}">
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource ForgetButtonHoverBrush}" />
+                            <!--<Setter Property="Opacity"
+                                    Value="0.95"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource ForgetButtonHoverBrush}" />
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="10.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RegisterButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource RegisterButtonNormalBrush}" />
+        <!--<Setter Property="Width"
+                Value="120" />
+        <Setter Property="Height"
+                Value="115" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}">
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource RegisterButtonHoverBrush}" />
+                            <!--<Setter Property="Opacity"
+                                    Value="0.95"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource RegisterButtonHoverBrush}" />
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="10.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
