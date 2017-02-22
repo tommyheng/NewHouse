@@ -39,6 +39,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.UserInfo", "House.Use
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.UserControls", "House.UserControls\House.UserControls.csproj", "{89EE2118-C97D-4E35-AC21-7DC7D91D81F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "需求和设计文档", "需求和设计文档", "{D873BBF5-6E55-4E35-A1BA-D245602D8AD2}"
+	ProjectSection(SolutionItems) = preProject
+		需求和设计文档\登录页.zip = 需求和设计文档\登录页.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
