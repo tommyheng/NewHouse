@@ -414,7 +414,7 @@ namespace FangChan.WPFModel
 
     /// <summary>
     /// 返回新房楼盘置业顾问信息
-    /// Url:/App/GetLouPanModel
+    /// Url:/App/ZhiYeGuWenList
     /// 参数：LouPanID    查询楼盘ID
     /// </summary>
     public class ZhiYeGuWenList

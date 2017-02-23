@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "需求和设计文档", "�
 		需求和设计文档\首页 大.jpg = 需求和设计文档\首页 大.jpg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.DAL", "House.DAL\House.DAL.csproj", "{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{89EE2118-C97D-4E35-AC21-7DC7D91D81F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89EE2118-C97D-4E35-AC21-7DC7D91D81F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89EE2118-C97D-4E35-AC21-7DC7D91D81F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,5 +127,6 @@ Global
 		{22BC0801-E782-4402-9FEF-AC1A20926CE7} = {83B8E9FC-59FC-4444-B728-0B54D31F074A}
 		{A2109688-DDCA-466B-B00F-06A9D8D7506C} = {83B8E9FC-59FC-4444-B728-0B54D31F074A}
 		{89EE2118-C97D-4E35-AC21-7DC7D91D81F0} = {83B8E9FC-59FC-4444-B728-0B54D31F074A}
+		{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373} = {83B8E9FC-59FC-4444-B728-0B54D31F074A}
 	EndGlobalSection
 EndGlobal
