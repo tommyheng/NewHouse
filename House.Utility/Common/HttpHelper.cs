@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -101,16 +102,6 @@ namespace House.Utility.Common
             fs.Close();
         }
 
-        ///<summary>
-        /// 使用post方式访问目标网页，返回html页面
-        ///</summary>
-        public string PostAndGetHtml(string targetURL, string formData, string contentType, string referer, bool allowAutoRedirect, Encoding encoding)
-        {
-            Stream stream = PostAndGetStream(targetURL, formData, contentType, referer, allowAutoRedirect);
-            string html = new StreamReader(stream, encoding).ReadToEnd();
-            return html;
-        }
-
 
         ///<summary>
         /// 使用get方式访问目标网页，返回stream二进制流
@@ -178,6 +169,41 @@ namespace House.Utility.Common
             Stream stream = GetAndGetStream(targetURL, contentType, referer, allowAutoRedirect);
             string html = new StreamReader(stream, encoding).ReadToEnd();
             return html;
+        }
+
+        ///<summary>
+        /// 使用post方式访问目标网页，返回html页面
+        ///</summary>
+        public string PostAndGetHtml(string targetURL, string formData, string contentType, string referer, bool allowAutoRedirect, Encoding encoding)
+        {
+            Stream stream = PostAndGetStream(targetURL, formData, contentType, referer, allowAutoRedirect);
+            string html = new StreamReader(stream, encoding).ReadToEnd();
+            return html;
+        }
+
+        public T GetAndGetEntiy<T>(string targetURL, string contentType, string referer, bool allowAutoRedirect, Encoding encoding)
+            where T : class, new()
+        {
+            Stream stream = GetAndGetStream(targetURL, contentType, referer, allowAutoRedirect);
+            string html = new StreamReader(stream, encoding).ReadToEnd();
+
+            T result = default(T);
+            result = JsonConvert.DeserializeObject<T>(html);
+            return result;
+        }
+
+        ///<summary>
+        /// 使用post方式访问目标网页，返回html页面
+        ///</summary>
+        public T PostAndGetEntity<T>(string targetURL, string formData, string contentType, string referer, bool allowAutoRedirect, Encoding encoding)
+             where T : class, new()
+        {
+            Stream stream = PostAndGetStream(targetURL, formData, contentType, referer, allowAutoRedirect);
+            string html = new StreamReader(stream, encoding).ReadToEnd();
+
+            T result = default(T);
+            result = JsonConvert.DeserializeObject<T>(html);
+            return result;
         }
     }
 }

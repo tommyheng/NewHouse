@@ -37,7 +37,8 @@ namespace House.Shell
             //var t = HttpClientHelper.GetResponse<LoginStateModel>
             //(@"http://test.fang101.com/App/Login?LoginName=1&LoginPass=1");
 
-            var result = TestAPI();
+            // var result = TestAPI();
+            TestAPI2();
             House.Login.Views.LoginView loginWindows = new LoginView();
             //登陆没有返回true,关闭了窗体，结束应用程序
             if (!loginWindows.ShowDialog() == true)
@@ -57,12 +58,22 @@ namespace House.Shell
             HttpHelper httpHelper = new HttpHelper();
             UTF8Encoding utf8 = new UTF8Encoding();
             string registerURL = "http://test.fang101.com/App/Login";
-            string postData = string.Format("LoginName={0}&LoginPass={1}", "1", "2");
+            string postData = string.Format("LoginName={0}&LoginPass={1}", "13888888888", "123456");
 
-            httpHelper.CC = new System.Net.CookieContainer(); 
+            httpHelper.CC = new System.Net.CookieContainer();
             string html = httpHelper.PostAndGetHtml(registerURL, postData, null, null, false, Encoding.UTF8);
             return html;
+        }
 
+        public void TestAPI2()
+        {
+            HttpHelper httpHelper = new HttpHelper();
+            UTF8Encoding utf8 = new UTF8Encoding();
+            string registerURL = "http://test.fang101.com/App/Login";
+            string postData = string.Format("LoginName={0}&LoginPass={1}", "13888888888", "123456");
+
+            httpHelper.CC = new System.Net.CookieContainer();
+            var res = httpHelper.PostAndGetEntity<LoginStateModel>(registerURL, postData, null, null, false, Encoding.UTF8);
         }
 
     }
