@@ -19,10 +19,21 @@ namespace House.NewHouse.Views
     /// </summary>
     public partial class NewHouseView
     {
-        public NewHouseView()
+        private NewHouseView()
         {
             InitializeComponent();
         }
+
+        private readonly static NewHouseView newHouseView = new NewHouseView();
+        public static NewHouseView Instance
+        {
+            get
+            {
+                return newHouseView;
+            }
+
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

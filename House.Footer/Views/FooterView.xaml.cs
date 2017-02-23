@@ -26,7 +26,8 @@ namespace House.Footer.Views
 
         private void MyUserControlBase_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.fang101.com/Show/Index");
+
+            System.Diagnostics.Process.Start(Utility.ConfigHelper.GetAppSetting("MobilePhoneDownloadURL"));
         }
     }
 }
