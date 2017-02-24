@@ -28,7 +28,7 @@ namespace House.Login.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var dr = DataRepository.Instance;
-            
+
             var name = LoginName.Text.Trim();
             var pwd = LoginPwd.Password.Trim();
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(pwd))
@@ -43,6 +43,20 @@ namespace House.Login.Views
                 GlobalDataPool.Instance.UserName = result.GeRenXinXi.UserInfo.UserName;
                 GlobalDataPool.Instance.Position = result.GeRenXinXi.UserInfo.ZhiWu;
                 GlobalDataPool.Instance.LoginData = result;
+                //测试楼盘数据列表
+                var requestBuildingslist = dr.GetBuildingsList(GlobalDataPool.Instance.Uid, 1, 10, 0, "");
+                if (requestBuildingslist.success)
+                {
+                    //获得第一个楼盘信息和ID
+                    var buildings = requestBuildingslist.data.First();
+                    var bId = buildings.ID;
+                    //测试楼盘信息功能
+                    var buildingsInfo = dr.GetBuildingsInfo(GlobalDataPool.Instance.Uid, bId);
+                    
+                }
+
+
+
                 this.DialogResult = true;
             }
             else

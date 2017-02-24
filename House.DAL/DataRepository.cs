@@ -93,7 +93,7 @@ namespace House.DAL
         /// 参数：UserID    请求人UserID
         ///       LouPanID    查询楼盘ID
         /// </summary>
-        public LouPanModel GetBuildingsInfo(int uId, string bId)
+        public LouPanModel GetBuildingsInfo(int uId, int bId)
         {
             string url = string.Format("{0}App/GetLouPanModel", ApiUrl);
 
