@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -34,6 +35,12 @@ namespace House.NewHouse.Views
 
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.Hide();
+            e.Cancel = true;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
