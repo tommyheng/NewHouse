@@ -43,8 +43,6 @@ namespace House.Login.Views
                 GlobalDataPool.Instance.UserName = result.GeRenXinXi.UserInfo.UserName;
                 GlobalDataPool.Instance.Position = result.GeRenXinXi.UserInfo.ZhiWu;
                 GlobalDataPool.Instance.LoginData = result;
-
-                var list = dr.GetBuildingsList(GlobalDataPool.Instance.Uid, 1, 10, 0, "");
                 this.DialogResult = true;
             }
             else
