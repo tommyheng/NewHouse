@@ -33,11 +33,20 @@
                 <ColumnDefinition Width="1*">
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Background="{DynamicResource LogoBrush}" ></Grid>
-            <TextBlock Text="新房天下，新房，经纪人信息可以使用House.Header控件"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Grid Background="{DynamicResource LogoBrush}"
+                      Width="181"
+                      Height="39"
+                      HorizontalAlignment="Left"></Grid>
 
-            <userInfo:UserInfoView Grid.Column="1"
-                                   DataContext="{Binding UserInfoViewModel}"></userInfo:UserInfoView>
+                <TextBlock VerticalAlignment="Center"
+                           Foreground="White"
+                           Margin="10 0 0 0"
+                           Text="管理中心"></TextBlock>
+
+            </StackPanel>
+
+            <userInfo:UserInfoView2 Grid.Column="1"></userInfo:UserInfoView2>
             <!--<TextBlock Text=" 此处放置共通的BigHeader，igbHeader控件在House.UserControls项目中定义 "></TextBlock>-->
             <Button Grid.Column="2"
                     Content="退出"></Button>
@@ -45,5 +54,4 @@
         </Grid>
     </Grid>
 
-   
 </House:MyUserControlBase>

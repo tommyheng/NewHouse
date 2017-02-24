@@ -47,5 +47,10 @@ namespace House.Shell
 
         }
 
+        private void MetroWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+
+        }
     }
 }

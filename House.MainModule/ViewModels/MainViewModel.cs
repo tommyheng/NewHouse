@@ -89,7 +89,7 @@ namespace House.MainModule.ViewModels
         #endregion
 
 
-
+        NewHouse.Views.NewHouseView newHouseView;
         private void Navigate(ViewInfo viewInfo)
         {
 
@@ -97,7 +97,7 @@ namespace House.MainModule.ViewModels
             switch (viewInfo.ViewType)
             {
                 case ViewType.SingleWindow://单个视图。主要为了显示帮助窗口
-                    NewHouse.Views.NewHouseView newHouseView = NewHouse.Views.NewHouseView.Instance;
+                    newHouseView = NewHouse.Views.NewHouseView.Instance;
                     newHouseView.WindowState = System.Windows.WindowState.Maximized;
                     newHouseView.Show();
 
@@ -105,5 +105,14 @@ namespace House.MainModule.ViewModels
             }
         }
 
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
+            if (newHouseView != null)
+            {
+                newHouseView.Close();
+            }
+        }
     }
 }
