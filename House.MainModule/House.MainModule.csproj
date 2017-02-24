@@ -74,6 +74,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{a13ad0fd-cc91-4b8f-a3bb-6fce0d7a5373}</Project>
+      <Name>House.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Footer\House.Footer.csproj">
       <Project>{301100f4-c0ed-4478-823d-576564c6eaf5}</Project>
       <Name>House.Footer</Name>

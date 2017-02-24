@@ -1,4 +1,5 @@
-﻿using House.Utility;
+﻿using House.DAL;
+using House.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace House.MainModule.Views
         public MainView()
         {
             InitializeComponent();
+            userInfo.UserName = GlobalDataPool.Instance.UserName;
+            userInfo.UserTitle = string.Format("职务：{0}", GlobalDataPool.Instance.Position); 
         }
     }
 }
