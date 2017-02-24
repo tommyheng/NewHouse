@@ -22,19 +22,22 @@ namespace House.DAL
             }
         }
         private DataRepository() { }
-        public static DataRepository CreateInstance(string path)
+        public static DataRepository Instance
         {
-            if (_instance == null)
+            get
             {
-                lock (lockHelper)
+                if (_instance == null)
                 {
-                    if (_instance == null)
+                    lock (lockHelper)
                     {
-                        _instance = new DataRepository();
+                        if (_instance == null)
+                        {
+                            _instance = new DataRepository();
+                        }
                     }
                 }
+                return _instance;
             }
-            return _instance;
         }
 
         /// <summary>

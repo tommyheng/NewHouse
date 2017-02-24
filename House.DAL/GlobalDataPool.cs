@@ -12,22 +12,30 @@ namespace House.DAL
         private volatile static GlobalDataPool _instance = null;
         private static readonly object lockHelper = new object();
         private GlobalDataPool() { }
-        public static GlobalDataPool CreateInstance(string path)
+        public static GlobalDataPool Instance
         {
-            if (_instance == null)
+            get
             {
-                lock (lockHelper)
+                if (_instance == null)
                 {
-                    if (_instance == null)
+                    lock (lockHelper)
                     {
-                        _instance = new GlobalDataPool();
+                        if (_instance == null)
+                        {
+                            _instance = new GlobalDataPool();
+                        }
                     }
                 }
+                return _instance;
             }
-            return _instance;
+
         }
         //用户ID
         public int Uid { get; set; }
+        //用户名
+        public string UserName { get; set; }
+        //职务
+        public string Position { get; set; }
         //用户登录数据（这里面有大量的数据,必要的时候可以单独拆出来存储）
         public LoginStateModel LoginData { get; set; }
 

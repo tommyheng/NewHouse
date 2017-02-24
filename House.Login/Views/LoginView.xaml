@@ -152,14 +152,17 @@
                      VerticalContentAlignment="Center"
                      FontSize="16"
                      BorderThickness="0"
-                     controls:TextBoxHelper.Watermark="请输入手机号码"></TextBox>
+                     controls:TextBoxHelper.Watermark="请输入手机号码"
+                     x:Name="LoginName">13888888888</TextBox>
             <PasswordBox Grid.Row="3"
                          Grid.Column="1"
                          VerticalAlignment="Center"
                          VerticalContentAlignment="Center"
                          FontSize="16"
                          BorderThickness="0"
-                         controls:TextBoxHelper.Watermark="请输密码"></PasswordBox>
+                         controls:TextBoxHelper.Watermark="请输密码"
+                         x:Name="LoginPwd" Password="123456"></PasswordBox>
+
             <Grid Grid.Row=" 1"
                   Grid.Column="3"
                   Grid.RowSpan="3">
