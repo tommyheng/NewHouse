@@ -68,7 +68,7 @@ namespace House.DAL
         ///       Page      页码
         ///       Rows      第页记录数
         /// </summary>
-        public LouPanListShowList GetBuildingsInfoList(int uId, int pageIndex, int rows, string key, string areaId)
+        public LouPanListShowList GetBuildingsList(int uId, int pageIndex, int rows, int areaId, string key)
         {
             string url = string.Format("{0}App/GetLouPanShowListForDiQuID", ApiUrl);
 
@@ -134,7 +134,21 @@ namespace House.DAL
         ///           Page      页码
         ///           Rows      每页行数
         /// </summary>
+        public NewFangRunningsList GetBuildingsOrdersList1(int bId, int uId, int pageIndex, int rows)
+        {
+            string url = string.Format("{0}App/GetNewFangRunningsList", ApiUrl);
 
+            string postData = string.Format("LouPanID={0}&UserID={1}&Page={2}&Rows={3}",
+                bId, uId, pageIndex, rows);
+
+            return httpHelper.PostAndGetEntity<NewFangRunningsList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
 
         /// <summary>
         /// 返回新房订单信息
@@ -146,6 +160,22 @@ namespace House.DAL
         ///           Rows      每页行数
         /// 
         /// </summary>
+        public NewFangRunningsList GetBuildingsOrdersList2(string key, int uId, int pageIndex, int rows)
+        {
+            string url = string.Format("{0}App/GetNewFangRunningsList", ApiUrl);
+
+            string postData = string.Format("Name={0}&UserID={1}&Page={2}&Rows={3}",
+                key, uId, pageIndex, rows);
+
+            return httpHelper.PostAndGetEntity<NewFangRunningsList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+
 
         /// <summary>
         /// 返回客户列表
@@ -156,7 +186,21 @@ namespace House.DAL
         ///           Page      页码
         ///           Rows      每页行数
         /// </summary>
+        public KeHuShowList GetBuildingsCustomerList1(int bId, int uId, int pageIndex, int rows)
+        {
+            string url = string.Format("{0}App/GetKeHuShowList", ApiUrl);
 
+            string postData = string.Format("ChaXunLouPanID={0}&UserID={1}&Page={2}&Rows={3}",
+                bId, uId, pageIndex, rows);
+
+            return httpHelper.PostAndGetEntity<KeHuShowList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
 
         /// <summary>
         /// 2、所有客户
@@ -167,16 +211,30 @@ namespace House.DAL
         ///           Rows      每页行数
         /// 
         /// </summary>
+        public KeHuShowList GetBuildingsCustomerList2(string key, int uId, int pageIndex, int rows)
+        {
+            string url = string.Format("{0}App/GetKeHuShowList", ApiUrl);
+
+            string postData = string.Format("UserName={0}&UserID={1}&Page={2}&Rows={3}",
+                key, uId, pageIndex, rows);
+
+            return httpHelper.PostAndGetEntity<KeHuShowList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
 
         /// <summary>
-        /// 返回客户列表
         /// 新房订单详情
         /// Url:/App/GetNewFangRunningModel
         /// 参数：ID   查询订单ID
         /// 
         /// 颜色1绿   2灰   3橙色
         /// </summary>
-        public NewFangRunningsModel GetCustomerList(string id)
+        public NewFangRunningsModel GetBuildingsOrders(string id)
         {
             string url = string.Format("{0}App/GetNewFangRunningModel", ApiUrl);
 
