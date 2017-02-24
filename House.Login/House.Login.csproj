@@ -82,7 +82,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{a13ad0fd-cc91-4b8f-a3bb-6fce0d7a5373}</Project>
+      <Name>House.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.Models\House.Models.csproj">
+      <Project>{10E51932-7F07-4928-B1DB-7A9AE008E3E6}</Project>
+      <Name>House.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
