@@ -72,4 +72,11 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户注册2.png" />
 
+    <ImageBrush x:Key="BaoBeiButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备.png" />
+    <ImageBrush x:Key="BaoBeiButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备2.png" />
+
 </ResourceDictionary>

@@ -41,6 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.UserControls", "House
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "需求和设计文档", "需求和设计文档", "{D873BBF5-6E55-4E35-A1BA-D245602D8AD2}"
 	ProjectSection(SolutionItems) = preProject
+		需求和设计文档\报备客户标注及切图.zip = 需求和设计文档\报备客户标注及切图.zip
 		需求和设计文档\新房列表页标注图及切图.zip = 需求和设计文档\新房列表页标注图及切图.zip
 		需求和设计文档\新房天下合作.rar = 需求和设计文档\新房天下合作.rar
 		需求和设计文档\楼盘详情-合作佣金标注图及切图.zip = 需求和设计文档\楼盘详情-合作佣金标注图及切图.zip
@@ -49,6 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "需求和设计文档", "�
 		需求和设计文档\登录页.zip = 需求和设计文档\登录页.zip
 		需求和设计文档\登陆页.jpg = 需求和设计文档\登陆页.jpg
 		需求和设计文档\首页 大.jpg = 需求和设计文档\首页 大.jpg
+		需求和设计文档\首页标注及切图.zip = 需求和设计文档\首页标注及切图.zip
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.DAL", "House.DAL\House.DAL.csproj", "{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}"

@@ -4,10 +4,12 @@
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:local="clr-namespace:House.UserControls.Views"
+                         xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
                          mc:Ignorable="d"
                          d:DesignHeight="300"
                          d:DesignWidth="300"
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
+                         Loaded="MyUserControlBase_Loaded"
                          Width="1200">
     <!--<UserControl.DataContext>
         <Binding Path="FooterViewModel"
@@ -21,7 +23,7 @@
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="275"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
-
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">
@@ -31,9 +33,13 @@
                 <ColumnDefinition Width="766"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0"
-                   Source="pack://application:,,,/House.Thems;component/Images/Logo.ico"></Image>
+                   Width="374"
+                   Height="275"
+                   x:Name="iamge"
+                   Stretch="Fill"
+                   Source="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg"></Image>
             <Grid  Grid.Column="2"
-                   Background="Yellow">
+                   Background="Transparent">
                 <StackPanel>
                     <Grid Height="89">
                         <Grid.RowDefinitions>
@@ -44,16 +50,41 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Row="0"
-                                  x:Name="bName"
-                                   Text="address"></TextBlock>
-                        <TextBlock  Grid.Row="1"
-                                    Text="fsdaf"></TextBlock>
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Horizontal">
+                            <TextBlock Grid.Row="0"
+                                       x:Name="bName"
+                                       VerticalAlignment="Center"
+                                       FontSize="22"
+                                       Text="区地址"></TextBlock>
+
+                            <TextBlock   x:Name="prise"
+                                         Grid.Row="1"
+                                         VerticalAlignment="Center"
+                                         Text="价格"
+                                         FontSize="22"
+                                         Margin="10 0 0 0"
+                                         Foreground="#FC4823"></TextBlock>
+                        </StackPanel>
+                        <StackPanel  Grid.Row="1"
+                                     VerticalAlignment="Center"
+                                     Orientation="Horizontal">
+                            <Image Width="17"
+                                   Height="20"
+                                   Source="pack://application:,,,/House.Thems;component/Images/地址标注图标.png"></Image>
+                            <TextBlock  x:Name="address"
+                                        Text="address"
+                                        VerticalAlignment="Center"
+                                        Margin="10 0 0 0"
+                                        FontSize="16"
+                                        Foreground="#666666"></TextBlock>
+                        </StackPanel>
 
                         <Button Grid.RowSpan="2"
                                 Content="我要报备"
-                                Height="40"
-                                Width="80"
+                                Height="52"
+                                Width="152"
+                                Style="{DynamicResource BaoBeiButtonStyle}"
                                 HorizontalAlignment="Right">
 
                         </Button>
@@ -68,17 +99,76 @@
 
                     </Grid>
                     <Separator></Separator>
-                    <StackPanel Height="62">
-                        <TextBlock Text="hunnanqu"></TextBlock>
-                    </StackPanel>
+                    <Grid Height="62">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="kehushuliang"
+                                       Text="hunnanqu"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"></TextBlock>
+                            <Button Width="50"
+                                    Height="32"
+                                    Margin="20 0 0 0"
+                                    Content=" 查看"></Button>
+                        </StackPanel>
+
+                    </Grid>
                     <Separator></Separator>
-                    <StackPanel Height="62">
-                        <TextBlock Text="hunnanqu"></TextBlock>
-                    </StackPanel>
+                    <Grid Height="62">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="佣金："
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"></TextBlock>
+                            <TextBlock x:Name="yongjing"
+                                       Text="总房款1.5%"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FC4823"></TextBlock>
+                            <TextBlock Text="带看："
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       Margin="20 0 0 0"
+                                       Foreground="#666666"></TextBlock>
+                            <TextBlock Text="50元/人"
+                                       x:Name="daikan"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FC4823"></TextBlock>
+
+                        </StackPanel>
+                    </Grid>
                     <Separator></Separator>
-                    <StackPanel Height="62">
-                        <TextBlock Text="hunnanqu"></TextBlock>
-                    </StackPanel>
+                    <Grid Height="62">
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Image Width="15"
+                                   Height="20"
+                                   Source="pack://application:,,,/House.Thems;component/Images/咨询业务员前面的手机图标.png"></Image>
+
+                            <TextBlock  x:Name="zhiyeguwen"
+                                        FontSize="18"
+                                        VerticalAlignment="Center"
+                                        Margin="10 0 0 0"
+                                        Foreground="#666666"></TextBlock>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center">
+                            <TextBlock  Text="更多详情和优惠信息请咨询置业顾问"
+                                        FontSize="18"
+                                        VerticalAlignment="Center"
+                                        Foreground="#666666"></TextBlock>
+                            <Button Width="50"
+                                    Height="32"
+                                    Margin="20 0 0 0"
+                                    Content=" 查看"></Button>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
 
                 <!--<TextBlock x:Name="diqu"></TextBlock>
@@ -87,6 +177,182 @@
             </Grid>
 
         </Grid>
+
+        <TabControl Grid.Row="3">
+            <TabItem Header="                合作佣金                ">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/佣金.png"></Image>
+                                <TextBlock x:Name="yongjing2"
+                                           FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="佣金："></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <WrapPanel Grid.Row="3"
+                                   Orientation="Horizontal">
+                            <Button Width="390"
+                                    Height=" 270"></Button>
+                            <Button Width="390"
+                                    Height=" 270"></Button>
+                            <Button Width="390"
+                                    Height=" 270"></Button>
+                            <Button Width="390"
+                                    Height=" 270"></Button>
+                            <Button Width="390"
+                                    Height=" 270"></Button>
+                        </WrapPanel>
+
+                        <Grid Grid.Row="5"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/推荐规则.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="推荐规则"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="7">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="报备规则"></TextBlock>
+                                <TextBlock x:Name="BaoBeiGuiZe"
+                                           FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Foreground="#666666"
+                                           Text="报备规则"></TextBlock>
+                                <TextBlock  FontSize="16"
+                                            Margin="10 0 0 0"
+                                            VerticalAlignment="Center"
+                                            Text="带看规则"></TextBlock>
+                                <TextBlock x:Name="DiaKanGuiZe"
+                                           FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Foreground="#666666"
+                                           Text="带看规则"></TextBlock>
+                                <TextBlock FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="成交规则"></TextBlock>
+                                <TextBlock x:Name="ChengJiaoGuiZe"
+                                           FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Foreground="#666666"
+                                           Text="成交规则"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="9"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/成交奖励.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="成交奖励"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="11">
+                            <StackPanel Orientation="Vertical">
+                                <!--<TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="成交奖励"></TextBlock>-->
+                                <TextBlock x:Name="ChengJiaoJiangLi"
+                                           FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Foreground="#666666"
+                                           Text="成交奖励"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="13"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/结算周期.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="结算周期"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="15">
+                            <StackPanel Orientation="Vertical">
+                                <!--<TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="成交奖励"></TextBlock>-->
+                                <TextBlock x:Name="JieSuanZhouQi"
+                                           FontSize="16"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Foreground="#666666"
+                                           Text="结算周期"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="                户型推荐                ">
+
+            </TabItem>
+
+            <TabItem Header="                楼盘参数                ">
+
+            </TabItem>
+        </TabControl>
 
     </Grid>
 
