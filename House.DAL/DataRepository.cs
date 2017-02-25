@@ -93,13 +93,13 @@ namespace House.DAL
         /// 参数：UserID    请求人UserID
         ///       LouPanID    查询楼盘ID
         /// </summary>
-        public LouPanModel GetBuildingsInfo(int uId, string bId)
+        public ReturnLouPanModel GetBuildingsInfo(int uId, int bId)
         {
             string url = string.Format("{0}App/GetLouPanModel", ApiUrl);
 
             string postData = string.Format("UserID={0}&LouPanID={1}", uId, bId);
 
-            return httpHelper.PostAndGetEntity<LouPanModel>(
+            return httpHelper.PostAndGetEntity<ReturnLouPanModel>(
                    url,
                    postData,
                    null,
