@@ -113,7 +113,7 @@ namespace House.DAL
         /// Url:/App/GetZhiYeGuWenList
         /// 参数：LouPanID    查询楼盘ID
         /// </summary>
-        public ZhiYeGuWenList GetPropertyConsultantList(string bId)
+        public ZhiYeGuWenList GetPropertyConsultantList(int bId)
         {
             string url = string.Format("{0}App/GetZhiYeGuWenList", ApiUrl);
 
@@ -237,7 +237,7 @@ namespace House.DAL
         /// 
         /// 颜色1绿   2灰   3橙色
         /// </summary>
-        public NewFangRunningsModel GetBuildingsOrders(string id)
+        public NewFangRunningsModel GetBuildingsOrder(int id)
         {
             string url = string.Format("{0}App/GetNewFangRunningModel", ApiUrl);
 
