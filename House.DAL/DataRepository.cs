@@ -448,6 +448,7 @@ namespace House.DAL
         ///</summary>
         public UploadImageModel2 DealHouseImage(int uId, int cId, int bId, int pId)
         {
+            //暂时未实现
             string url = string.Format("{0}App/ChengJiaoQueRenImageUpLoad", ApiUrl);
             throw new NotImplementedException();
         }
