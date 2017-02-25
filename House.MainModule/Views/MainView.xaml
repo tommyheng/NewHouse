@@ -24,8 +24,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <userInfo:UserInfoView   Grid.Row="0"
-                                 DataContext="{Binding UserInfoViewModel}">
+        <userInfo:UserInfoView Grid.Row="0">
         </userInfo:UserInfoView>
 
         <headerNews:HeaderNewsView Grid.Row="1"

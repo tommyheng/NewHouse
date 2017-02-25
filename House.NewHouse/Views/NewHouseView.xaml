@@ -3,7 +3,6 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                     
                       mc:Ignorable="d"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Style="{DynamicResource UseNoneWindowStyle}"
@@ -18,7 +17,8 @@
                       WindowStartupLocation="CenterScreen"
                       WindowState="Maximized"
                       xmlns:bigHeader="clr-namespace:House.BigHeader.Views;assembly=House.BigHeader"
-                      xmlns:headerNews="clr-namespace:House.HeaderNews.Views;assembly=House.HeaderNews">
+                      xmlns:headerNews="clr-namespace:House.HeaderNews.Views;assembly=House.HeaderNews"
+                      xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -32,7 +32,9 @@
         <Grid Grid.Row="1">
             <headerNews:HeaderNewsView DataContext="{Binding HeaderNewsViewModel}"></headerNews:HeaderNewsView>
         </Grid>
-        <Grid Grid.Row="2"></Grid>
+        <Grid Grid.Row="2">
+            <uc:LouPanXiangQing></uc:LouPanXiangQing>
+        </Grid>
 
     </Grid>
 

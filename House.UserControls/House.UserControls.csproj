@@ -66,6 +66,9 @@
     <Compile Include="Views\BaoBei.xaml.cs">
       <DependentUpon>BaoBei.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LouPanXiangQing.xaml.cs">
+      <DependentUpon>LouPanXiangQing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FooterViewC.xaml.cs">
       <DependentUpon>FooterViewC.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
     <Page Include="Views\BaoBei.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LouPanXiangQing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FooterViewC.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{a13ad0fd-cc91-4b8f-a3bb-6fce0d7a5373}</Project>
+      <Name>House.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Models\House.Models.csproj">
       <Project>{10e51932-7f07-4928-b1db-7a9ae008e3e6}</Project>
       <Name>House.Models</Name>
