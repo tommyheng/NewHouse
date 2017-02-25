@@ -1,0 +1,98 @@
+﻿<House:MyUserControlBase x:Class="House.UserControls.Views.LouPanXiangQing"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:local="clr-namespace:House.UserControls.Views"
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
+                         Width="1200">
+    <!--<UserControl.DataContext>
+        <Binding Path="FooterViewModel"
+                 Source="{StaticResource ResourceKey=Locator}"></Binding>
+    </UserControl.DataContext>-->
+    <!--<Grid Background="{DynamicResource AccentColorBrush2}">
+        <TextBlock Text="下载手机版"></TextBlock>
+    </Grid>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="275"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="374"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="766"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"
+                   Source="pack://application:,,,/House.Thems;component/Images/Logo.ico"></Image>
+            <Grid  Grid.Column="2"
+                   Background="Yellow">
+                <StackPanel>
+                    <Grid Height="89">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0"
+                                  x:Name="bName"
+                                   Text="address"></TextBlock>
+                        <TextBlock  Grid.Row="1"
+                                    Text="fsdaf"></TextBlock>
+
+                        <Button Grid.RowSpan="2"
+                                Content="我要报备"
+                                Height="40"
+                                Width="80"
+                                HorizontalAlignment="Right">
+
+                        </Button>
+                        <!--<StackPanel Orientation="Horizontal">
+                           
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="fff"
+                                           Text="hunnanqu"></TextBlock>
+                            </StackPanel>
+                          
+                        </StackPanel>-->
+
+                    </Grid>
+                    <Separator></Separator>
+                    <StackPanel Height="62">
+                        <TextBlock Text="hunnanqu"></TextBlock>
+                    </StackPanel>
+                    <Separator></Separator>
+                    <StackPanel Height="62">
+                        <TextBlock Text="hunnanqu"></TextBlock>
+                    </StackPanel>
+                    <Separator></Separator>
+                    <StackPanel Height="62">
+                        <TextBlock Text="hunnanqu"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+
+                <!--<TextBlock x:Name="diqu"></TextBlock>
+                <TextBlock x:Name="diqu"></TextBlock>
+                <TextBlock x:Name="diqu"></TextBlock>-->
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+    <!--<ScrollViewer>
+<
+        
+    </ScrollViewer>-->
+
+</House:MyUserControlBase>
