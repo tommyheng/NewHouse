@@ -92,9 +92,6 @@ namespace House.Login.Views
 
                     }
 
-
-
-
                     //返回客户列表
                     //1、楼盘详情报备客户
                     var requestBuildingsCustomerList1 = dr.GetBuildingsCustomerList1(bId, GlobalDataPool.Instance.Uid, 1, 10);
