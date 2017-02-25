@@ -178,6 +178,7 @@ namespace FangChan.WPFModel
     ///       Page      页码
     ///       Rows      第页记录数
     /// </summary>
+
     public class LouPanListShowList
     {
         //是否成功
@@ -234,6 +235,16 @@ namespace FangChan.WPFModel
     /// 参数：UserID    请求人UserID
     ///       LouPanID    查询楼盘ID
     /// </summary>
+
+    public class ReturnLouPanModel
+    {
+        public bool success { get; set; }
+        //错误信息
+        public string message { get; set; }
+        //楼盘详细
+        public LouPanModel data { get; set; }
+    }
+
     public class LouPanModel
     {
         //楼盘ID
