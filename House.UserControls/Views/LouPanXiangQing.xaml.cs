@@ -62,6 +62,14 @@ namespace House.UserControls.Views
             ChengJiaoGuiZe.Text = string.IsNullOrWhiteSpace(buildingInfo.KaiFaShangGuiZhe.ChengJiaoGuiZhe) ? "暂无数据" : buildingInfo.KaiFaShangGuiZhe.BaoBeiGuiZhe;
             ChengJiaoJiangLi.Text = string.IsNullOrWhiteSpace(buildingInfo.KaiFaShangGuiZhe.JiangLi) ? "暂无数据" : buildingInfo.KaiFaShangGuiZhe.BaoBeiGuiZhe;
             JieSuanZhouQi.Text = string.IsNullOrWhiteSpace(buildingInfo.KaiFaShangGuiZhe.JieShuanZhouQi) ? "暂无数据" : buildingInfo.KaiFaShangGuiZhe.BaoBeiGuiZhe;
+
+            listView.ItemsSource = buildingInfo.HuXing;
+
+
+
+
+
+
         }
 
         private void MyUserControlBase_Loaded(object sender, RoutedEventArgs e)

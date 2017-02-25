@@ -385,6 +385,7 @@ namespace FangChan.WPFModel
         public string YongJinJieDian { get; set; }
 
     }
+
     //户型详情
     public class HuXingXiangQingModel
     {
