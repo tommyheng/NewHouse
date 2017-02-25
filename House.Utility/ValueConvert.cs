@@ -325,5 +325,12 @@ namespace House.Utility
             return JsonConvert.SerializeObject(obj);
         }
 
+        public static T StrToObj<T>(string str) where T : class, new()
+        {
+            T result = default(T);
+            result = JsonConvert.DeserializeObject<T>(str);
+            return result;
+        }
+
     }
 }

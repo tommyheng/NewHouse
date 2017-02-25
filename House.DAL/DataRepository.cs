@@ -383,7 +383,7 @@ namespace House.DAL
         /// 外层ID写0表示新添加的客户，不是0表示修改现有客户
         /// 电话里的ID写0表示新添加的电话，非0表示修改已有电话        
         /// </summary>
-        public ApiResultModelBase KeHuAdd(int uId, AddKeHuModel customer)
+        public ApiResultModelBase AddOrModifyCustomer(int uId, AddKeHuModel customer)
         {
             string url = string.Format("{0}App/KeHuAdd", ApiUrl);
 
@@ -431,12 +431,19 @@ namespace House.DAL
         /// /App/DaiKanQueRenImageUpLoad
         /// 参数：
         /// ID：新房定单ID
-        /// DaiKanQueRenImage：图片
+        /// DaiKanQueRenImage：图片本地路径
         ///</summary>
-        public UploadImageModel1 LookHouseImage(int oId)
+        public UploadImageModel1 UploadLookHouseImage(int oId, string imgPath)
         {
             string url = string.Format("{0}App/DaiKanQueRenImageUpLoad", ApiUrl);
-            throw new NotImplementedException();
+            FangChan.Common.WebClient wc = new FangChan.Common.WebClient();
+            wc.Encoding = System.Text.Encoding.UTF8;
+            FangChan.Common.MultipartForm mf = new FangChan.Common.MultipartForm();
+            mf.AddFlie("DaiKanQueRenImage", imgPath);
+            mf.AddString("ID", oId.ToString());
+            string s = wc.Post(url, mf);
+
+            return ValueConvert.StrToObj<UploadImageModel1>(s);
         }
 
         ///<summary>
@@ -446,11 +453,17 @@ namespace House.DAL
         /// ID：新房定单ID
         /// DaiKanQueRenImage：图片
         ///</summary>
-        public UploadImageModel2 DealHouseImage(int uId, int cId, int bId, int pId)
+        public UploadImageModel2 UploadDealHouseImage(int oId, string imgPath)
         {
-            //暂时未实现
             string url = string.Format("{0}App/ChengJiaoQueRenImageUpLoad", ApiUrl);
-            throw new NotImplementedException();
+            FangChan.Common.WebClient wc = new FangChan.Common.WebClient();
+            wc.Encoding = System.Text.Encoding.UTF8;
+            FangChan.Common.MultipartForm mf = new FangChan.Common.MultipartForm();
+            mf.AddFlie("DaiKanQueRenImage", imgPath);
+            mf.AddString("ID", oId.ToString());
+            string s = wc.Post(url, mf);
+
+            return ValueConvert.StrToObj<UploadImageModel2>(s);
         }
         ///<summary>
         /// 10.删除图片(带看和成交都是这个)
