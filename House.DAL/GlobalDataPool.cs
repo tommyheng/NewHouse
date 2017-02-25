@@ -30,13 +30,15 @@ namespace House.DAL
             }
 
         }
-        //用户ID
+        // 用户ID
         public int Uid { get; set; }
-        //用户名
+        // 用户名
         public string UserName { get; set; }
-        //职务
+        // 登陆账号
+        public string LoginName { get; set; }
+        // 职务
         public string Position { get; set; }
-        //用户登录数据（这里面有大量的数据,必要的时候可以单独拆出来存储）
+        // 用户登录数据（这里面有大量的数据,必要的时候可以单独拆出来存储）
         public LoginStateModel LoginData { get; set; }
 
     }
