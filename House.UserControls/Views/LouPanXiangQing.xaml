@@ -110,6 +110,7 @@
                             <Button Width="50"
                                     Height="32"
                                     Margin="20 0 0 0"
+                                    Style="{DynamicResource ButtonDefaultStyle}"
                                     Content=" 查看"></Button>
                         </StackPanel>
 
@@ -252,7 +253,7 @@
                                             BorderBrush="#666666"
                                             Background="#F4F4F4"
                                             Margin="0 0 15 15">
-                                        <Grid Width="375">
+                                        <Grid Width="373">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="50"></RowDefinition>
                                                 <RowDefinition  Height="50*" MinHeight="50"></RowDefinition>
