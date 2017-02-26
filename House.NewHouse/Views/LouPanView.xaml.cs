@@ -1,4 +1,5 @@
-﻿using System;
+﻿using House.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace House.UserControls.Views
+namespace House.NewHouse.Views
 {
     /// <summary>
-    /// BaoBei.xaml 的交互逻辑
+    /// LouPanView.xaml 的交互逻辑
     /// </summary>
-    public partial class BaoBei : UserControl
+    public partial class LouPanView : MyUserControlBase
     {
-        public BaoBei()
+        public LouPanView()
         {
             InitializeComponent();
         }

@@ -35,6 +35,17 @@
     <!--<SolidColorBrush x:Key="HighlightBrush"
                      Color="{StaticResource HighlightColor}"
                      options:Freeze="True" />-->
+    
+    <!--分割线、边框颜色 灰色-->
+    <Color x:Key="GrayColor">#E3E3E3</Color>
+    <Color x:Key="GrayColor1">#F4F4F4</Color>
+    
+    <SolidColorBrush x:Key="BorderColorBrush"
+                     Color="{StaticResource GrayColor}"
+                     options:Freeze="True"/>
+    <SolidColorBrush x:Key="BorderBackgroudColorBrush"
+                     Color="{StaticResource GrayColor1}"
+                     options:Freeze="True" />
 
     <!--按钮颜色-->
     <!--橘黄色-->
@@ -46,6 +57,12 @@
     <Color x:Key="HouseAccentColor2">#FFFE4620</Color>
     <SolidColorBrush x:Key="HouseAccentColorBrush2"
                      Color="{StaticResource HouseAccentColor2}"
+                     options:Freeze="True" />
+    
+    <!--楼盘列表 桔色-->
+    <Color x:Key="LouPan.Orange">#FC4823</Color>
+    <SolidColorBrush x:Key="LouPan.OrangeColorBrush"
+                     Color="{StaticResource LouPan.Orange}"
                      options:Freeze="True" />
 
     <!--文字白色-->

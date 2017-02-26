@@ -69,4 +69,8 @@
         </Setter>-->
     </Style>
 
+    <Style x:Key="DefaultBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColorBrush}"/>
+    </Style>
 </ResourceDictionary>

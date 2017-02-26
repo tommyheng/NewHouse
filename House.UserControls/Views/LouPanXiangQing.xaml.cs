@@ -23,6 +23,7 @@ namespace House.UserControls.Views
     /// </summary>
     public partial class LouPanXiangQing
     {
+        private int bId;
         public LouPanXiangQing()
         {
             InitializeComponent();
@@ -66,8 +67,8 @@ namespace House.UserControls.Views
 
         private void InitLouPanData()
         {
-            int bid = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
-            var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, bid).data;
+            bId = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
+            var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, bId).data;
 
             //var v = buildingInfo.Images.First().ImageUrl;
             //iamge.Source = new BitmapImage(new Uri(buildingInfo.Images.First().ImageUrl));
@@ -157,6 +158,11 @@ namespace House.UserControls.Views
 
         }
 
-
+        private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
+        {
+            PropertyConsultantsView win = new PropertyConsultantsView();
+            win.Bid = bId;
+            win.ShowDialog();
+        }
     }
 }

@@ -230,7 +230,8 @@
                                     Height="32"
                                     Margin="20 0 0 0"
                                     Content=" 查看"
-                                    Style="{DynamicResource ButtonDefaultStyle}"></Button>
+                                    Style="{DynamicResource ButtonDefaultStyle}"
+                                    Click="PropertyConsultantsClick"></Button>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
