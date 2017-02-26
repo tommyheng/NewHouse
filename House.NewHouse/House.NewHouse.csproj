@@ -64,12 +64,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LouPanViewModel.cs" />
     <Compile Include="ViewModels\NewHouseViewModel.cs" />
+    <Compile Include="Views\LouPanView.xaml.cs">
+      <DependentUpon>LouPanView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewHouseView.xaml.cs">
       <DependentUpon>NewHouseView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\LouPanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NewHouseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,6 +90,10 @@
     <ProjectReference Include="..\House.BigHeader\House.BigHeader.csproj">
       <Project>{22bc0801-e782-4402-9fef-ac1a20926ce7}</Project>
       <Name>House.BigHeader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{a13ad0fd-cc91-4b8f-a3bb-6fce0d7a5373}</Project>
+      <Name>House.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\House.HeaderNews\House.HeaderNews.csproj">
       <Project>{ec72e053-64c1-4582-ad7f-4888b6b088ec}</Project>

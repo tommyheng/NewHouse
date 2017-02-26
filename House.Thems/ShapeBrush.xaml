@@ -72,4 +72,13 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户注册2.png" />
 
+    <!--置顶按钮-->
+    <ImageBrush x:Key="LouPan.ZhiDingBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/zhiding.png" />
+    
+    <!--置顶 取消按钮-->
+    <ImageBrush x:Key="LouPan.ZhiDingQuXiaoBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/zhidingquxiao.png" />
 </ResourceDictionary>
