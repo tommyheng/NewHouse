@@ -93,7 +93,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\BaoBei.xaml">
     <Page Include="Views\BaoBeiItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

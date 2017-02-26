@@ -19,7 +19,8 @@
                       WindowState="Maximized"
                       xmlns:bigHeader="clr-namespace:House.BigHeader.Views;assembly=House.BigHeader"
                       xmlns:headerNews="clr-namespace:House.HeaderNews.Views;assembly=House.HeaderNews"
-                      xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls">
+                      xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls"
+                      xmlns:local="clr-namespace:House.NewHouse.Views">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -36,7 +37,7 @@
                                         ScrollingText="新房天下项目地址 https://github.com/tommyheng/NewHouse/ 点击可直接进入，在 Visual Studio S中 GIT 克隆地址 https://github.com/tommyheng/NewHouse.git 如有问题请联系 01234567890123456789"></headerNews:HeaderNewsView2>
         </Grid>
         <Grid Grid.Row="2">
-            <uc:LouPanXiangQing></uc:LouPanXiangQing>
+            <local:LouPanView></local:LouPanView>
         </Grid>
 
     </Grid>
