@@ -1,4 +1,5 @@
-﻿using System;
+﻿using House.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace House.BigHeader.Views
         public BigHeaderView()
         {
             InitializeComponent();
+            userInfoView2.UserName = GlobalDataPool.Instance.UserName;
+            userInfoView2.UserTitle = string.Format("( {0})", GlobalDataPool.Instance.Position);
+
         }
+
+
+
     }
 }

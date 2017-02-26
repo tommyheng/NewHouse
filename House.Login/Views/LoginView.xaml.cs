@@ -141,5 +141,11 @@ namespace House.Login.Views
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void LoginView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            this.LoginName.Focus();
+            LoginName.SelectionStart = LoginName.Text.Length;
+        }
     }
 }
