@@ -158,11 +158,6 @@ namespace House.UserControls.Views
 
         }
 
-        private void MyUserControlBase_Loaded(object sender, RoutedEventArgs e)
-        {
-            InitLouPanData();
-        }
-
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
         {
             PropertyConsultantsView win = new PropertyConsultantsView();
