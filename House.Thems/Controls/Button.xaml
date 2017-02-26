@@ -462,4 +462,39 @@
         </Setter>
     </Style>
 
+    <!--楼盘列表 置顶/取消-->
+    <Style x:Key="ZhiDingStyle"
+           TargetType="{x:Type Button}">
+        <!--<Setter Property="FontFamily"
+                Value="{DynamicResource FontFamily}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ContentFontSize}" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content"
+                                 Value="1">
+                            <Setter Property="Background"
+                                    Value="{StaticResource LouPan.ZhiDingBrush}" />
+                        </Trigger>
+                        <Trigger Property="Content"
+                                 Value="0">
+                            <Setter Property="Background"
+                                    Value="{StaticResource LouPan.ZhiDingQuXiaoBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
