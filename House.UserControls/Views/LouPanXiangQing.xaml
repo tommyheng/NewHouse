@@ -168,7 +168,8 @@
                             <Button Width="50"
                                     Height="32"
                                     Margin="20 0 0 0"
-                                    Content=" 查看"></Button>
+                                    Content=" 查看"
+                                    Style="{DynamicResource ButtonDefaultStyle}"></Button>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -182,7 +183,7 @@
 
         <TabControl Grid.Row="3">
             <TabItem Header="                合作佣金                ">
-                <ScrollViewer>
+                <ScrollViewer FocusVisualStyle="{x:Null}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"></RowDefinition>
@@ -219,13 +220,13 @@
 
                         </Grid>
 
-                        <ListView x:Name="listView"
-                                  Grid.Row="3"
-                                  IsEnabled="False"
-                                  Focusable="False"
-                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                  Background="Transparent"
-                                  BorderThickness="0">
+                        <ListView  Grid.Row="3"
+                                   x:Name="listView"
+                                   IsEnabled="False"
+                                   Focusable="False"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                   Background="Transparent"
+                                   BorderThickness="0">
                             <ListView.Resources>
                                 <!--<Style TargetType="{x:Type ListViewItem}">
                                     <Style.Resources>
@@ -256,7 +257,8 @@
                                         <Grid Width="373">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="50"></RowDefinition>
-                                                <RowDefinition  Height="50*" MinHeight="50"></RowDefinition>
+                                                <RowDefinition  Height="50*"
+                                                                MinHeight="50"></RowDefinition>
                                                 <RowDefinition  Height="50"></RowDefinition>
                                                 <RowDefinition  Height="50"></RowDefinition>
                                             </Grid.RowDefinitions>
@@ -497,11 +499,677 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="                户型推荐                ">
+                <!--<ListView x:Name="listView"
+                          Grid.Row="3"
+                          IsEnabled="False"
+                          Focusable="False"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          Background="Transparent"
+                          BorderThickness="0">
+                    <ListView.Resources>
+                        -->
+                <!--<Style TargetType="{x:Type ListViewItem}">
+                                    <Style.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                                                         Color="#420080" />
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+                                                         Color="Transparent" />
+                                    </Style.Resources>
+                                    <Setter Property="FontFamily"
+                                            Value="Microsoft YaHei" />
+                                    <Setter Property="FontSize"
+                                            Value="14" />
+                                </Style>-->
+                <!--
+                    </ListView.Resources>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            -->
+                <!--WrapPanel 不支持虚拟化，ListView 中 ItemsPanelTemplate 默认使用的是 VirtualizingStackPanel(虚拟化面板)-->
+                <!--
+                            <WrapPanel Orientation="Horizontal"
+                                       IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="4"
+                                    BorderBrush="#666666"
+                                    Background="#F4F4F4"
+                                    Margin="0 0 15 15">
+                                <Grid Width="373">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition  Height="50*"
+                                                        MinHeight="50"></RowDefinition>
+                                        <RowDefinition  Height="50"></RowDefinition>
+                                        <RowDefinition  Height="50"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <Image Width="21"
+                                               Height="20"
+                                               Stretch="Fill"
+                                               Margin="10 0 0 0"
+                                               Source="pack://application:,,,/House.Thems;component/Images/楼房图标.png">
+                                        </Image>
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="18"
+                                                   Foreground="Black"
+                                                   Text="{Binding Name}" />
+
+                                    </StackPanel>
+                                    <Separator VerticalAlignment="Bottom"
+                                               Margin="10 0 10 0"></Separator>
+                                    <StackPanel Grid.Row="1"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="#666666"
+                                                   Text="佣        金：" />
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="16"
+                                                   Foreground="#666666"
+                                                   Text="{Binding YongJin}" />
+
+                                    </StackPanel>
+                                    <Separator Grid.Row="1"
+                                               VerticalAlignment="Bottom"
+                                               Margin="10 0 10 0"></Separator>
+
+                                    <StackPanel Grid.Row="2"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="#666666"
+                                                   Text="佣金节点：" />
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="#FC4823"
+                                                   Text="{Binding YongJin}" />
+
+                                    </StackPanel>
+                                    <Separator Grid.Row="2"
+                                               VerticalAlignment="Bottom"
+                                               Margin="10 0 10 0"></Separator>
+
+                                    <StackPanel Grid.Row="3"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="#666666"
+                                                   Text="带        看：" />
+                                        <TextBlock Margin="10 0 0 0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="#FC4823"
+                                                   Text="{Binding ElementName=daikan,Path=Text}" />
+                                    </StackPanel>
+                                    -->
+                <!--<StackPanel Orientation="Horizontal">
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Text="{Binding TimeStamp}" />
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="{Binding PriceColor}"
+                                                       Text="{Binding Price, StringFormat='f2'}" />
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="{Binding VolumeColor}"
+                                                       Text="{Binding Volume}" />
+                                            <TextBlock Width="20"
+                                                       HorizontalAlignment="Center"
+                                                       Foreground="#04e4fe"
+                                                       Text="{Binding Counts}" />
+                                        </StackPanel>-->
+                <!--
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    -->
+                <!--<WrapPanel Grid.Row="3"
+                                       Orientation="Horizontal">
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                            </WrapPanel>-->
+                <!--
+                </ListView>-->
 
             </TabItem>
 
             <TabItem Header="                楼盘参数                ">
 
+                <ScrollViewer FocusVisualStyle="{x:Null}">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/楼盘参数图标.png"></Image>
+                                <TextBlock x:Name="LouPanCanShu"
+                                           FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="楼盘参数"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!--楼盘参数-->
+                        <Grid Grid.Row="3"
+                              Grid.ShowGridLines="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="开盘时间："></TextBlock>
+                            <TextBlock x:Name="KaiPanShiJian"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="开盘时间"></TextBlock>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="交房时间："></TextBlock>
+                            <TextBlock x:Name="JiaoFangShiJian"
+                                       Grid.Row="0"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="交房时间"></TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="开发商："></TextBlock>
+                            <TextBlock x:Name="KaiFaShang"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="开发商"></TextBlock>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="开发商品牌："></TextBlock>
+                            <TextBlock x:Name="KaiFaShangPinPai"
+                                       Grid.Row="1"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="开发商品牌"></TextBlock>
+
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="物业公司："></TextBlock>
+                            <TextBlock x:Name="WuYeGongShi"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="物业公司"></TextBlock>
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="建筑面积："></TextBlock>
+                            <TextBlock x:Name="JianZhuMianJi"
+                                       Grid.Row="2"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="建筑面积"></TextBlock>
+
+                            <TextBlock Grid.Row="3"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="总户数："></TextBlock>
+                            <TextBlock x:Name="ZhongHuShu"
+                                       Grid.Row="3"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="总户数"></TextBlock>
+                            <TextBlock Grid.Row="3"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="容积率："></TextBlock>
+                            <TextBlock x:Name="RongJiLv"
+                                       Grid.Row="3"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="容积率"></TextBlock>
+
+                            <TextBlock Grid.Row="4"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="绿化率："></TextBlock>
+                            <TextBlock x:Name="LvHuaLv"
+                                       Grid.Row="4"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="绿化率"></TextBlock>
+                            <TextBlock Grid.Row="4"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="车位数："></TextBlock>
+                            <TextBlock x:Name="CheWeiShu"
+                                       Grid.Row="4"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="车位数"></TextBlock>
+
+                            <TextBlock Grid.Row="5"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="车位比："></TextBlock>
+                            <TextBlock x:Name="CheWeiBi"
+                                       Grid.Row="5"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="车位比"></TextBlock>
+                            <TextBlock Grid.Row="5"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="物业费："></TextBlock>
+                            <TextBlock x:Name="WuYeFei"
+                                       Grid.Row="5"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="物业费"></TextBlock>
+
+                            <TextBlock Grid.Row="6"
+                                       Grid.Column="0"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="建筑类型："></TextBlock>
+                            <TextBlock x:Name="JianZhuLeiXing"
+                                       Grid.Row="6"
+                                       Grid.Column="1"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="建筑类型"></TextBlock>
+                            <TextBlock Grid.Row="6"
+                                       Grid.Column="2"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="#666666"
+                                       Text="装修状况："></TextBlock>
+                            <TextBlock x:Name="ZhuangXiuZhongKuang"
+                                       Grid.Row="6"
+                                       Grid.Column="3"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       Text="装修状况"></TextBlock>
+
+                        </Grid>
+
+                        <Grid Grid.Row="5"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/楼盘卖点.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="楼盘卖点"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <ListView  Grid.Row="7"
+                                   x:Name="listViewLouPanMaiDian"
+                                   IsEnabled="False"
+                                   Focusable="False"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                   Background="Transparent"
+                                   BorderThickness="0">
+                            <ListView.Resources>
+                                <!--<Style TargetType="{x:Type ListViewItem}">
+                                    <Style.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                                                         Color="#420080" />
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+                                                         Color="Transparent" />
+                                    </Style.Resources>
+                                    <Setter Property="FontFamily"
+                                            Value="Microsoft YaHei" />
+                                    <Setter Property="FontSize"
+                                            Value="14" />
+                                </Style>-->
+                            </ListView.Resources>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <!--WrapPanel 不支持虚拟化，ListView 中 ItemsPanelTemplate 默认使用的是 VirtualizingStackPanel(虚拟化面板)-->
+                                    <WrapPanel Orientation="Horizontal"
+                                               IsItemsHost="True" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<Border CornerRadius="4"
+                                            BorderBrush="#666666"
+                                            Background="#F4F4F4"
+                                            Margin="0 0 15 15">-->
+                                    <Grid Width="1150">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"></RowDefinition>
+                                            <RowDefinition  Height="30*"
+                                                            MinHeight="30"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="16"
+                                                   Foreground="Black"
+                                                   Text="{Binding Title}" />
+                                        <TextBlock Grid.Row="1"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="16"
+                                                   Margin="10 0 0 0"
+                                                   Foreground="#666666"
+                                                   Text="{Binding Content}" />
+
+                                        <!--<StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <Image Width="21"
+                                                   Height="20"
+                                                   Stretch="Fill"
+                                                   Margin="10 0 0 0"
+                                                   Source="pack://application:,,,/House.Thems;component/Images/楼房图标.png">
+                                            </Image>
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="Black"
+                                                       Text="{Binding Name}" />
+
+                                        </StackPanel>
+                                        <Separator VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
+                                        <StackPanel Grid.Row="1"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="佣        金：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       TextWrapping="Wrap"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding YongJin}" />
+
+                                        </StackPanel>
+                                        <Separator Grid.Row="1"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
+
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="佣金节点：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#FC4823"
+                                                       Text="{Binding YongJin}" />
+
+                                        </StackPanel>
+                                        <Separator Grid.Row="2"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
+
+                                        <StackPanel Grid.Row="3"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="带        看：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#FC4823"
+                                                       Text="{Binding ElementName=daikan,Path=Text}" />
+                                        </StackPanel>-->
+                                        <!--<StackPanel Orientation="Horizontal">
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Text="{Binding TimeStamp}" />
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="{Binding PriceColor}"
+                                                       Text="{Binding Price, StringFormat='f2'}" />
+                                            <TextBlock Width="70"
+                                                       HorizontalAlignment="Left"
+                                                       Foreground="{Binding VolumeColor}"
+                                                       Text="{Binding Volume}" />
+                                            <TextBlock Width="20"
+                                                       HorizontalAlignment="Center"
+                                                       Foreground="#04e4fe"
+                                                       Text="{Binding Counts}" />
+                                        </StackPanel>-->
+                                    </Grid>
+                                    <!--</Border>-->
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <!--<WrapPanel Grid.Row="3"
+                                       Orientation="Horizontal">
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                                <Button Width="390"
+                                        Height=" 270"></Button>
+                            </WrapPanel>-->
+                        </ListView>
+
+                        <Grid Grid.Row="9"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/楼盘动态.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="楼盘动态"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="11">
+                            <TextBlock Text="楼盘动态内容"></TextBlock>
+                        </Grid>
+
+                        <Grid Grid.Row="13"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/地理位置.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="地理位置"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Row="15">
+                            <Border Height="450"
+                                    BorderThickness="3"
+                                    BorderBrush="#F4F4F4">
+                                <WebBrowser x:Name="webBrowserDiTu">
+                                    <!--<TextBlock Text="地理位置内容"></TextBlock>-->
+
+                                </WebBrowser>
+
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
 
