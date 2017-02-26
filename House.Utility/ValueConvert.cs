@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -314,6 +315,21 @@ namespace House.Utility
                 return !string.IsNullOrEmpty(Value);
             }
             return false;
+        }
+
+        /// <summary>
+        /// 对象转换为JSON
+        /// </summary>
+        public static string ObjToJsonStr(object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+
+        public static T StrToObj<T>(string str) where T : class, new()
+        {
+            T result = default(T);
+            result = JsonConvert.DeserializeObject<T>(str);
+            return result;
         }
 
     }

@@ -115,7 +115,7 @@ namespace House.UserInfo.Views
 
         private void setUserTitle(string userTitle)
         {
-            this.userTitle.Text = string.IsNullOrWhiteSpace(userTitle) ? "" : string.Format("({0})", userTitle);
+            this.userTitle.Text = string.IsNullOrWhiteSpace(userTitle) ? "" :  userTitle;
         }
 
         #endregion

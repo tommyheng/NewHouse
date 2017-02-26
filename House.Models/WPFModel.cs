@@ -6,9 +6,41 @@ using System.Text;
 namespace FangChan.WPFModel
 {
 
-    ///测试接口域名：http://test.fang101.com/
+    public class ApiResultModelBase
+    {
+        //登录是否成功
+        public bool success { get; set; }
+
+        //错误信息
+        public string message { get; set; }
+    }
+
+    public class UploadImageModel1 : ApiResultModelBase
+    {
+        //登录是否成功
+        public string DaiKanQueRenImage { get; set; }
+    }
+
+    public class UploadImageModel2 : ApiResultModelBase
+    {
+        //登录是否成功
+        public string ChengJiaoQueRenImage { get; set; }
+    }
 
 
+    /// <summary>
+    /// 添加或者修改客户
+    /// 外层ID写0表示新添加的客户，不是0表示修改现有客户
+    /// 电话里的ID写0表示新添加的电话，非0表示修改已有电话
+    /// </summary>
+    public class AddKeHuModel
+    {
+        public int ID { get; set; }
+        public string UserName { get; set; }
+        public string XingBie { get; set; }
+        public List<DianHuaModel> KeHuDianHua { get; set; }
+
+    }
 
     /// <summary>
     /// 登录反回信息
@@ -353,6 +385,7 @@ namespace FangChan.WPFModel
         public string YongJinJieDian { get; set; }
 
     }
+
     //户型详情
     public class HuXingXiangQingModel
     {

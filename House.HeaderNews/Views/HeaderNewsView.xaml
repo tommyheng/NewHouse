@@ -13,12 +13,11 @@
                          Height="25"
                          Cursor="Hand"
                          MouseDown="MyUserControlBase_MouseDown"
-                        
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility">
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <Binding Path="HeaderNewsViewModel"
                  Source="{StaticResource ResourceKey=Locator}"></Binding>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid Background="{DynamicResource HouseAccentColorBrush5}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"></ColumnDefinition>
@@ -34,6 +33,12 @@
                                      VerticalAlignment="Center"
                                      Margin="5 0 0 0"
                                      Kind="Unmute" />
+        <!--<Image Width="20"
+               Height="20"
+               Margin="5 0 0 0"
+               VerticalAlignment="Center"
+               Source="pack://application:,,,/House.Thems;component/Images/laba.png"></Image>-->
+
         <!--<TextBlock VerticalAlignment="Center"
                    Foreground="White"
                    FontSize="15"

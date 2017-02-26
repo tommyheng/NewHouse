@@ -72,6 +72,20 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/Login/用户注册2.png" />
 
+    <ImageBrush x:Key="BaoBeiButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备.png" />
+    <ImageBrush x:Key="BaoBeiButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备2.png" />
+
+    <ImageBrush x:Key="AddCustomerButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户.png" />
+    <ImageBrush x:Key="AddCustomerButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户2.png" />
+
     <!--置顶按钮-->
     <ImageBrush x:Key="LouPan.ZhiDingBrush"
                 Stretch="Uniform"

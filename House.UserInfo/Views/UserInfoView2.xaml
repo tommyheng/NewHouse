@@ -18,7 +18,7 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0">
             <Ellipse Margin="5 0 0 0"
-                     Stroke="#2B8007"
+                     Stroke="White"
                      StrokeThickness="0.1"
                      Height="65"
                      Width="65">
@@ -35,6 +35,7 @@
             </Ellipse>
 
             <StackPanel Margin="5"
+                        Orientation="Horizontal"
                         VerticalAlignment="Center">
                 <TextBlock  x:Name="userName"
                             Foreground="White"
@@ -42,7 +43,7 @@
                             Text="新房天下"></TextBlock>
                 <TextBlock  x:Name="userTitle"
                             Foreground="White"
-                            FontSize="16"
+                            FontSize="20"
                             Text="职务：经纪人"></TextBlock>
             </StackPanel>
 

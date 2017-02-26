@@ -121,6 +121,40 @@
     <Resource Include="Images\Login\登录背景.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\我要报备.png" />
+    <Resource Include="Images\我要报备2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\佣金.png" />
+    <Resource Include="Images\咨询业务员前面的手机图标.png" />
+    <Resource Include="Images\地址标注图标.png" />
+    <Resource Include="Images\成交奖励.png" />
+    <Resource Include="Images\推荐规则.png" />
+    <Resource Include="Images\楼房图标.png" />
+    <Resource Include="Images\结算周期.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\地理位置.png" />
+    <Resource Include="Images\新闻动太图片.jpg" />
+    <Resource Include="Images\楼盘动态.png" />
+    <Resource Include="Images\楼盘卖点.png" />
+    <Resource Include="Images\楼盘参数图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\住宅图标.png" />
+    <Resource Include="Images\在售图标.png" />
+    <Resource Include="Images\已售图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\取消.png" />
+    <Resource Include="Images\喇叭.png" />
+    <Resource Include="Images\地点图标.png" />
+    <Resource Include="Images\添加新客户.png" />
+    <Resource Include="Images\添加新客户2.png" />
+    <Resource Include="Images\窗口切换.png" />
+    <Resource Include="Images\置顶.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Images\zhidingquxiao.png" />
     <Content Include="Images\zhiding.png" />
   </ItemGroup>
