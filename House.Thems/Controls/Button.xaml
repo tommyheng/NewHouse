@@ -258,7 +258,7 @@
                                  Value="True">
                             <Setter TargetName="Border"
                                     Property="Background"
-                                    Value="{DynamicResource LoginButtonHoverBrush}" />
+                                    Value="{DynamicResource LoginButtonNormalBrush}" />
                             <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />
@@ -304,7 +304,7 @@
                                  Value="True">
                             <Setter TargetName="Border"
                                     Property="Background"
-                                    Value="{DynamicResource ForgetButtonHoverBrush}" />
+                                    Value="{DynamicResource ForgetButtonNormalBrush}" />
                             <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />
@@ -350,7 +350,7 @@
                                  Value="True">
                             <Setter TargetName="Border"
                                     Property="Background"
-                                    Value="{DynamicResource RegisterButtonHoverBrush}" />
+                                    Value="{DynamicResource RegisterButtonNormalBrush}" />
                             <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />
@@ -397,7 +397,7 @@
                                  Value="True">
                             <Setter TargetName="Border"
                                     Property="Background"
-                                    Value="{DynamicResource BaoBeiButtonHoverBrush}" />
+                                    Value="{DynamicResource BaoBeiButtonNormalBrush}" />
                             <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />
@@ -444,7 +444,7 @@
                                  Value="True">
                             <Setter TargetName="Border"
                                     Property="Background"
-                                    Value="{DynamicResource AddCustomerButtonHoverBrush}" />
+                                    Value="{DynamicResource AddCustomerButtonNormalBrush}" />
                             <!--<Setter TargetName="Border"
                                     Property="Margin"
                                     Value="10.5" />

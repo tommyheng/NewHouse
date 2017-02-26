@@ -581,11 +581,24 @@
                                            VerticalAlignment="Center"
                                            Text="住宅"></TextBlock>
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center">
+                                <TextBlock  x:Name="HuXingShuLiang"
+                                            FontSize="18"
+                                            Foreground="#FC4823"
+                                            VerticalAlignment="Center"
+                                            Text="0"></TextBlock>
+                                <TextBlock FontSize="18"
+                                           Margin="0 0 10 0"
+                                           VerticalAlignment=" Center"
+                                           Text="个户型"></TextBlock>
+                            </StackPanel>
                         </Grid>
                         <ListView  Grid.Row="3"
                                    x:Name="listViewHuXingTuiJian"
-                                   IsEnabled="False"
-                                   Focusable="False"
+                                   IsEnabled="True"
+                                   Focusable=" False"
                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                    Background="Transparent"
                                    BorderThickness="0">
@@ -616,13 +629,20 @@
                                             BorderBrush="#666666"
                                             Background="#F4F4F4"
                                             Margin="0 0 15 15">-->
-                                    <Grid Width="1150">
+                                    <Grid Width="570"
+                                          Background="#F4F4F4">
                                         <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"></RowDefinition>
                                             <RowDefinition Height="30"></RowDefinition>
-                                            <RowDefinition  Height="30*"
-                                                            MinHeight="30"></RowDefinition>
+                                            <RowDefinition Height="355"></RowDefinition>
+                                            <RowDefinition Height="36"></RowDefinition>
+                                            <RowDefinition Height="36*"
+                                                           MinHeight="36"></RowDefinition>
+                                            <RowDefinition Height="36*"
+                                                           MinHeight="36"></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0"
+
+                                        <!--<TextBlock Grid.Row="0"
                                                    HorizontalAlignment="Left"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
@@ -635,8 +655,184 @@
                                                    FontSize="16"
                                                    Margin="10 0 0 0"
                                                    Foreground="#666666"
-                                                   Text="{Binding Content}" />
+                                                   Text="{Binding Content}" />-->
 
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="Black"
+                                                       Text="{Binding Name}" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="Black"
+                                                       Text="(" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="#FC4823"
+                                                       Text="{Binding Price}" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="Black"
+                                                       Text=")" />
+
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="1"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <Image Width="21"
+                                                   Height="21"
+                                                   Stretch="Fill"
+                                                   Margin="10 0 0 0"
+                                                   Source="pack://application:,,,/House.Thems;component/Images/在售图标.png">
+                                            </Image>
+                                            <TextBlock Margin="5 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="在售" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding KuChun}" />
+                                            <TextBlock Margin="5 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="套" />
+                                            <Image Width="21"
+                                                   Height="21"
+                                                   Stretch="Fill"
+                                                   Margin="10 0 0 0"
+                                                   Source="pack://application:,,,/House.Thems;component/Images/已售图标.png">
+                                            </Image>
+                                            <TextBlock Margin="5 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="已售" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding YiShou}" />
+                                            <TextBlock Margin="5 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="套" />
+
+                                        </StackPanel>
+
+                                        <Grid Grid.Row="2"
+                                              Width="570"
+                                              Height="355"
+                                              MouseEnter="UIElement_OnMouseEnter"
+                                              MouseLeave="UIElement_OnMouseLeave">
+                                            <controls:FlipView x:Name="FlipView2nd"
+                                                               Margin="0 0 5 0"
+                                                               IsBannerEnabled="False"
+                                                               MouseOverGlowEnabled="false"
+                                                               CircularNavigation="true"
+                                                               IsNavigationEnabled="true"
+                                                               Orientation="Horizontal"
+                                                               DownTransition="Left"
+                                                               ItemTemplate="{StaticResource ImageDataTemplate}"
+                                                               ItemsSource="{Binding Images}" />
+                                            <StackPanel Orientation="Horizontal"
+                                                        DataContext="{Binding ElementName=FlipView2nd, Mode=OneWay}"
+                                                        HorizontalAlignment="Center"
+                                                        Background="White"
+                                                        VerticalAlignment="Bottom">
+                                                <controls:NumericUpDown controls:TextBoxHelper.SelectAllOnFocus="True"
+                                                                        ButtonsAlignment="Left"
+                                                                        VerticalAlignment="Center"
+                                                                        Interval="1"
+                                                                        Minimum="1"
+                                                                        BorderThickness="0"
+                                                                        Maximum="{Binding Path=Items.Count, Mode=OneWay}"
+                                                                        Value="{Binding Path=SelectedIndex, Mode=TwoWay, Converter={vc:Int32IndexToNumberConverter}}" />
+                                                <TextBlock VerticalAlignment="Center"
+                                                           Foreground="Black"
+                                                           Background="Transparent"
+                                                           Margin="0 0 4 0">
+                    <Run Text="/" />
+                    <Run Text="{Binding Path=Items.Count, Mode=OneWay}" />
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <!--户型朝向-->
+                                        <StackPanel Grid.Row="3"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Text="户型朝向：" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding XiangQing.ChaoXiang}" />
+                                            <TextBlock Margin="30 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Text="装修情况：" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding XiangQing.ZhuangXiuQingKuang}" />
+                                        </StackPanel>
+                                        <!--户型优惠-->
+                                        <StackPanel Grid.Row="4"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Text="户型优惠：" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       TextWrapping="Wrap"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding XiangQing.HuXingYouHui}" />
+
+                                        </StackPanel>
+                                        <!--推荐理由-->
+                                        <StackPanel Grid.Row="5"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Text="推荐理由：" />
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       TextWrapping="Wrap"
+                                                       Text="{Binding XiangQing.TuiJianLiYou}" />
+
+                                        </StackPanel>
                                         <!--<StackPanel Orientation="Horizontal"
                                                     VerticalAlignment="Center">
                                             <Image Width="21"
