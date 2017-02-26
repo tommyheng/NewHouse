@@ -72,6 +72,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{A13AD0FD-CC91-4B8F-A3BB-6FCE0D7A5373}</Project>
+      <Name>House.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Models\House.Models.csproj">
       <Project>{10e51932-7f07-4928-b1db-7a9ae008e3e6}</Project>
       <Name>House.Models</Name>

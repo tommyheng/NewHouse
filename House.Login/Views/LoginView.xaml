@@ -20,7 +20,8 @@
                       WindowStartupLocation="CenterScreen"
                       TitlebarHeight="0"
                       WindowStyle="None"
-                      Icon="pack://application:,,,/House.Thems;component/Images/Logo.ico">
+                      Icon="pack://application:,,,/House.Thems;component/Images/Logo.ico"
+                      Loaded="LoginView_OnLoaded">
     <Border Background="{DynamicResource LoginBackground}"
             CornerRadius="{DynamicResource ControlCornerRadius}"
             MouseDown="Border_MouseDown">

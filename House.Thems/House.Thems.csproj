@@ -145,6 +145,15 @@
     <Resource Include="Images\在售图标.png" />
     <Resource Include="Images\已售图标.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\取消.png" />
+    <Resource Include="Images\喇叭.png" />
+    <Resource Include="Images\地点图标.png" />
+    <Resource Include="Images\添加新客户.png" />
+    <Resource Include="Images\添加新客户2.png" />
+    <Resource Include="Images\窗口切换.png" />
+    <Resource Include="Images\置顶.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

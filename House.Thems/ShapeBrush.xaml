@@ -79,4 +79,11 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备2.png" />
 
+    <ImageBrush x:Key="AddCustomerButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户.png" />
+    <ImageBrush x:Key="AddCustomerButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户2.png" />
+
 </ResourceDictionary>

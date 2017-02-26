@@ -32,7 +32,8 @@
         </Grid>
         <Grid Grid.Row="1">
 
-            <headerNews:HeaderNewsView2 DataContext="{Binding HeaderNewsViewModel}"></headerNews:HeaderNewsView2>
+            <headerNews:HeaderNewsView2 Hyperlink="https://github.com/tommyheng/NewHouse/"
+                                        ScrollingText="新房天下项目地址 https://github.com/tommyheng/NewHouse/ 点击可直接进入，在 Visual Studio S中 GIT 克隆地址 https://github.com/tommyheng/NewHouse.git 如有问题请联系 01234567890123456789"></headerNews:HeaderNewsView2>
         </Grid>
         <Grid Grid.Row="2">
             <uc:LouPanXiangQing></uc:LouPanXiangQing>
