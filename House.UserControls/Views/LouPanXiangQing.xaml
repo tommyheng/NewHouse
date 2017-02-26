@@ -3,6 +3,8 @@
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:vc="clr-namespace:House.UserControls.Converter"
                          xmlns:local="clr-namespace:House.UserControls.Views"
                          xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
                          mc:Ignorable="d"
@@ -18,7 +20,28 @@
     <!--<Grid Background="{DynamicResource AccentColorBrush2}">
         <TextBlock Text="下载手机版"></TextBlock>
     </Grid>-->
+    <UserControl.Resources>
+        <ResourceDictionary>
 
+            <!--  better results for this examples  -->
+            <!--<Style BasedOn="{StaticResource {x:Type Controls:TransitioningContentControl}}"
+                   TargetType="{x:Type Controls:TransitioningContentControl}">
+                <Setter Property="RenderOptions.ClearTypeHint"
+                        Value="Enabled" />
+                <Setter Property="TextOptions.TextFormattingMode"
+                        Value="Display" />
+                <Setter Property="TextOptions.TextRenderingMode"
+                        Value="ClearType" />
+            </Style>-->
+
+            <DataTemplate x:Key="ImageDataTemplate"
+                          x:Shared="False">
+                <Image Stretch="Fill"
+                       Source="{Binding Mode=OneWay, FallbackValue={x:Static DependencyProperty.UnsetValue}}" />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -33,12 +56,50 @@
                 <ColumnDefinition Width="20"></ColumnDefinition>
                 <ColumnDefinition Width="766"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0"
+            <!--<Image Grid.Column="0"
                    Width="374"
                    Height="275"
                    x:Name="iamge"
                    Stretch="Fill"
-                   Source="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/LoginBackground.jpg"></Image>-->
+
+            <Grid Grid.Column="0"
+                  Width="374"
+                  Height="275"
+                  MouseEnter="UIElement_OnMouseEnter"
+                  MouseLeave="UIElement_OnMouseLeave">
+                <controls:FlipView x:Name="FlipView2nd"
+                                   Margin="0 0 5 0"
+                                   IsBannerEnabled="False"
+                                   MouseOverGlowEnabled="false"
+                                   CircularNavigation="true"
+                                   IsNavigationEnabled="true"
+                                   Orientation="Horizontal"
+                                   DownTransition="Left"
+                                   ItemTemplate="{StaticResource ImageDataTemplate}" />
+                <StackPanel Orientation="Horizontal"
+                            DataContext="{Binding ElementName=FlipView2nd, Mode=OneWay}"
+                            HorizontalAlignment="Center"
+                            Background="White"
+                            VerticalAlignment="Bottom">
+                    <controls:NumericUpDown controls:TextBoxHelper.SelectAllOnFocus="True"
+                                            ButtonsAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Interval="1"
+                                            Minimum="1"
+                                            BorderThickness="0"
+                                            Maximum="{Binding Path=Items.Count, Mode=OneWay}"
+                                            Value="{Binding Path=SelectedIndex, Mode=TwoWay, Converter={vc:Int32IndexToNumberConverter}}" />
+                    <TextBlock VerticalAlignment="Center"
+                               Foreground="Black"
+                               Background="Transparent"
+                               Margin="0 0 4 0">
+                    <Run Text="/" />
+                    <Run Text="{Binding Path=Items.Count, Mode=OneWay}" />
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
             <Grid  Grid.Column="2"
                    Background="Transparent">
                 <StackPanel>

@@ -1,7 +1,10 @@
-﻿using System;
+﻿using House.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,6 +29,41 @@ namespace House.UserControls.Views
 
         }
 
+        private System.Timers.Timer FlipView2ndTimer;
+        private void MyUserControlBase_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitLouPanData();
+
+            FlipView2ndTimer = new System.Timers.Timer(3000);
+            FlipView2ndTimer.Elapsed += FlipView2ndTimer_Elapsed;
+            FlipView2ndTimer.Start();
+        }
+
+
+        private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            FlipView2ndTimer.Stop();
+        }
+
+        private void UIElement_OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            FlipView2ndTimer.Start();
+
+        }
+        private void FlipView2ndTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            this.Dispatcher.Invoke(new Action(changeImageIndex));
+        }
+
+        private void changeImageIndex()
+        {
+            if (FlipView2nd.Items.Count > 1)
+            {
+                FlipView2nd.SelectedIndex = (FlipView2nd.SelectedIndex + 1) % FlipView2nd.Items.Count;
+
+            }
+        }
+
         private void InitLouPanData()
         {
             int bid = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
@@ -34,6 +72,14 @@ namespace House.UserControls.Views
             //var v = buildingInfo.Images.First().ImageUrl;
             //iamge.Source = new BitmapImage(new Uri(buildingInfo.Images.First().ImageUrl));
 
+            FlipView2nd.ItemsSource = from a in buildingInfo.Images.OrderBy(a => a.ImageIndex)
+                                      select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute);
+            //FlipView2nd.ItemsSource = new Uri[]
+            //                 {
+            //                     new Uri("http://www.public-domain-photos.com/free-stock-photos-4/landscapes/mountains/painted-desert.jpg", UriKind.Absolute),
+            //                     new Uri("http://www.public-domain-photos.com/free-stock-photos-3/landscapes/forest/breaking-the-clouds-on-winter-day.jpg", UriKind.Absolute),
+            //                     new Uri("http://www.public-domain-photos.com/free-stock-photos-4/travel/bodie/bodie-streets.jpg", UriKind.Absolute)
+            //                 };
 
 
             bName.Text = buildingInfo.QuYu + "  |  " + buildingInfo.Name;
@@ -111,9 +157,6 @@ namespace House.UserControls.Views
 
         }
 
-        private void MyUserControlBase_Loaded(object sender, RoutedEventArgs e)
-        {
-            InitLouPanData();
-        }
+
     }
 }
