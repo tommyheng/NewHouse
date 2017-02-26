@@ -161,7 +161,7 @@ namespace House.UserControls.Views
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
         {
             PropertyConsultantsView win = new PropertyConsultantsView();
-            win.Bid = bId+1;
+            win.Bid = bId;
             win.ShowDialog();
         }
     }

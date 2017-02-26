@@ -31,7 +31,29 @@ namespace House.UserControls
             var result = DataRepository.Instance.GetPropertyConsultantList(Bid);
             if (result.success)
             {
+                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                {
+                    DianHua = "13840050000",
+                    ZhiWu = "职业顾问",
+                    Name = "唐老大"
+                });
+
+                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                {
+                    DianHua = "13840050001",
+                    ZhiWu = "职业顾问",
+                    Name = "唐老二"
+                });
+
+                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                {
+                    DianHua = "13840050002",
+                    ZhiWu = "职业顾问",
+                    Name = "唐老三"
+                });
+
                 listView.ItemsSource = result.data;
+
             }
         }
     }
