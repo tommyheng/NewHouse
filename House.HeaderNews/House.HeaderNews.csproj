@@ -69,11 +69,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\HeaderNewsView2.xaml.cs">
+      <DependentUpon>HeaderNewsView2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HeaderNewsView.xaml.cs">
       <DependentUpon>HeaderNewsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\HeaderNewsView2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\HeaderNewsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

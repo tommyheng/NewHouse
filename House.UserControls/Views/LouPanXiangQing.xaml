@@ -499,16 +499,37 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="                户型推荐                ">
-                <!--<ListView x:Name="listView"
-                          Grid.Row="3"
-                          IsEnabled="False"
-                          Focusable="False"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          Background="Transparent"
-                          BorderThickness="0">
-                    <ListView.Resources>
-                        -->
-                <!--<Style TargetType="{x:Type ListViewItem}">
+                <ScrollViewer FocusVisualStyle="{x:Null}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1"
+                              Background="#F4F4F4">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50"
+                                       Height="50"
+                                       Stretch="Fill"
+                                       Source="pack://application:,,,/House.Thems;component/Images/住宅图标.png"></Image>
+                                <TextBlock FontSize="18"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center"
+                                           Text="住宅"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                        <ListView  Grid.Row="3"
+                                   x:Name="listViewHuXingTuiJian"
+                                   IsEnabled="False"
+                                   Focusable="False"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                   Background="Transparent"
+                                   BorderThickness="0">
+                            <ListView.Resources>
+                                <!--<Style TargetType="{x:Type ListViewItem}">
                                     <Style.Resources>
                                         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
                                                          Color="#420080" />
@@ -520,110 +541,119 @@
                                     <Setter Property="FontSize"
                                             Value="14" />
                                 </Style>-->
-                <!--
-                    </ListView.Resources>
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            -->
-                <!--WrapPanel 不支持虚拟化，ListView 中 ItemsPanelTemplate 默认使用的是 VirtualizingStackPanel(虚拟化面板)-->
-                <!--
-                            <WrapPanel Orientation="Horizontal"
-                                       IsItemsHost="True" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="4"
-                                    BorderBrush="#666666"
-                                    Background="#F4F4F4"
-                                    Margin="0 0 15 15">
-                                <Grid Width="373">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition  Height="50*"
-                                                        MinHeight="50"></RowDefinition>
-                                        <RowDefinition  Height="50"></RowDefinition>
-                                        <RowDefinition  Height="50"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel Orientation="Horizontal"
-                                                VerticalAlignment="Center">
-                                        <Image Width="21"
-                                               Height="20"
-                                               Stretch="Fill"
-                                               Margin="10 0 0 0"
-                                               Source="pack://application:,,,/House.Thems;component/Images/楼房图标.png">
-                                        </Image>
-                                        <TextBlock Margin="10 0 0 0"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="18"
-                                                   Foreground="Black"
-                                                   Text="{Binding Name}" />
-
-                                    </StackPanel>
-                                    <Separator VerticalAlignment="Bottom"
-                                               Margin="10 0 10 0"></Separator>
-                                    <StackPanel Grid.Row="1"
-                                                Orientation="Horizontal"
-                                                VerticalAlignment="Center">
-                                        <TextBlock Margin="10 0 0 0"
+                            </ListView.Resources>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <!--WrapPanel 不支持虚拟化，ListView 中 ItemsPanelTemplate 默认使用的是 VirtualizingStackPanel(虚拟化面板)-->
+                                    <WrapPanel Orientation="Horizontal"
+                                               IsItemsHost="True" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<Border CornerRadius="4"
+                                            BorderBrush="#666666"
+                                            Background="#F4F4F4"
+                                            Margin="0 0 15 15">-->
+                                    <Grid Width="1150">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"></RowDefinition>
+                                            <RowDefinition  Height="30*"
+                                                            MinHeight="30"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0"
                                                    HorizontalAlignment="Left"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
-                                                   Foreground="#666666"
-                                                   Text="佣        金：" />
-                                        <TextBlock Margin="10 0 0 0"
+                                                   Foreground="Black"
+                                                   Text="{Binding Title}" />
+                                        <TextBlock Grid.Row="1"
                                                    HorizontalAlignment="Left"
                                                    VerticalAlignment="Center"
                                                    TextWrapping="Wrap"
                                                    FontSize="16"
+                                                   Margin="10 0 0 0"
                                                    Foreground="#666666"
-                                                   Text="{Binding YongJin}" />
+                                                   Text="{Binding Content}" />
 
-                                    </StackPanel>
-                                    <Separator Grid.Row="1"
-                                               VerticalAlignment="Bottom"
-                                               Margin="10 0 10 0"></Separator>
+                                        <!--<StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <Image Width="21"
+                                                   Height="20"
+                                                   Stretch="Fill"
+                                                   Margin="10 0 0 0"
+                                                   Source="pack://application:,,,/House.Thems;component/Images/楼房图标.png">
+                                            </Image>
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="18"
+                                                       Foreground="Black"
+                                                       Text="{Binding Name}" />
 
-                                    <StackPanel Grid.Row="2"
-                                                Orientation="Horizontal"
-                                                VerticalAlignment="Center">
-                                        <TextBlock Margin="10 0 0 0"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="16"
-                                                   Foreground="#666666"
-                                                   Text="佣金节点：" />
-                                        <TextBlock Margin="10 0 0 0"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="16"
-                                                   Foreground="#FC4823"
-                                                   Text="{Binding YongJin}" />
+                                        </StackPanel>
+                                        <Separator VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
+                                        <StackPanel Grid.Row="1"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="佣        金：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       TextWrapping="Wrap"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="{Binding YongJin}" />
 
-                                    </StackPanel>
-                                    <Separator Grid.Row="2"
-                                               VerticalAlignment="Bottom"
-                                               Margin="10 0 10 0"></Separator>
+                                        </StackPanel>
+                                        <Separator Grid.Row="1"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
 
-                                    <StackPanel Grid.Row="3"
-                                                Orientation="Horizontal"
-                                                VerticalAlignment="Center">
-                                        <TextBlock Margin="10 0 0 0"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="16"
-                                                   Foreground="#666666"
-                                                   Text="带        看：" />
-                                        <TextBlock Margin="10 0 0 0"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="16"
-                                                   Foreground="#FC4823"
-                                                   Text="{Binding ElementName=daikan,Path=Text}" />
-                                    </StackPanel>
-                                    -->
-                <!--<StackPanel Orientation="Horizontal">
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="佣金节点：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#FC4823"
+                                                       Text="{Binding YongJin}" />
+
+                                        </StackPanel>
+                                        <Separator Grid.Row="2"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="10 0 10 0"></Separator>
+
+                                        <StackPanel Grid.Row="3"
+                                                    Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#666666"
+                                                       Text="带        看：" />
+                                            <TextBlock Margin="10 0 0 0"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="16"
+                                                       Foreground="#FC4823"
+                                                       Text="{Binding ElementName=daikan,Path=Text}" />
+                                        </StackPanel>-->
+                                        <!--<StackPanel Orientation="Horizontal">
                                             <TextBlock Width="70"
                                                        HorizontalAlignment="Left"
                                                        Foreground="White"
@@ -641,14 +671,12 @@
                                                        Foreground="#04e4fe"
                                                        Text="{Binding Counts}" />
                                         </StackPanel>-->
-                <!--
-                                </Grid>
-                            </Border>
+                                    </Grid>
+                                    <!--</Border>-->
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    -->
-                <!--<WrapPanel Grid.Row="3"
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <!--<WrapPanel Grid.Row="3"
                                        Orientation="Horizontal">
                                 <Button Width="390"
                                         Height=" 270"></Button>
@@ -671,9 +699,9 @@
                                 <Button Width="390"
                                         Height=" 270"></Button>
                             </WrapPanel>-->
-                <!--
-                </ListView>-->
-
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
 
             <TabItem Header="                楼盘参数                ">

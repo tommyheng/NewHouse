@@ -31,7 +31,8 @@
             <bigHeader:BigHeaderView DataContext="{Binding BigHeaderViewModel}"></bigHeader:BigHeaderView>
         </Grid>
         <Grid Grid.Row="1">
-            <headerNews:HeaderNewsView DataContext="{Binding HeaderNewsViewModel}"></headerNews:HeaderNewsView>
+
+            <headerNews:HeaderNewsView2 DataContext="{Binding HeaderNewsViewModel}"></headerNews:HeaderNewsView2>
         </Grid>
         <Grid Grid.Row="2">
             <uc:LouPanXiangQing></uc:LouPanXiangQing>

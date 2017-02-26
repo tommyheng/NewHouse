@@ -1,4 +1,4 @@
-﻿<House:MyUserControlBase x:Class="House.HeaderNews.Views.HeaderNewsView"
+﻿<House:MyUserControlBase x:Class="House.HeaderNews.Views.HeaderNewsView2"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -18,33 +18,41 @@
         <Binding Path="HeaderNewsViewModel"
                  Source="{StaticResource ResourceKey=Locator}"></Binding>
     </UserControl.DataContext>-->
-    <Grid Background="{DynamicResource HouseAccentColorBrush5}">
+
+    <Grid Background="#F4F4F4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<Grid   Grid.Column="0"
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--<Grid   Grid.Column="0"
                 Width="18"
                 Height="18"
                 Margin="5 0 0 0"
                 Background="{DynamicResource SpeakerBrush}"></Grid>-->
-        <iconPacks:PackIconOcticons  Grid.Column="0"
-                                     Foreground="White"
-                                     VerticalAlignment="Center"
-                                     Margin="5 0 0 0"
-                                     Kind="Unmute" />
-        <!--<Image Width="20"
+            <iconPacks:PackIconOcticons  Grid.Column="0"
+                                         Foreground="#666666"
+                                         VerticalAlignment="Center"
+                                         Margin="5 0 0 0"
+                                         Kind="Unmute" />
+            <!--<Image Width="20"
                Height="20"
                Margin="5 0 0 0"
                VerticalAlignment="Center"
                Source="pack://application:,,,/House.Thems;component/Images/laba.png"></Image>-->
 
-        <!--<TextBlock VerticalAlignment="Center"
+            <!--<TextBlock VerticalAlignment="Center"
                    Foreground="White"
                    FontSize="15"
                    Grid.Column="1"
                    Text=" 公告，沈阳楼盘大减价"></TextBlock>-->
-        <!--<TextBlock x:Name="tickerTape"
+            <!--<TextBlock x:Name="tickerTape"
                    Height="30"
                    FontSize="18"
                    Text=" 公告，沈阳楼盘大减价"
@@ -59,14 +67,14 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>-->
-        <!--<Controls:TransitioningContentControl x:Name="transitioning"
+            <!--<Controls:TransitioningContentControl x:Name="transitioning"
                                               Foreground="White"
                                               VerticalAlignment="Center"
                                               Grid.Column="1"
                                               FontSize="15"
                                               Transition="d" />-->
 
-        <!--<local:ScrollingTextControl Content="12345"
+            <!--<local:ScrollingTextControl Content="12345"
                                     Height="52"
                                     HorizontalAlignment="Left"
                                     Margin="10,10,0,0"
@@ -74,12 +82,14 @@
                                     VerticalAlignment="Top"
                                     Width="121"
                                     Foreground="Black" />-->
-        <!--<local:ScrollingTextControl></local:ScrollingTextControl>-->
-        <uc:ScrollingTextControl x:Name="scrollingTextControle"
-                                 VerticalAlignment="Center"
-                                 Foreground="White"
-                                 FontSize="13"
-                                 Grid.Column="1"
-                                 Content="沈阳龙湖房地产拓展有限公司公告-近期购房有优惠"></uc:ScrollingTextControl>
+            <!--<local:ScrollingTextControl></local:ScrollingTextControl>-->
+            <uc:ScrollingTextControl x:Name="scrollingTextControle"
+                                     VerticalAlignment="Center"
+                                     Foreground="#666666"
+                                     FontSize="13"
+                                     Grid.Column="1"
+                                     Content="沈阳龙湖房地产拓展有限公司公告-近期购房有优惠"></uc:ScrollingTextControl>
+        </Grid>
     </Grid>
+
 </House:MyUserControlBase>

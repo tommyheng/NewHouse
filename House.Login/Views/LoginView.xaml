@@ -19,6 +19,7 @@
                       ShowMaxRestoreButton="False"
                       WindowStartupLocation="CenterScreen"
                       TitlebarHeight="0"
+                      WindowStyle="None"
                       Icon="pack://application:,,,/House.Thems;component/Images/Logo.ico">
     <Border Background="{DynamicResource LoginBackground}"
             CornerRadius="{DynamicResource ControlCornerRadius}"

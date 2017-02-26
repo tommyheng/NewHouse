@@ -131,7 +131,6 @@
     <Resource Include="Images\成交奖励.png" />
     <Resource Include="Images\推荐规则.png" />
     <Resource Include="Images\楼房图标.png" />
-    <Resource Include="Images\楼盘详情-合作佣金%28标注）.jpg" />
     <Resource Include="Images\结算周期.png" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +139,11 @@
     <Resource Include="Images\楼盘动态.png" />
     <Resource Include="Images\楼盘卖点.png" />
     <Resource Include="Images\楼盘参数图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\住宅图标.png" />
+    <Resource Include="Images\在售图标.png" />
+    <Resource Include="Images\已售图标.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

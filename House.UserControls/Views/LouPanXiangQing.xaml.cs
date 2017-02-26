@@ -103,7 +103,7 @@ namespace House.UserControls.Views
             //买点
             listViewLouPanMaiDian.ItemsSource = buildingInfo.MaiDian;
 
-
+            listViewHuXingTuiJian.ItemsSource = buildingInfo.MaiDian;
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
             //webBrowserDiTu.Navigate("http://map.baidu.com/");
 
