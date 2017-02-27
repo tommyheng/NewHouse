@@ -150,7 +150,7 @@ namespace House.UserControls.Views
             //买点
             listViewLouPanMaiDian.ItemsSource = buildingInfo.MaiDian;
 
-            listViewHuXingTuiJian.ItemsSource = buildingInfo.MaiDian;
+            listViewHuXingTuiJian.ItemsSource = buildingInfo.HuXing ;
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
             //webBrowserDiTu.Navigate("http://map.baidu.com/");
 
@@ -161,6 +161,13 @@ namespace House.UserControls.Views
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
         {
             PropertyConsultantsView win = new PropertyConsultantsView();
+            win.Bid = bId;
+            win.ShowDialog();
+        }
+
+        private void RecordCustomerBtnClick(object sender, RoutedEventArgs e)
+        {
+            RecordCustomerView win = new RecordCustomerView();
             win.Bid = bId;
             win.ShowDialog();
         }
