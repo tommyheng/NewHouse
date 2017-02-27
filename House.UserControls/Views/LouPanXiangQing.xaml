@@ -243,8 +243,10 @@
 
         </Grid>
 
-        <TabControl Grid.Row="3">
-            <TabItem Header="                合作佣金                ">
+        <TabControl Grid.Row="3"
+                    Style="{DynamicResource LouPanXiangQingTabControl}">
+            <TabItem  Style="{DynamicResource LouPanXiangQingTabItem}"
+                      Header="合作佣金">
                 <ScrollViewer FocusVisualStyle="{x:Null}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -560,7 +562,8 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="                户型推荐                ">
+            <TabItem Style="{DynamicResource LouPanXiangQingTabItem}"
+                     Header="户型推荐">
                 <ScrollViewer FocusVisualStyle="{x:Null}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -962,7 +965,8 @@
                 </ScrollViewer>
             </TabItem>
 
-            <TabItem Header="                楼盘参数                ">
+            <TabItem Style="{DynamicResource LouPanXiangQingTabItem}"
+                     Header="楼盘参数">
 
                 <ScrollViewer FocusVisualStyle="{x:Null}">
 
