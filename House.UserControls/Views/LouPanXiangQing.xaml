@@ -278,6 +278,7 @@
                                 <TextBlock x:Name="yongjing2"
                                            FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="佣金："></TextBlock>
                             </StackPanel>
@@ -460,6 +461,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/推荐规则.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="推荐规则"></TextBlock>
                             </StackPanel>
@@ -470,6 +472,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock FontSize="16"
                                            VerticalAlignment="Center"
+                                           Foreground="#666666"
                                            Text="报备规则"></TextBlock>
                                 <TextBlock x:Name="BaoBeiGuiZe"
                                            FontSize="16"
@@ -479,6 +482,7 @@
                                            Text="报备规则"></TextBlock>
                                 <TextBlock  FontSize="16"
                                             VerticalAlignment="Center"
+                                            Foreground="#666666"
                                             Text="带看规则"></TextBlock>
                                 <TextBlock x:Name="DiaKanGuiZe"
                                            FontSize="16"
@@ -488,6 +492,7 @@
                                            Text="带看规则"></TextBlock>
                                 <TextBlock FontSize="16"
                                            VerticalAlignment="Center"
+                                           Foreground="#666666"
                                            Text="成交规则"></TextBlock>
                                 <TextBlock x:Name="ChengJiaoGuiZe"
                                            FontSize="16"
@@ -508,6 +513,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/成交奖励.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="成交奖励"></TextBlock>
                             </StackPanel>
@@ -539,6 +545,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/结算周期.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="结算周期"></TextBlock>
                             </StackPanel>
@@ -582,6 +589,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/住宅图标.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="住宅"></TextBlock>
                             </StackPanel>
@@ -596,6 +604,7 @@
                                 <TextBlock FontSize="18"
                                            Margin="0 0 10 0"
                                            VerticalAlignment=" Center"
+                                           Foreground="#666666"
                                            Text="个户型"></TextBlock>
                             </StackPanel>
                         </Grid>
@@ -1000,6 +1009,7 @@
                                 <TextBlock x:Name="LouPanCanShu"
                                            FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="楼盘参数"></TextBlock>
                             </StackPanel>
@@ -1225,6 +1235,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/楼盘卖点.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
+                                           Foreground="#666666"
                                            VerticalAlignment="Center"
                                            Text="楼盘卖点"></TextBlock>
                             </StackPanel>
@@ -1421,6 +1432,7 @@
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
                                            VerticalAlignment="Center"
+                                           Foreground="#666666"
                                            Text="楼盘动态"></TextBlock>
                             </StackPanel>
 
@@ -1440,6 +1452,7 @@
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
                                            VerticalAlignment="Center"
+                                           Foreground="#666666"
                                            Text="地理位置"></TextBlock>
                             </StackPanel>
 
