@@ -24,6 +24,7 @@ namespace House.MainModule.ViewModels
         private void registerMessenger()
         {
             Messenger.Default.Register<ViewInfo>(this, MessengerToken.Navigate, Navigate);
+            Messenger.Default.Register<ViewInfo>(this, MessengerToken.NewHouseInternalNavigate, Navigate);
 
             //Messenger.Default.Register<object>(this, Model.MessengerToken.ClosePopup, ClosePopup);
 
@@ -100,7 +101,8 @@ namespace House.MainModule.ViewModels
                     newHouseView = NewHouse.Views.NewHouseView.Instance;
                     newHouseView.WindowState = System.Windows.WindowState.Maximized;
                     newHouseView.Show();
-
+                    break;
+                case ViewType.View:
                     break;
             }
         }

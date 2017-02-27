@@ -16,7 +16,7 @@ namespace House.Models
         Unknown = 0,//枚举默认值为第一个从0开始
         ManagementCenter,
         NewHouse,
-
+        LouPanLieBiao,
 
 
         //PatientListView,

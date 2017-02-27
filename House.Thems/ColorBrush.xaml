@@ -60,9 +60,9 @@
                      options:Freeze="True" />
     
     <!--楼盘列表 桔色-->
-    <Color x:Key="LouPan.Orange">#FC4823</Color>
-    <SolidColorBrush x:Key="LouPan.OrangeColorBrush"
-                     Color="{StaticResource LouPan.Orange}"
+    <Color x:Key="Orange">#FC4823</Color>
+    <SolidColorBrush x:Key="OrangeColorBrush"
+                     Color="{StaticResource Orange}"
                      options:Freeze="True" />
 
     <!--文字白色-->

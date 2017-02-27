@@ -87,12 +87,12 @@
                 ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户2.png" />
 
     <!--置顶按钮-->
-    <ImageBrush x:Key="LouPan.ZhiDingBrush"
+    <ImageBrush x:Key="ZhiDingBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/zhiding.png" />
     
     <!--置顶 取消按钮-->
-    <ImageBrush x:Key="LouPan.ZhiDingQuXiaoBrush"
+    <ImageBrush x:Key="ZhiDingQuXiaoBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/zhidingquxiao.png" />
 </ResourceDictionary>

@@ -1,4 +1,5 @@
-﻿using House.Utility;
+﻿using House.NewHouse.ViewModels;
+using House.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GalaSoft.MvvmLight;
+using System.Diagnostics;
 
 namespace House.NewHouse.Views
 {
@@ -20,9 +23,23 @@ namespace House.NewHouse.Views
     /// </summary>
     public partial class LouPanView : MyUserControlBase
     {
+        private LouPanViewModel dataContext = new LouPanViewModel();
         public LouPanView()
         {
             InitializeComponent();
+            this.DataContext = dataContext;
+        }
+
+        private void LouPanViewLoaded(object sender, RoutedEventArgs e)
+        {
+
+            LouPan_ListView.ItemsSource = dataContext.LouPanList;
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectItem = (e.Source as ListView).SelectedItem as LouPanViewModel.LouPanDataItem;
+            Debug.WriteLine("select id {0}", selectItem.ID);
         }
     }
 }

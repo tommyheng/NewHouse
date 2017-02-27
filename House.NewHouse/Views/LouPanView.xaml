@@ -9,7 +9,8 @@
              xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1160"
-             Width="1160">
+             Width="1160"
+             Loaded="LouPanViewLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -22,7 +23,7 @@
                 <Border BorderBrush="{DynamicResource BorderColorBrush}" BorderThickness="1" Width="300" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBox controls:TextBoxHelper.Watermark="请输入手机号码" Width="270" BorderThickness="0" FontSize="14"/>
-                        <Button Height="26" Width="30" Content="S" BorderThickness="0"/>
+                        <Button Height="26" Width="30" Content="搜索" BorderThickness="0"/>
                     </StackPanel>
                 </Border>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
@@ -31,11 +32,13 @@
                 </StackPanel>
             </DockPanel>
         </Border>
-        <ListView Grid.Row="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"
-                  BorderThickness="0">
+        <ListView x:Name="LouPan_ListView" Grid.Row="1" ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  BorderThickness="0" SelectionChanged="ListView_SelectionChanged" SelectedItem="{Binding SelectedItem}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"/>
+                    <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -45,6 +48,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock Grid.Row="2" Height="30" Text="分页切换"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <uc:DataPager Grid.Row="2" TotalCount="600" PageSize="20" VerticalAlignment="Center" FontSize="18"></uc:DataPager>
     </Grid>
 </House:MyUserControlBase>

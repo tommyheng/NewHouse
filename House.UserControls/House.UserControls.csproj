@@ -78,6 +78,9 @@
     <Compile Include="Views\BaoBeiItem.xaml.cs">
       <DependentUpon>BaoBeiItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DataPager.xaml.cs">
+      <DependentUpon>DataPager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LouPanItem.xaml.cs">
       <DependentUpon>LouPanItem.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BaoBeiItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataPager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
