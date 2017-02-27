@@ -164,5 +164,12 @@ namespace House.UserControls.Views
             win.Bid = bId;
             win.ShowDialog();
         }
+
+        private void RecordCustomerBtnClick(object sender, RoutedEventArgs e)
+        {
+            RecordCustomerView win = new RecordCustomerView();
+            win.Bid = bId;
+            win.ShowDialog();
+        }
     }
 }
