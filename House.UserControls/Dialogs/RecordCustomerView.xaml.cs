@@ -2,6 +2,7 @@
 using House.DAL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -83,8 +84,50 @@ namespace House.UserControls
 
         private void SubmitBtnClick(object sender, RoutedEventArgs e)
         {
-            var item = listView.SelectedIndex;
+            listView.SelectedIndex = -1;
+            var items = GetChildObjects<RadioButton>(this, typeof(RadioButton));
+            var rdo = items.FirstOrDefault(m => m.IsChecked == true);
+            if (rdo != null)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(rdo);
+                while (parent != null)
+                {
+                    parent = VisualTreeHelper.GetParent(parent);
+                    if (parent == null) break;
+                    if (parent.GetType() == typeof(ListViewItem))
+                    {
+                        var item = parent as ListViewItem;
+                        item.IsSelected = true;
+                        var data = listView.SelectedItem;
+                        var cb = GetChildObjects<ComboBox>(parent, typeof(ComboBox)).FirstOrDefault();
+                        if (cb != null)
+                        {
+                            var phoneEntity = cb.SelectedItem as DianHuaModel;
+                        }
+                        break;
+                    }
+                    //Debug.WriteLine(parent.GetType().ToString());
+                }
+            }
 
+        }
+
+        public List<T> GetChildObjects<T>(DependencyObject obj, Type typename) where T : FrameworkElement
+        {
+            DependencyObject child = null;
+            List<T> childList = new List<T>();
+
+            for (int i = 0; i <= VisualTreeHelper.GetChildrenCount(obj) - 1; i++)
+            {
+                child = VisualTreeHelper.GetChild(obj, i);
+
+                if (child is T && (((T)child).GetType() == typename))
+                {
+                    childList.Add((T)child);
+                }
+                childList.AddRange(GetChildObjects<T>(child, typename));
+            }
+            return childList;
         }
     }
 }
