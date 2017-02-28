@@ -31,7 +31,7 @@ namespace House.Models
         /// <summary>
         /// 楼盘列表（新房主页面）
         /// </summary>
-        LouPanList,
+        LouPanLieBiao,
 
         /// <summary>
         /// 楼盘详情
