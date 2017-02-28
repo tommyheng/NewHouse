@@ -415,6 +415,50 @@
         </Setter>
     </Style>
 
+
+    <!--确认报备-->
+    <Style x:Key="QueRenBaoBeiButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource QueRenBaoBeiButtonNormalBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}">
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource QueRenBaoBeiButtonHoverBrush}" />
+                            <!--<Setter Property="Opacity"
+                                    Value="0.95"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource QueRenBaoBeiButtonNormalBrush}" />
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="10.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--添加新客户-->
     <Style x:Key="AddCustomerButtonStyle"
            TargetType="{x:Type Button}">

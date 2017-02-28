@@ -79,6 +79,14 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/我要报备2.png" />
 
+    <ImageBrush x:Key="QueRenBaoBeiButtonNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/确认报备.png" />
+    
+    <ImageBrush x:Key="QueRenBaoBeiButtonHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/确认报备2.png" />
+
     <ImageBrush x:Key="AddCustomerButtonNormalBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/添加新客户.png" />
@@ -90,7 +98,7 @@
     <ImageBrush x:Key="ZhiDingBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/zhiding.png" />
-    
+
     <!--置顶 取消按钮-->
     <ImageBrush x:Key="ZhiDingQuXiaoBrush"
                 Stretch="Uniform"

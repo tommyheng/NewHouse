@@ -609,6 +609,12 @@ namespace FangChan.WPFModel
         //金融是否已报备
         public bool JinRongTypeBaoBei { get; set; }
     }
+
+    public class KeHuShowListItemInfo : KeHuShowListItem
+    {
+        public string StateInfo { get; set; }
+
+    }
     /// <summary>
     /// 电话列表详细
     /// </summary>
