@@ -99,6 +99,10 @@
       <Project>{ec72e053-64c1-4582-ad7f-4888b6b088ec}</Project>
       <Name>House.HeaderNews</Name>
     </ProjectReference>
+    <ProjectReference Include="..\House.Models\House.Models.csproj">
+      <Project>{10E51932-7F07-4928-B1DB-7A9AE008E3E6}</Project>
+      <Name>House.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.UserControls\House.UserControls.csproj">
       <Project>{89ee2118-c97d-4e35-ac21-7dc7d91d81f0}</Project>
       <Name>House.UserControls</Name>

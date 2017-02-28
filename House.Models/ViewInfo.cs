@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -10,52 +11,34 @@ namespace House.Models
 
     /// <summary>
     /// 视图名称
+    /// Description中是页面的类型字符串
     /// </summary>
     public enum ViewName
     {
         Unknown = 0,//枚举默认值为第一个从0开始
+
+        /// <summary>
+        /// 管理中心
+        /// </summary>
+        [Description("House.UserControls.Views.ManagementCentreView")]
         ManagementCenter,
+
+        /// <summary>
+        /// 新房
+        /// </summary>
         NewHouse,
 
+        /// <summary>
+        /// 楼盘列表（新房主页面）
+        /// </summary>
+        LouPanList,
 
+        /// <summary>
+        /// 楼盘详情
+        /// </summary>
+        [Description("House.UserControls.Views.LouPanXiangQing")]
+        LouPanXiangQing,
 
-        //PatientListView,
-        //PatientAddView,
-        //PatientDeleteView,
-        //PatientEditView,
-
-        //DoctorListView,
-        //DoctorAddView,
-        //DoctorEditView,
-        //DoctorDeleteView,
-
-        //DownloadView,
-
-
-
-        //PatientHomeView,
-        //AutoAnalysisSettingsView,
-        //ChannelSettingsView,
-        //AddAdviseView,
-
-
-        //PatientListView,
-        //PatientAddView,
-        //PatientEditView,
-        //PatientDeleteView,
-
-
-        //PatientStatisticsView,
-        //PatientSummaryView,
-        //PatientDetailedView,
-        //PatientProductConfigView,
-        //PatientStatisticsReportView,
-
-        //DownloadView,
-        //SettingsView,
-        //SystemParameterSettingView,
-        //SwitchLanguageView,
-        //HelpView
     }
 
     /// <summary>

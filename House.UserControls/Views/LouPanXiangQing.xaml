@@ -168,11 +168,10 @@
                                        FontSize="18"
                                        VerticalAlignment="Center"
                                        Foreground="#666666"></TextBlock>
-                            <Button Width="50"
-                                    Height="32"
+                            <Button
                                     Margin="20 0 0 0"
-                                    Style="{DynamicResource ButtonDefaultStyle}"
-                                    Content=" 查看"></Button>
+                                    Style="{DynamicResource TransparentBackgroundButtonStyle}"
+                                    Content="[ 查看 ]"></Button>
                         </StackPanel>
 
                     </Grid>
@@ -226,11 +225,10 @@
                                         FontSize="18"
                                         VerticalAlignment="Center"
                                         Foreground="#666666"></TextBlock>
-                            <Button Width="50"
-                                    Height="32"
+                            <Button
                                     Margin="20 0 0 0"
-                                    Content=" 查看"
-                                    Style="{DynamicResource ButtonDefaultStyle}"
+                                    Content="[ 查看 ]"
+                                    Style="{DynamicResource TransparentBackgroundButtonStyle}"
                                     Click="PropertyConsultantsClick"></Button>
                         </StackPanel>
                     </Grid>

@@ -27,7 +27,6 @@ namespace House.UserControls.Views
         public LouPanXiangQing()
         {
             InitializeComponent();
-
         }
 
         private System.Timers.Timer FlipView2ndTimer;

@@ -23,7 +23,7 @@ namespace House.MainModule.ViewModels
         /// </summary>
         private void registerMessenger()
         {
-            Messenger.Default.Register<ViewInfo>(this, MessengerToken.Navigate, Navigate);
+            Messenger.Default.Register<ViewInfo>(this, MessengerToken.MainMenuNavigate, Navigate);
 
             //Messenger.Default.Register<object>(this, Model.MessengerToken.ClosePopup, ClosePopup);
 
@@ -35,7 +35,7 @@ namespace House.MainModule.ViewModels
         /// </summary>
         private void unRegisterMessenger()
         {
-            Messenger.Default.Unregister<ViewInfo>(this, MessengerToken.Navigate, Navigate);
+            Messenger.Default.Unregister<ViewInfo>(this, MessengerToken.MainMenuNavigate, Navigate);
 
             //Messenger.Default.Unregister<object>(this, Model.MessengerToken.ClosePopup, ClosePopup);
 

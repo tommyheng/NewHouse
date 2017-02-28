@@ -230,6 +230,59 @@
         </Setter>
     </Style>
 
+    <!--透明背景 前景文字 按钮-->
+    <Style x:Key="TransparentBackgroundButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource WindowButtonStyle}">
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="Width"
+                Value="auto" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource LouPan.OrangeColorBrush}" />
+        <!--<Setter Property="Background"
+                Value="Transparent" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!--<Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Foreground"
+                                    Value="{TemplateBinding Foreground}" />
+                        </Trigger>-->
+                        <!--<Trigger Property="IsPressed"
+                                 Value="True">-->
+                            <!--<Setter Property="Background"
+                                    Value="{DynamicResource AccentColorBrush4}" />-->
+                            <!--<Setter Property="Foreground"
+                                    Value="{TemplateBinding Foreground}" />-->
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="-0.5" />-->
+                            <!--<Setter Property="Opacity"
+                                    Value="0.9"></Setter>-->
+                        <!--</Trigger>-->
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <!--<Setter Property="Background"
+                                    Value="{DynamicResource ButtonNormalBackground}" />-->
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="LoginButtonStyle"
            TargetType="{x:Type Button}">
         <Setter Property="Background"

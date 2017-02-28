@@ -78,6 +78,9 @@
     <Compile Include="Views\BaoBeiItem.xaml.cs">
       <DependentUpon>BaoBeiItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManagementCentreView.xaml.cs">
+      <DependentUpon>ManagementCentreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LouPanItem.xaml.cs">
       <DependentUpon>LouPanItem.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
     <Page Include="Views\BaoBeiItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagementCentreView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LouPanItem.xaml">
       <SubType>Designer</SubType>

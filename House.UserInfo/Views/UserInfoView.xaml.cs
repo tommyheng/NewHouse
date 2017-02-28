@@ -123,7 +123,7 @@ namespace House.UserInfo.Views
         {
             ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
 
-            Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.Navigate);
+            Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.MainMenuNavigate);
         }
     }
 }

@@ -9,17 +9,19 @@ namespace House.Models
     {
 
         /// <summary>
-        /// 视图跳转
+        /// 主菜单视图跳转
         /// </summary>
-        Navigate,
+        MainMenuNavigate,
 
-
+        /// <summary>
+        /// 关闭应用
+        /// </summary>
+        ShutdownApp,
 
         /// <summary>
         /// 新房窗体内部跳转
         /// </summary>
         NewHouseInternalNavigate
-
 
     }
 }

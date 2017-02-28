@@ -29,8 +29,7 @@ namespace House.UserInfo.ViewModels
         private void OnExecuteNavigateUserHomeCommand()
         {
 
-
-            Messenger.Default.Send<object>(null, Models.MessengerToken.Navigate);
+            Messenger.Default.Send<object>(null, Models.MessengerToken.MainMenuNavigate);
         }
 
         #endregion

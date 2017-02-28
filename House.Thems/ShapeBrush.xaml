@@ -90,9 +90,15 @@
     <ImageBrush x:Key="LouPan.ZhiDingBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/zhiding.png" />
-    
+
     <!--置顶 取消按钮-->
     <ImageBrush x:Key="LouPan.ZhiDingQuXiaoBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/zhidingquxiao.png" />
+
+    <!--Restore 按钮按钮-->
+    <ImageBrush x:Key="RestoreButtonBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/窗口切换.png" />
+
 </ResourceDictionary>
