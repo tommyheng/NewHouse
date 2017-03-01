@@ -73,6 +73,8 @@ namespace House.UserControls.Views
             //bId = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
             var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, buildingId).data;
 
+            if (buildingInfo == null)
+                return;
             //var v = buildingInfo.Images.First().ImageUrl;
             //iamge.Source = new BitmapImage(new Uri(buildingInfo.Images.First().ImageUrl));
 
