@@ -112,18 +112,41 @@ namespace House.NewHouse.Views
         {
             MyUserControlBase view;
 
-            var assemblyName = viewInfo.ViewName.ToDescription().Split(',');
-            if (assemblyName.Length > 1)
+
+            if (Equals(viewInfo.Parameter, null))
             {
-                view =
-                  System.Reflection.Assembly.Load(assemblyName[0])
-                      .CreateInstance(assemblyName[1]) as MyUserControlBase;
+
+                var assemblyName = viewInfo.ViewName.ToDescription().Split(',');
+                if (assemblyName.Length > 1)
+                {
+                    view =
+                      System.Reflection.Assembly.Load(assemblyName[0])
+                          .CreateInstance(assemblyName[1]) as MyUserControlBase;
+                }
+                else
+                {
+                    view =
+                      System.Reflection.Assembly.Load(@"House.UserControls")
+                          .CreateInstance(assemblyName[0]) as MyUserControlBase;
+                }
             }
             else
             {
-                view =
-                  System.Reflection.Assembly.Load(@"House.UserControls")
-                      .CreateInstance(assemblyName[0]) as MyUserControlBase;
+                var assemblyName = viewInfo.ViewName.ToDescription().Split(',');
+                if (assemblyName.Length > 1)
+                {
+                    view =
+                      System.Reflection.Assembly.Load(assemblyName[0])
+                          .CreateInstance(assemblyName[1], true, System.Reflection.BindingFlags.Default,
+                        null, new[] { viewInfo.Parameter }, null, null) as MyUserControlBase;
+                }
+                else
+                {
+                    view =
+                      System.Reflection.Assembly.Load(@"House.UserControls")
+                          .CreateInstance(assemblyName[0], true, System.Reflection.BindingFlags.Default,
+                        null, new[] { viewInfo.Parameter }, null, null) as MyUserControlBase;
+                }
             }
 
             if (view == null)

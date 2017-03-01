@@ -25,15 +25,18 @@ namespace House.UserControls.Views
     {
         private int bId;
         private string buildingsName;
-        public LouPanXiangQing()
+        public LouPanXiangQing(object parameter)
         {
             InitializeComponent();
+            this.parameter = parameter.GetInt();
         }
+
+        private int parameter;
 
         private System.Timers.Timer FlipView2ndTimer;
         private void MyUserControlBase_Loaded(object sender, RoutedEventArgs e)
         {
-            InitLouPanData();
+            InitLouPanData(parameter);
 
             FlipView2ndTimer = new System.Timers.Timer(3000);
             FlipView2ndTimer.Elapsed += FlipView2ndTimer_Elapsed;
@@ -65,10 +68,10 @@ namespace House.UserControls.Views
             }
         }
 
-        private void InitLouPanData()
+        private void InitLouPanData(int buildingId)
         {
-            bId = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
-            var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, bId).data;
+            //bId = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
+            var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, buildingId).data;
 
             //var v = buildingInfo.Images.First().ImageUrl;
             //iamge.Source = new BitmapImage(new Uri(buildingInfo.Images.First().ImageUrl));
@@ -150,7 +153,7 @@ namespace House.UserControls.Views
             //买点
             listViewLouPanMaiDian.ItemsSource = buildingInfo.MaiDian;
 
-            listViewHuXingTuiJian.ItemsSource = buildingInfo.HuXing ;
+            listViewHuXingTuiJian.ItemsSource = buildingInfo.HuXing;
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
             //webBrowserDiTu.Navigate("http://map.baidu.com/");
 

@@ -9,6 +9,11 @@
                          d:DesignWidth="300"
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
                          Background="{DynamicResource HouseAccentColorBrush4}">
+
+    <UserControl.DataContext>
+        <Binding Path="MainMenuViewModel"
+                 Source="{StaticResource ResourceKey=Locator}"></Binding>
+    </UserControl.DataContext>
     <Grid>
         <WrapPanel>
             <Button Style="{DynamicResource NewHouseButtonStyle}"
