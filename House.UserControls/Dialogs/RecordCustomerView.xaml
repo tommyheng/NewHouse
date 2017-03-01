@@ -44,6 +44,10 @@
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#F4F4F4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <WrapPanel Orientation="Horizontal">
                 <TextBlock FontSize="18"
                            Margin="16 10 0 0"
@@ -56,6 +60,29 @@
                            Foreground="#666666"
                            VerticalAlignment="Center"/>
             </WrapPanel>
+
+            <WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="10 0 20 0">
+                <Border Margin="0 0 0 0" Width="240"  BorderThickness="1" CornerRadius="8" BorderBrush="White" Background="White">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="25"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox FontSize="16"
+                                 controls:TextBoxHelper.Watermark="请输入客户名/手机号"
+                                 BorderThickness="0"
+                                 Margin="10,0,0,0"/>
+
+                        <Button Grid.Column="1" Margin="0 0 10 0"
+                                Style="{DynamicResource SearchButtonStyle}"
+                                Width="15"
+                                Height="15"></Button>
+                    </Grid>
+
+                </Border>
+
+            </WrapPanel>
+
         </Grid>
         <Grid Grid.Row="1">
             <ScrollViewer FocusVisualStyle="{x:Null}">
@@ -97,7 +124,7 @@
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
                                     </ComboBox>
-                                    
+
                                     <TextBlock  Grid.Column="2" Margin="4"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -110,7 +137,7 @@
                             </Border>
                             <DataTemplate.Triggers>
                                 <DataTrigger Binding="{Binding StateInfo}" Value="已报备">
-                                    <Setter TargetName="tbState" Property="Foreground" Value="#000000" />
+                                    <Setter TargetName="tbState" Property="Foreground" Value="#FC4823" />
                                 </DataTrigger>
                             </DataTemplate.Triggers>
                         </DataTemplate>
@@ -124,10 +151,10 @@
                 <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Margin="10,10,10,0"
-                        Content="确认报备"
-                    Height="40"
-                    Width="118"
+            <Button Grid.Column="1" Margin="0,0,45,0"
+                       
+                    Height="35"
+                    Width="110"
                         Style="{DynamicResource QueRenBaoBeiButtonStyle}"
                         HorizontalAlignment="Right" Click="SubmitBtnClick">
 
