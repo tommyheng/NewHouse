@@ -83,7 +83,7 @@
                                     Width="121"
                                     Foreground="Black" />-->
             <!--<local:ScrollingTextControl></local:ScrollingTextControl>-->
-            <uc:ScrollingTextControl x:Name="scrollingTextControle"
+            <uc:ScrollingTextControl x:Name="scrollingTextControl"
                                      VerticalAlignment="Center"
                                      Foreground="#666666"
                                      FontSize="13"
