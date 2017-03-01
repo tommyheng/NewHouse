@@ -121,9 +121,13 @@ namespace House.UserInfo.Views
 
         private void MyUserControlBase_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //点击小窗体用户头像时，显示管理中心，先转到新房界面，然后在内部跳转到管理中心
             ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
-
             Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.MainMenuNavigate);
+
+            ViewInfo viewInfo2 = new ViewInfo(ViewName.ManagementCenter, ViewType.View);
+            Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
+
         }
     }
 }

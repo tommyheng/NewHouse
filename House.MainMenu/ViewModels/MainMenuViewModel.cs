@@ -43,8 +43,10 @@ namespace House.MainMenu.ViewModels
         private void OnExecuteNewHouseCommand()
         {
             ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
-
             Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.MainMenuNavigate);
+
+            ViewInfo viewInfo2 = new ViewInfo(ViewName.LouPanLieBiao, ViewType.View);
+            Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
         }
 
         #endregion

@@ -75,8 +75,14 @@ namespace House.Shell
         {
             try
             {
+
+                //转到新房页面
                 ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
                 Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.MainMenuNavigate);
+
+                //再转到大菜单界面
+                ViewInfo viewInfo2 = new ViewInfo(ViewName.BigMenuView, ViewType.View);
+                Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
                 this.Hide();
             }
             catch (Exception)
@@ -95,6 +101,8 @@ namespace House.Shell
         private void registerMessenger()
         {
             Messenger.Default.Register<string>(this, MessengerToken.ShutdownApp, ShutdownApp);
+            Messenger.Default.Register<string>(this, MessengerToken.SwitchMainMenuToSmall, SwitchMainMenuToSmall);
+
 
             //Messenger.Default.Register<object>(this, Model.MessengerToken.ClosePopup, ClosePopup);
 
@@ -107,22 +115,19 @@ namespace House.Shell
         private void unRegisterMessenger()
         {
             Messenger.Default.Unregister<string>(this, MessengerToken.MainMenuNavigate, ShutdownApp);
-
+            Messenger.Default.Unregister<string>(this, MessengerToken.SwitchMainMenuToSmall, SwitchMainMenuToSmall);
         }
+
+        #endregion
 
         private void ShutdownApp(string obj)
         {
             Application.Current.Shutdown();
         }
-        #endregion
 
-
-
-
-
-
-
-
-
+        private void SwitchMainMenuToSmall(string obj)
+        {
+            this.Show();
+        }
     }
 }

@@ -80,6 +80,7 @@
                         Height="25"
                         Content="沈阳"
                         Foreground="White"
+                        Click="ButtonBase_OnClick"
                         Style="{DynamicResource TransparentBackgroundButtonStyle}"></Button>
             </StackPanel>
 

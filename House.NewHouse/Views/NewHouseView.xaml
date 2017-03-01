@@ -13,16 +13,19 @@
                       MinHeight="720"
                       Width="1200"
                       MinWidth="1200"
-                      ShowMaxRestoreButton="False"
                       TitleCharacterCasing="Normal"
                       WindowStartupLocation="CenterScreen"
                       WindowState="Maximized"
                       ShowTitleBar="False"
+                      ShowMinButton="False"
+                      ShowCloseButton="False"
+                      ShowMaxRestoreButton="False"
                       xmlns:bigHeader="clr-namespace:House.BigHeader.Views;assembly=House.BigHeader"
+                      xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
                       xmlns:headerNews="clr-namespace:House.HeaderNews.Views;assembly=House.HeaderNews"
                       xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls"
-                      xmlns:local="clr-namespace:House.NewHouse.Views"
-                      Closing="NewHouseView_OnClosing">
+                      Icon="pack://application:,,,/House.Thems;component/Images/Logo.ico"
+                      xmlns:local="clr-namespace:House.NewHouse.Views">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,44 +36,81 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="1200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition />
+            <ColumnDefinition Width="1200" />
+            <ColumnDefinition />
 
         </Grid.ColumnDefinitions>
+
         <Grid Grid.Row="0"
               Grid.Column="0"
               Grid.ColumnSpan="3"
-              Background="{DynamicResource AccentColorBrush}">
-        </Grid>
+              Background="{DynamicResource AccentColorBrush}" />
         <bigHeader:BigHeaderView Grid.Row="0"
                                  Grid.Column="1"
-                                 DataContext="{Binding BigHeaderViewModel}"></bigHeader:BigHeaderView>
-
+                                 DataContext="{Binding BigHeaderViewModel}" />
         <Grid Grid.Row="1"
               Grid.Column="0"
               Grid.ColumnSpan="3"
-              Background="{DynamicResource BorderBackgroudColorBrush}">
-        </Grid>
+              Background="{DynamicResource BorderBackgroudColorBrush}" />
         <headerNews:HeaderNewsView2 Grid.Row="1"
                                     Grid.Column="1"
                                     Hyperlink="https://github.com/tommyheng/NewHouse/"
-                                    ScrollingText="新房天下项目地址 https://github.com/tommyheng/NewHouse/ 点击可直接进入，在 Visual Studio S中 GIT 克隆地址 https://github.com/tommyheng/NewHouse.git 如有问题请联系 01234567890123456789"></headerNews:HeaderNewsView2>
+                                    ScrollingText="新房天下项目地址 https://github.com/tommyheng/NewHouse/ 点击可直接进入，在 Visual Studio S中 GIT 克隆地址 https://github.com/tommyheng/NewHouse.git 如有问题请联系 01234567890123456789" />
 
         <ContentControl x:Name="RootPanel"
                         Grid.Column="1"
                         Grid.Row="2">
-            <!--<local:LouPanView></local:LouPanView>-->
-            <uc:LouPanXiangQing></uc:LouPanXiangQing>
+            <local:LouPanView></local:LouPanView>
+            <!--<uc:LouPanXiangQing></uc:LouPanXiangQing>-->
             <!--<ContentControl x:Name="RootPanel">-->
             <!--<uc:ManagementCentreView></uc:ManagementCentreView>-->
             <!--</ContentControl>-->
+
         </ContentControl>
 
         <Grid Grid.Row="4"
               Grid.Column="0"
               Grid.ColumnSpan="3"
-              Background="{DynamicResource HouseAccentColorBrush7}"></Grid>
+              Background="{DynamicResource HouseAccentColorBrush7}" />
+
+        <StackPanel Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Visibility="Visible"
+                    Panel.ZIndex="3">
+            <Button x:Name="minBtn"
+                    Content="-"
+                    Style="{DynamicResource LightMetroWindowButtonStyle}"
+                    Foreground="White"
+                    Width="23"
+                    ToolTip="最小化"
+                    Click="minBtn_Click" />
+            <Button x:Name="restoreBtn"
+                    Padding="4"
+                    Style="{DynamicResource MetroWindowButtonStyle}"
+                    Foreground="White"
+                    Width="23"
+                    Visibility="Collapsed"
+                    ToolTip="显示小菜单"
+                    Click="restoreBtn_Click">
+                <iconPacks:PackIconMaterial Kind="WindowRestore"
+                                            Width="8"
+                                            Height="8" />
+            </Button>
+            <Button x:Name="closeBtne"
+                    Content="x"
+                    Style="{DynamicResource LightMetroWindowButtonStyle}"
+                    Foreground="White"
+                    Width="23"
+                    ToolTip="关闭"
+                    Click="closeBtne_Click" />
+        </StackPanel>
+
     </Grid>
 
 </controls:MetroWindow>

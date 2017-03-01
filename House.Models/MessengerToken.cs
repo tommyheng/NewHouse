@@ -7,6 +7,16 @@ namespace House.Models
 {
     public enum MessengerToken
     {
+        /// <summary>
+        /// 默认值
+        /// </summary>
+        UnKnown,
+
+        /// <summary>
+        /// 切换主菜单到小窗体
+        /// </summary>
+        SwitchMainMenuToSmall,
+
 
         /// <summary>
         /// 主菜单视图跳转
@@ -22,6 +32,9 @@ namespace House.Models
         /// 新房窗体内部跳转
         /// </summary>
         NewHouseInternalNavigate
+
+
+
 
     }
 }
