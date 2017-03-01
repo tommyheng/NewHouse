@@ -61,8 +61,11 @@
         <ContentControl x:Name="RootPanel"
                         Grid.Column="1"
                         Grid.Row="2">
-            <local:LouPanView></local:LouPanView>
+            <!--页面内容由接收到的消息决定，此处不放任何内容，只供调试使用-->
+            <!--<local:LouPanView />-->
             <!--<uc:LouPanXiangQing></uc:LouPanXiangQing>-->
+            <!--<local:LouPanView></local:LouPanView>-->
+            <uc:LouPanXiangQing></uc:LouPanXiangQing>
             <!--<ContentControl x:Name="RootPanel">-->
             <!--<uc:ManagementCentreView></uc:ManagementCentreView>-->
             <!--</ContentControl>-->
