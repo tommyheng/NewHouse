@@ -51,12 +51,14 @@
                         Style="{DynamicResource LightMetroWindowButtonStyle}"
                         Foreground="White"
                         Width="23"
+                        ToolTip="最小化"
                         Click="minBtn_Click"></Button>
                 <Button x:Name="restoreBtn"
                         Padding="4"
                         Style="{DynamicResource MetroWindowButtonStyle}"
                         Foreground="White"
                         Width="23"
+                        ToolTip="显示大菜单"
                         Click="restoreBtn_Click">
                     <iconPacks:PackIconMaterial Kind="WindowRestore"
                                                 Width="8"
@@ -67,6 +69,7 @@
                         Style="{DynamicResource LightMetroWindowButtonStyle}"
                         Foreground="White"
                         Width="23"
+                        ToolTip="关闭"
                         Click="closeBtne_Click"></Button>
             </StackPanel>
 

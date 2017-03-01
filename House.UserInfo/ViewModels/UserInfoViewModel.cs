@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
+using House.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,11 @@ namespace House.UserInfo.ViewModels
 
         private void OnExecuteNavigateUserHomeCommand()
         {
+            ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
+            Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.MainMenuNavigate);
 
-            Messenger.Default.Send<object>(null, Models.MessengerToken.MainMenuNavigate);
+            ViewInfo viewInfo2 = new ViewInfo(ViewName.ManagementCenter, ViewType.View);
+            Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
         }
 
         #endregion

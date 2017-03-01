@@ -11,33 +11,42 @@ namespace House.Models
 
     /// <summary>
     /// 视图名称
-    /// Description中是页面的类型字符串
+    /// Description中是页面的程序集和类型字符串
     /// </summary>
     public enum ViewName
     {
         Unknown = 0,//枚举默认值为第一个从0开始
 
         /// <summary>
-        /// 管理中心
+        /// 新房，主要业务内容界面，大的单窗体的壳
         /// </summary>
-        [Description("House.UserControls.Views.ManagementCentreView")]
-        ManagementCenter,
+        [Description("House.NewHouse，House.NewHouse.Views.NewHouseView")]
+        NewHouse,
 
         /// <summary>
-        /// 新房
+        /// 管理中心
         /// </summary>
-        NewHouse,
+        [Description("House.UserControls,House.UserControls.Views.ManagementCentreView")]
+        ManagementCenter,
 
         /// <summary>
         /// 楼盘列表（新房主页面）
         /// </summary>
+        [Description("House.NewHouse,House.NewHouse.Views.LouPanView")]
         LouPanLieBiao,
 
         /// <summary>
         /// 楼盘详情
         /// </summary>
-        [Description("House.UserControls.Views.LouPanXiangQing")]
+        [Description("House.UserControls,House.UserControls.Views.LouPanXiangQing")]
         LouPanXiangQing,
+
+        /// <summary>
+        /// 大菜单界面
+        /// </summary>
+        [Description("House.MainMenu,House.MainMenu.Views.MainMenuView2")]
+        BigMenuView,
+
 
     }
 

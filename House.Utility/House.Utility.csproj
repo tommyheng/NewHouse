@@ -64,6 +64,7 @@
     <Compile Include="Common\HttpHelper.cs" />
     <Compile Include="Common\HttpProc.cs" />
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="ExtensionMethod.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="MyClassBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
