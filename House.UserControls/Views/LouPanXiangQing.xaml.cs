@@ -70,6 +70,7 @@ namespace House.UserControls.Views
 
         private void InitLouPanData(int buildingId)
         {
+            bId = buildingId;
             //bId = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 1, 1, null).data.First().ID;
             var buildingInfo = DAL.DataRepository.Instance.GetBuildingsInfo(DAL.GlobalDataPool.Instance.Uid, buildingId).data;
 

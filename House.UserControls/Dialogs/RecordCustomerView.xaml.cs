@@ -26,7 +26,7 @@ namespace House.UserControls
         public int Total { get; set; }
         public int IndexPage { get; set; }
 
-        private int rows = 20;
+        private int rows = 10;
 
         public RecordCustomerView()
         {
@@ -34,6 +34,11 @@ namespace House.UserControls
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
         {
             IndexPage = 1;
             BuildingsName.Text = BName;
@@ -78,7 +83,6 @@ namespace House.UserControls
                     });
                 }
                 listView.ItemsSource = Infos;
-
             }
         }
 
@@ -98,15 +102,32 @@ namespace House.UserControls
                     {
                         var item = parent as ListViewItem;
                         item.IsSelected = true;
-                        var data = listView.SelectedItem;
+                        var data = listView.SelectedItem as KeHuShowListItemInfo;
                         var cb = GetChildObjects<ComboBox>(parent, typeof(ComboBox)).FirstOrDefault();
                         if (cb != null)
                         {
                             var phoneEntity = cb.SelectedItem as DianHuaModel;
+                            if (phoneEntity != null && data != null)
+                            {
+                                var request = DataRepository.Instance.RecordCustomer(
+                                        GlobalDataPool.Instance.Uid,
+                                        data.ID,
+                                        Bid,
+                                        phoneEntity.ID);
+                                if (request.success)
+                                {
+                                    MessageBox.Show("报备客户成功", "温馨提示");
+                                    LoadData();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("报备客户失败", "温馨提示");
+                                }
+                               
+                            }
                         }
                         break;
                     }
-                    //Debug.WriteLine(parent.GetType().ToString());
                 }
             }
 
