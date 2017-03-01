@@ -159,8 +159,8 @@
     <Resource Include="Images\置顶.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\zhidingquxiao.png" />
-    <Content Include="Images\zhiding.png" />
+    <Resource Include="Images\确认报备.png" />
+    <Resource Include="Images\确认报备2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

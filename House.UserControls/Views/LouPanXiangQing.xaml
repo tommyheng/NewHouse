@@ -147,7 +147,7 @@
                                 Height="52"
                                 Width="152"
                                 Style="{DynamicResource BaoBeiButtonStyle}"
-                                HorizontalAlignment="Right">
+                                HorizontalAlignment="Right" Click="RecordCustomerBtnClick">
 
                         </Button>
                         <!--<StackPanel Orientation="Horizontal">

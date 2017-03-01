@@ -468,6 +468,50 @@
         </Setter>
     </Style>
 
+
+    <!--确认报备-->
+    <Style x:Key="QueRenBaoBeiButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="{DynamicResource QueRenBaoBeiButtonNormalBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            Background="{TemplateBinding Background}">
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource QueRenBaoBeiButtonHoverBrush}" />
+                            <!--<Setter Property="Opacity"
+                                    Value="0.95"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource QueRenBaoBeiButtonNormalBrush}" />
+                            <!--<Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="10.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>-->
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--添加新客户-->
     <Style x:Key="AddCustomerButtonStyle"
            TargetType="{x:Type Button}">
@@ -516,12 +560,11 @@
     </Style>
 
     <!--楼盘列表 置顶/取消-->
-    <Style x:Key="ZhiDingStyle"
+    <Style x:Key="ZhiDingButtonStyle"
            TargetType="{x:Type Button}">
-        <!--<Setter Property="FontFamily"
-                Value="{DynamicResource FontFamily}" />
-        <Setter Property="FontSize"
-                Value="{DynamicResource ContentFontSize}" />-->
+        <Setter Property="Width" Value="47" />
+        <Setter Property="Height" Value="23"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -534,15 +577,18 @@
                                           VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="Content"
-                                 Value="1">
-                            <Setter Property="Background"
-                                    Value="{StaticResource LouPan.ZhiDingBrush}" />
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Margin"
+                                    Value="-0.5" />
+                            <Setter Property="Opacity"
+                                    Value="0.95"></Setter>
                         </Trigger>
-                        <Trigger Property="Content"
-                                 Value="0">
-                            <Setter Property="Background"
-                                    Value="{StaticResource LouPan.ZhiDingQuXiaoBrush}" />
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter Property="Opacity"
+                                    Value="0.9"></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

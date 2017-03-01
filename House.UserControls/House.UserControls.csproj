@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\Int32IndexToNumberConverter.cs" />
+    <Compile Include="Dialogs\RecordCustomerView.xaml.cs">
+      <DependentUpon>RecordCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\PropertyConsultantsView.xaml.cs">
       <DependentUpon>PropertyConsultantsView.xaml</DependentUpon>
     </Compile>
@@ -81,6 +85,9 @@
     <Compile Include="Views\ManagementCentreView.xaml.cs">
       <DependentUpon>ManagementCentreView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DataPager.xaml.cs">
+      <DependentUpon>DataPager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LouPanItem.xaml.cs">
       <DependentUpon>LouPanItem.xaml</DependentUpon>
     </Compile>
@@ -92,6 +99,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dialogs\RecordCustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\PropertyConsultantsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,10 +110,6 @@
     <Page Include="Views\BaoBeiItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagementCentreView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LouPanItem.xaml">
       <SubType>Designer</SubType>

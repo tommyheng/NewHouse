@@ -24,6 +24,7 @@ namespace House.UserControls.Views
     public partial class LouPanXiangQing
     {
         private int bId;
+        private string buildingsName;
         public LouPanXiangQing()
         {
             InitializeComponent();
@@ -81,7 +82,7 @@ namespace House.UserControls.Views
             //                     new Uri("http://www.public-domain-photos.com/free-stock-photos-4/travel/bodie/bodie-streets.jpg", UriKind.Absolute)
             //                 };
 
-
+            buildingsName = buildingInfo.Name;
             bName.Text = buildingInfo.QuYu + "  |  " + buildingInfo.Name;
             prise.Text = buildingInfo.Price;
             address.Text = buildingInfo.Address;
@@ -160,6 +161,14 @@ namespace House.UserControls.Views
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
         {
             PropertyConsultantsView win = new PropertyConsultantsView();
+            win.Bid = bId;
+            win.ShowDialog();
+        }
+
+        private void RecordCustomerBtnClick(object sender, RoutedEventArgs e)
+        {
+            RecordCustomerView win = new RecordCustomerView();
+            win.BName = buildingsName;
             win.Bid = bId;
             win.ShowDialog();
         }

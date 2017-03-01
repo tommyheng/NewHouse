@@ -1,0 +1,137 @@
+﻿<controls:MetroWindow
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"      
+    x:Class="House.UserControls.RecordCustomerView"     
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"     
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"     
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:local="clr-namespace:House.UserControls"      
+    mc:Ignorable="d"   
+    Title="我要报备"   
+    Height="385"    
+    Width="700"  
+    GlowBrush="{DynamicResource AccentColorBrush}"     
+    NonActiveWindowTitleBrush="{DynamicResource AccentColorBrush}"    
+    WindowTitleBrush="{DynamicResource AccentColorBrush}"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="CanMinimize"
+    Loaded="MetroWindow_Loaded">
+    <Window.Resources>
+        <!--ListViewItem的样式-->
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <ContentPresenter />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#F4F4F4">
+            <WrapPanel Orientation="Horizontal">
+                <TextBlock FontSize="18"
+                           Margin="16 10 0 0"
+                           Foreground="#000000"
+                           VerticalAlignment="Center"
+                           Text="报备楼盘："/>
+
+                <TextBlock x:Name="BuildingsName" FontSize="18"
+                           Margin="10 10 0 0"
+                           Foreground="#666666"
+                           VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollViewer FocusVisualStyle="{x:Null}">
+                <ListView x:Name="listView"   Focusable="False"
+                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                       Background="Transparent"
+                       BorderThickness="0" 
+                       Margin="16">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="0 0 15 15">
+                                <Grid Width="310">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="110"></ColumnDefinition>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <RadioButton GroupName="SelectedUser" 
+                                             Grid.Column="0" 
+                                             Margin="10,0,0,0"
+                                             Content="{Binding UserName}" 
+                                             Foreground="#666666"
+                                             FontSize="16"/>
+
+                                    <ComboBox Grid.Column="1" Margin="5,10,5,5"
+                                          ItemsSource="{Binding DianHuaList}" 
+                                          SelectedIndex="0">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Path=DianHua}" />
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                    <TextBlock  Grid.Column="2" Margin="4"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                                x:Name="tbState"
+                                               Foreground="#666666"
+                                               Text="{Binding StateInfo}" />
+                                </Grid>
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding StateInfo}" Value="已报备">
+                                    <Setter TargetName="tbState" Property="Foreground" Value="#000000" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="2" Background="#F4F4F4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="10,10,10,0"
+                        Content="确认报备"
+                    Height="40"
+                    Width="118"
+                        Style="{DynamicResource QueRenBaoBeiButtonStyle}"
+                        HorizontalAlignment="Right" Click="SubmitBtnClick">
+
+            </Button>
+
+        </Grid>
+    </Grid>
+</controls:MetroWindow>
