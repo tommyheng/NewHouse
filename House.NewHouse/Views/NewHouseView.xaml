@@ -60,8 +60,8 @@
         <ContentControl x:Name="RootPanel"
                         Grid.Column="1"
                         Grid.Row="2">
-            <local:LouPanView></local:LouPanView>
-            <!--<uc:LouPanXiangQing></uc:LouPanXiangQing>-->
+            <!--<local:LouPanView></local:LouPanView>-->
+            <uc:LouPanXiangQing></uc:LouPanXiangQing>
             <!--<ContentControl x:Name="RootPanel">-->
             <!--<uc:ManagementCentreView></uc:ManagementCentreView>-->
             <!--</ContentControl>-->

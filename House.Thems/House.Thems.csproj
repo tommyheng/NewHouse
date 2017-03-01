@@ -162,6 +162,9 @@
     <Resource Include="Images\确认报备.png" />
     <Resource Include="Images\确认报备2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\搜索条放大镜.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

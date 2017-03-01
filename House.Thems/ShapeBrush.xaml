@@ -4,7 +4,11 @@
                     xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="options">
-
+    <!--搜索条放大镜-->
+    <ImageBrush x:Key="SearchBackground"
+                Stretch="Fill"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/搜索条放大镜.png" />
+    
     <!--登陆背景-->
     <ImageBrush x:Key="LoginBackground"
                 Stretch="Fill"
