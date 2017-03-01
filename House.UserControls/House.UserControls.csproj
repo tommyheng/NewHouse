@@ -94,7 +94,9 @@
     <Compile Include="Views\FooterViewC.xaml.cs">
       <DependentUpon>FooterViewC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManagementCentreView.xaml.cs" />
+    <Compile Include="Views\ManagementCentreView.xaml.cs" >
+ 	<DependentUpon>ManagementCentreView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\RecordCustomerView.xaml">
