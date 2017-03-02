@@ -32,7 +32,6 @@ namespace House.NewHouse.Views
 
         private void LouPanViewLoaded(object sender, RoutedEventArgs e)
         {
-
             LouPan_ListView.ItemsSource = dataContext.LouPanList;
         }
 

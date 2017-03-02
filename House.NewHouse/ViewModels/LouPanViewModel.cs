@@ -10,6 +10,9 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using House.Models;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using FangChan.WPFModel;
 
 namespace House.NewHouse.ViewModels
 {
@@ -40,7 +43,7 @@ namespace House.NewHouse.ViewModels
                 get { return _imageUrl; }
                 set
                 {
-                    Set("ImageUrl", ref _imageUrl, value);
+                    Set(()=>ImageUrl, ref _imageUrl, value);
                     RaisePropertyChanged("ImageSource");
                 }
             }
@@ -67,7 +70,7 @@ namespace House.NewHouse.ViewModels
             public int ZhiDing
             {
                 get { return _zhiDing; }
-                set { Set("ZhiDing", ref _zhiDing, value); }
+                set { Set(() => ZhiDing, ref _zhiDing, value); }
             }
 
         }
@@ -80,15 +83,50 @@ namespace House.NewHouse.ViewModels
             get { return _selectedItem; }
             set
             {
-                Set("SelectedItem", ref _selectedItem, value);
+                Set(() => SelectedItem, ref _selectedItem, value);
                 NavigateToLouPanXiangQing();
             }
         }
 
+        private int _totalCounts = 0;
+        public int TotalCounts
+        {
+            get { return _totalCounts; }
+            set { Set(() => TotalCounts, ref _totalCounts, value); }
+        }
 
+        public int PageSize { get; set; }
+
+        private string _searchingKey = null;
+        public string SearchingKey
+        {
+            get { return _searchingKey; }
+            set { Set(() => SearchingKey, ref _searchingKey, value); }
+        }
+
+        public List<DiQuModel> RegionList { get; set; }
+
+        private int _selectedRegionID;
+        public int SelectedRegionID
+        {
+            get { return _selectedRegionID; }
+            set
+            {
+                Set(() => SelectedRegionID, ref _selectedRegionID, value);
+                UpdateLouPanList(_selectedRegionID);
+            }
+        }
+
+        public string City
+        {
+            get { return DAL.GlobalDataPool.Instance.LoginData.DiQu.Name; }
+        }
         #endregion
 
         #region Command
+        public ICommand SearchCommand { get; private set; }
+
+        public ICommand RegionFilterCommand { get; private set; }
         #endregion
 
         #endregion
@@ -98,6 +136,7 @@ namespace House.NewHouse.ViewModels
         /// </summary>
         public LouPanViewModel()
         {
+            PageSize = 20;
             InitCommand();
             InitData();
         }
@@ -107,7 +146,12 @@ namespace House.NewHouse.ViewModels
         /// </summary>
         private void InitCommand()
         {
+            SearchCommand = new RelayCommand(OnExecuteLouPanSearchCmd);
+        }
 
+        private void OnExecuteLouPanSearchCmd()
+        {
+            UpdateLouPanList(0, SearchingKey, 1);
         }
 
 
@@ -116,14 +160,27 @@ namespace House.NewHouse.ViewModels
         /// </summary>
         private void InitData()
         {
+            //获取区域列表
+            RegionList = GlobalDataPool.Instance.LoginData.DiQuList;
             //获取楼盘数据列表
+            UpdateLouPanList();
+        }
+
+        /// <summary>
+        /// 获取并更新视图列表
+        /// </summary>
+        /// <param name="regionID">区域ID 默认0：全部区域</param>
+        /// <param name="searchingKey">搜索关键字 默认为NULL</param>
+        /// <param name="pageIndex">页码 默认第一页</param>
+        private void UpdateLouPanList(int regionID = 0, string searchingKey = null, int pageIndex = 1)
+        {
             //第一页，10行数据，0代表全部信息， null代表要搜索的 关键词
-            var buildingslist = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, 1, 20, 0, null);
+            var buildingslist = DAL.DataRepository.Instance.GetBuildingsList(DAL.GlobalDataPool.Instance.Uid, pageIndex, PageSize, regionID, searchingKey);
             if (!buildingslist.success) MessageBox.Show("获取楼盘列表信息失败！请喊汤老大！");
 
             //获得楼盘列表 和 总记录个数
             var buildings = buildingslist.data;
-            var totalRows = buildingslist.TotalRows;
+            if (TotalCounts == 0) TotalCounts = buildingslist.TotalRows;
 
             var LouPanDataList = (from s in buildings
                                   select new LouPanDataItem
@@ -139,8 +196,10 @@ namespace House.NewHouse.ViewModels
                                       ZhiDing = s.ZhiDing
                                   }).ToList();
 
+            LouPanList = null;
             LouPanList = new ObservableCollection<LouPanDataItem>(LouPanDataList);
         }
+
 
         private void NavigateToLouPanXiangQing()
         {

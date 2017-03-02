@@ -21,14 +21,40 @@
                 Background="{DynamicResource BorderBackgroudColorBrush}" Margin="0,15,0,15">
             <DockPanel Background="Transparent" VerticalAlignment="Center">
                 <Border BorderBrush="{DynamicResource BorderColorBrush}" BorderThickness="1" Width="300" HorizontalAlignment="Left">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox controls:TextBoxHelper.Watermark="请输入手机号码" Width="270" BorderThickness="0" FontSize="14"/>
-                        <Button Height="26" Width="30" Content="搜索" BorderThickness="0"/>
-                    </StackPanel>
+                    <TextBox
+                         controls:TextBoxHelper.ButtonCommand="{Binding SearchCommand, Mode=OneWay}"
+                         controls:TextBoxHelper.ClearTextButton="True"
+                         controls:TextBoxHelper.UseFloatingWatermark="True"
+                         controls:TextBoxHelper.Watermark="请输入手机号码"
+                        Text="{Binding SearchingKey}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" Command="{Binding SearchCommand, Mode=OneWay}"/>
+                        </TextBox.InputBindings>
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource SearchMetroTextBox}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <Trigger Property="controls:TextBoxHelper.HasText" Value="True">
+                                        <Setter Property="controls:TextBoxHelper.ButtonContent" Value="r" />
+                                        <Setter Property="controls:TextBoxHelper.ButtonContentTemplate" Value="{x:Null}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
                 </Border>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
                     <TextBlock Text="选择区域  " TextAlignment="Center" VerticalAlignment="Center" Background="Transparent" FontSize="14"/>
-                    <ComboBox Width="120" FontSize="14"/>
+                    <ComboBox x:Name="regioncb" Width="120" FontSize="14" 
+                          controls:TextBoxHelper.UseFloatingWatermark="True"
+                          controls:TextBoxHelper.Watermark="{Binding City}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"
+                          IsEditable="False"
+                          ItemsSource="{Binding RegionList}"
+                          MaxDropDownHeight="125"
+                          Style="{DynamicResource VirtualisedMetroComboBox}"
+                          SelectedValue="{Binding SelectedRegionID}"
+                          Text="{Binding Path=Name}" />
                 </StackPanel>
             </DockPanel>
         </Border>
@@ -48,6 +74,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <uc:DataPager Grid.Row="2" TotalCount="600" PageSize="20" VerticalAlignment="Center" FontSize="18"></uc:DataPager>
+        <uc:DataPager Grid.Row="2" TotalCount="{Binding TotalCounts}" PageSize="{Binding PageSize}" VerticalAlignment="Center" FontSize="18"></uc:DataPager>
     </Grid>
 </House:MyUserControlBase>
