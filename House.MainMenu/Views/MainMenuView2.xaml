@@ -8,7 +8,7 @@
                          d:DesignHeight="300"
                          d:DesignWidth="300"
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
-                         Background="{DynamicResource HouseAccentColorBrush4}">
+                         Background="#ECECEC">
 
     <UserControl.DataContext>
         <Binding Path="MainMenuViewModel"
@@ -17,26 +17,43 @@
     <Grid>
         <WrapPanel>
             <Button Style="{DynamicResource NewHouseButtonStyle}"
+                    Margin="160 60 0 0"
                     Command="{Binding NewHouseCommand}"
                     Content="新房"></Button>
             <Button Style="{DynamicResource OldHouseButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="二手房"></Button>
             <Button Style="{DynamicResource RentHouseButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="租房"></Button>
             <Button Style="{DynamicResource CalcButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="房贷计算器"></Button>
             <Button Style="{DynamicResource DecorateButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="装修"></Button>
             <Button Style="{DynamicResource HomemakingButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="家政"></Button>
             <Button Style="{DynamicResource TravelButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="旅行"></Button>
             <Button Style="{DynamicResource ActivityButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="活动"></Button>
             <Button Style="{DynamicResource FinanceButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="金融"></Button>
             <Button Style="{DynamicResource TicketButtonStyle}"
+                    Margin="160 60 0 0"
                     Content="门票"></Button>
+            <Button Style="{DynamicResource DaiDingButtonStyle}"
+                    Margin="160 60 0 0"
+                    Content="待定"></Button>
+            <Button Style="{DynamicResource DaiDingButtonStyle}"
+                    Margin="160 60 0 0"
+                    Content="待定"></Button>
+
         </WrapPanel>
     </Grid>
 

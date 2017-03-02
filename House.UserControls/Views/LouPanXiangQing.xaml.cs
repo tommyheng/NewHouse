@@ -156,7 +156,17 @@ namespace House.UserControls.Views
             //买点
             listViewLouPanMaiDian.ItemsSource = buildingInfo.MaiDian;
 
+            HuXingShuLiang.Text = buildingInfo.HuXing.Count.ToString();
+
+
+
+
             listViewHuXingTuiJian.ItemsSource = buildingInfo.HuXing;
+
+
+            //FlipView3nd.ItemsSource = from a in buildingInfo.HuXing.OrderBy(a => a.ImageIndex)
+            //                          select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute);
+
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
             //webBrowserDiTu.Navigate("http://map.baidu.com/");
 

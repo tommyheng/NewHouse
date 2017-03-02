@@ -8,7 +8,7 @@
     <ImageBrush x:Key="SearchBackground"
                 Stretch="Fill"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/搜索条放大镜.png" />
-    
+
     <!--登陆背景-->
     <ImageBrush x:Key="LoginBackground"
                 Stretch="Fill"
@@ -54,6 +54,9 @@
     <ImageBrush x:Key="TicketBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/menpiao.png" />
+    <ImageBrush x:Key="DaiDingBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/daiding.png" />
 
     <ImageBrush x:Key="LoginButtonNormalBrush"
                 Stretch="Uniform"
@@ -86,7 +89,7 @@
     <ImageBrush x:Key="QueRenBaoBeiButtonNormalBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/确认报备.png" />
-    
+
     <ImageBrush x:Key="QueRenBaoBeiButtonHoverBrush"
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/确认报备2.png" />

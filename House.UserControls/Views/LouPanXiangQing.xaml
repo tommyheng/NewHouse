@@ -22,7 +22,6 @@
     </Grid>-->
     <UserControl.Resources>
         <ResourceDictionary>
-
             <!--  better results for this examples  -->
             <!--<Style BasedOn="{StaticResource {x:Type Controls:TransitioningContentControl}}"
                    TargetType="{x:Type Controls:TransitioningContentControl}">
@@ -33,15 +32,36 @@
                 <Setter Property="TextOptions.TextRenderingMode"
                         Value="ClearType" />
             </Style>-->
-
             <DataTemplate x:Key="ImageDataTemplate"
                           x:Shared="False">
                 <Image Stretch="Fill"
                        Source="{Binding Mode=OneWay, FallbackValue={x:Static DependencyProperty.UnsetValue}}" />
             </DataTemplate>
-
+            <!--ListViewItem的样式-->
+            <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                            <ContentPresenter />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="IsSelected"
+                                         Value="true">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -147,7 +167,8 @@
                                 Height="52"
                                 Width="152"
                                 Style="{DynamicResource BaoBeiButtonStyle}"
-                                HorizontalAlignment="Right" Click="RecordCustomerBtnClick">
+                                HorizontalAlignment="Right"
+                                Click="RecordCustomerBtnClick">
 
                         </Button>
                         <!--<StackPanel Orientation="Horizontal">
@@ -168,8 +189,7 @@
                                        FontSize="18"
                                        VerticalAlignment="Center"
                                        Foreground="#666666"></TextBlock>
-                            <Button
-                                    Margin="20 0 0 0"
+                            <Button Margin="20 0 0 0"
                                     Style="{DynamicResource TransparentBackgroundButtonStyle}"
                                     Content="[ 查看 ]"></Button>
                         </StackPanel>
@@ -225,8 +245,7 @@
                                         FontSize="18"
                                         VerticalAlignment="Center"
                                         Foreground="#666666"></TextBlock>
-                            <Button
-                                    Margin="20 0 0 0"
+                            <Button Margin="20 0 0 0"
                                     Content="[ 查看 ]"
                                     Style="{DynamicResource TransparentBackgroundButtonStyle}"
                                     Click="PropertyConsultantsClick"></Button>
@@ -574,7 +593,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"></RowDefinition>
                             <RowDefinition Height="50"></RowDefinition>
-                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="20"></RowDefinition>
                         </Grid.RowDefinitions>
@@ -641,7 +660,8 @@
                                             Background="#F4F4F4"
                                             Margin="0 0 15 15">-->
                                     <Grid Width="570"
-                                          Background="#F4F4F4">
+                                          Background="#F4F4F4"
+                                          Margin="0 10 15 0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40"></RowDefinition>
                                             <RowDefinition Height="30"></RowDefinition>
@@ -752,7 +772,7 @@
                                               Height="355"
                                               MouseEnter="UIElement_OnMouseEnter"
                                               MouseLeave="UIElement_OnMouseLeave">
-                                            <controls:FlipView x:Name="FlipView2nd"
+                                            <controls:FlipView x:Name="FlipView3nd"
                                                                Margin="0 0 5 0"
                                                                IsBannerEnabled="False"
                                                                MouseOverGlowEnabled="false"
@@ -761,9 +781,9 @@
                                                                Orientation="Horizontal"
                                                                DownTransition="Left"
                                                                ItemTemplate="{StaticResource ImageDataTemplate}"
-                                                               ItemsSource="{Binding Images}" />
+                                                               ItemsSource="{Binding Images ,Converter={vc:ImageModel2Uri}}" />
                                             <StackPanel Orientation="Horizontal"
-                                                        DataContext="{Binding ElementName=FlipView2nd, Mode=OneWay}"
+                                                        DataContext="{Binding ElementName=FlipView3nd, Mode=OneWay}"
                                                         HorizontalAlignment="Center"
                                                         Background="White"
                                                         VerticalAlignment="Bottom">
@@ -793,6 +813,7 @@
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
                                                        FontSize="16"
+                                                       Foreground="Black"
                                                        Text="户型朝向：" />
                                             <TextBlock HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -803,6 +824,7 @@
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
                                                        FontSize="16"
+                                                       Foreground="Black"
                                                        Text="装修情况：" />
                                             <TextBlock HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -818,6 +840,7 @@
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
                                                        FontSize="16"
+                                                       Foreground="Black"
                                                        Text="户型优惠：" />
                                             <TextBlock HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
@@ -835,6 +858,7 @@
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"
                                                        FontSize="16"
+                                                       Foreground="Black"
                                                        Text="推荐理由：" />
                                             <TextBlock HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"

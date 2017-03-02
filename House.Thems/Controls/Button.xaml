@@ -177,6 +177,12 @@
         <Setter Property="Background"
                 Value="{DynamicResource TicketBrush}" />
     </Style>
+    <Style x:Key="DaiDingButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource NewHouseButtonStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource DaiDingBrush}" />
+    </Style>
 
     <!--关闭最小化等按钮-->
     <Style x:Key="WindowButtonStyle"
