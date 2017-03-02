@@ -1,0 +1,43 @@
+﻿<House:MyUserControlBase x:Class="House.MainMenu.Views.MainMenuView2"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:local="clr-namespace:House.MainMenu.Views"
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
+                         Background="{DynamicResource HouseAccentColorBrush4}">
+
+    <UserControl.DataContext>
+        <Binding Path="MainMenuViewModel"
+                 Source="{StaticResource ResourceKey=Locator}"></Binding>
+    </UserControl.DataContext>
+    <Grid>
+        <WrapPanel>
+            <Button Style="{DynamicResource NewHouseButtonStyle}"
+                    Command="{Binding NewHouseCommand}"
+                    Content="新房"></Button>
+            <Button Style="{DynamicResource OldHouseButtonStyle}"
+                    Content="二手房"></Button>
+            <Button Style="{DynamicResource RentHouseButtonStyle}"
+                    Content="租房"></Button>
+            <Button Style="{DynamicResource CalcButtonStyle}"
+                    Content="房贷计算器"></Button>
+            <Button Style="{DynamicResource DecorateButtonStyle}"
+                    Content="装修"></Button>
+            <Button Style="{DynamicResource HomemakingButtonStyle}"
+                    Content="家政"></Button>
+            <Button Style="{DynamicResource TravelButtonStyle}"
+                    Content="旅行"></Button>
+            <Button Style="{DynamicResource ActivityButtonStyle}"
+                    Content="活动"></Button>
+            <Button Style="{DynamicResource FinanceButtonStyle}"
+                    Content="金融"></Button>
+            <Button Style="{DynamicResource TicketButtonStyle}"
+                    Content="门票"></Button>
+        </WrapPanel>
+    </Grid>
+
+</House:MyUserControlBase>

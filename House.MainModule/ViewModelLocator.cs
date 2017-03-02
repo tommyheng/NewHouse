@@ -95,7 +95,6 @@ namespace House.MainModule
             //SimpleIoc.Default.Unregister<HeaderNews.ViewModels.HeaderNewsViewModel>();
             SimpleIoc.Default.Unregister<MainMenu.ViewModels.MainMenuViewModel>();
             SimpleIoc.Default.Unregister<Footer.ViewModels.FooterViewModel>();
-
         }
 
         protected override void DisposeManagedResources()

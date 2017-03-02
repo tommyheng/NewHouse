@@ -94,6 +94,9 @@
     <Compile Include="Views\FooterViewC.xaml.cs">
       <DependentUpon>FooterViewC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManagementCentreView.xaml.cs" >
+ 	<DependentUpon>ManagementCentreView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\RecordCustomerView.xaml">
@@ -109,8 +112,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DataPager.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LouPanItem.xaml">
       <SubType>Designer</SubType>
@@ -121,6 +124,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FooterViewC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ManagementCentreView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

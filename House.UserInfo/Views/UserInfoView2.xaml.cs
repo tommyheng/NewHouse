@@ -115,16 +115,15 @@ namespace House.UserInfo.Views
 
         private void setUserTitle(string userTitle)
         {
-            this.userTitle.Text = string.IsNullOrWhiteSpace(userTitle) ? "" :  userTitle;
+            this.userTitle.Text = string.IsNullOrWhiteSpace(userTitle) ? "" : userTitle;
         }
 
         #endregion
 
         private void MyUserControlBase_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ViewInfo viewInfo = new ViewInfo(ViewName.NewHouse, ViewType.SingleWindow);
-
-            Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.NewHouseInternalNavigate);
+            ViewInfo viewInfo2 = new ViewInfo(ViewName.ManagementCenter, ViewType.View);
+            Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
         }
     }
 }

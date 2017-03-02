@@ -17,8 +17,11 @@
                       MaxWidth="450"
                       TitleCharacterCasing="Normal"
                       ShowMaxRestoreButton="False"
+                      ShowMinButton="False"
+                      IsMaxRestoreButtonEnabled="False"
+                      ShowCloseButton="False"
+                      ShowTitleBar="False"
                       WindowStartupLocation="CenterScreen"
-                      TitlebarHeight="0"
                       WindowStyle="None"
                       Icon="pack://application:,,,/House.Thems;component/Images/Logo.ico"
                       Loaded="LoginView_OnLoaded">
@@ -132,7 +135,8 @@
                 <StackPanel Grid.Row="0"
                             Orientation="Horizontal"
                             VerticalAlignment="Top"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right"
+                            Visibility="Visible">
                     <Button x:Name="minBtn"
                             Content="-"
                             FontWeight="Bold"
@@ -163,7 +167,8 @@
                          FontSize="16"
                          BorderThickness="0"
                          controls:TextBoxHelper.Watermark="请输密码"
-                         x:Name="LoginPwd" Password="123456"></PasswordBox>
+                         x:Name="LoginPwd"
+                         Password="123456"></PasswordBox>
 
             <Grid Grid.Row=" 1"
                   Grid.Column="3"

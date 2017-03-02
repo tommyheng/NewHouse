@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -10,52 +11,43 @@ namespace House.Models
 
     /// <summary>
     /// 视图名称
+    /// Description中是页面的程序集和类型字符串
     /// </summary>
     public enum ViewName
     {
         Unknown = 0,//枚举默认值为第一个从0开始
-        ManagementCenter,
+
+        /// <summary>
+        /// 新房，主要业务内容界面，大的单窗体的壳
+        /// </summary>
+        [Description("House.NewHouse，House.NewHouse.Views.NewHouseView")]
         NewHouse,
+
+        /// <summary>
+        /// 管理中心
+        /// </summary>
+        [Description("House.UserControls,House.UserControls.Views.ManagementCentreView")]
+        ManagementCenter,
+
+        /// <summary>
+        /// 楼盘列表（新房主页面）
+        /// </summary>
+        [Description("House.NewHouse,House.NewHouse.Views.LouPanView")]
         LouPanLieBiao,
 
+        /// <summary>
+        /// 楼盘详情
+        /// </summary>
+        [Description("House.UserControls,House.UserControls.Views.LouPanXiangQing")]
+        LouPanXiangQing,
 
-        //PatientListView,
-        //PatientAddView,
-        //PatientDeleteView,
-        //PatientEditView,
-
-        //DoctorListView,
-        //DoctorAddView,
-        //DoctorEditView,
-        //DoctorDeleteView,
-
-        //DownloadView,
-
+        /// <summary>
+        /// 大菜单界面
+        /// </summary>
+        [Description("House.MainMenu,House.MainMenu.Views.MainMenuView2")]
+        BigMenuView,
 
 
-        //PatientHomeView,
-        //AutoAnalysisSettingsView,
-        //ChannelSettingsView,
-        //AddAdviseView,
-
-
-        //PatientListView,
-        //PatientAddView,
-        //PatientEditView,
-        //PatientDeleteView,
-
-
-        //PatientStatisticsView,
-        //PatientSummaryView,
-        //PatientDetailedView,
-        //PatientProductConfigView,
-        //PatientStatisticsReportView,
-
-        //DownloadView,
-        //SettingsView,
-        //SystemParameterSettingView,
-        //SwitchLanguageView,
-        //HelpView
     }
 
     /// <summary>

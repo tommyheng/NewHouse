@@ -25,7 +25,7 @@ House.MainModule	主模块。House.Shell内关联主模块即可，其他具体�
 
 House.Models	公用的实体类模块
 
-House.NewHouse	新房模块
+House.NewHouse	新房模块（新房模块将作为单窗体的壳，包括大菜单窗体，管理中心，新房列表，楼盘详情等等所有页面跳转都在此内管理）
 
 House.UserControls	用户控件。可以放置一些小的共同控件。或者单独建立项目放置自定义控件也可
 

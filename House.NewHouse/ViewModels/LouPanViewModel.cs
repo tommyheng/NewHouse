@@ -204,7 +204,7 @@ namespace House.NewHouse.ViewModels
         private void NavigateToLouPanXiangQing()
         {
             var selectedID = _selectedItem.ID;
-            ViewInfo viewInfo = new ViewInfo(ViewName.LouPanLieBiao, ViewType.View, selectedID);
+            ViewInfo viewInfo = new ViewInfo(ViewName.LouPanXiangQing, ViewType.View, selectedID);
 
             Messenger.Default.Send<ViewInfo>(viewInfo, MessengerToken.NewHouseInternalNavigate);
         }

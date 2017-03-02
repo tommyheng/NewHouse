@@ -74,7 +74,7 @@ namespace House.HeaderNews.Views
         private void setScrollingText(string text)
         {
             //this.tickerTape.Text = text;
-            this.scrollingTextControle.Content = text;
+            this.scrollingTextControl.Content = text;
         }
 
         #endregion
