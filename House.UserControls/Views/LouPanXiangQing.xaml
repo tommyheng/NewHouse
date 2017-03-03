@@ -7,6 +7,8 @@
                          xmlns:vc="clr-namespace:House.UserControls.Converter"
                          xmlns:local="clr-namespace:House.UserControls.Views"
                          xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
+                         xmlns:winform="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+                         
                          mc:Ignorable="d"
                          d:DesignHeight="300"
                          d:DesignWidth="300"
@@ -1489,6 +1491,7 @@
 
                                 </WebBrowser>
 
+                                
                             </Border>
 
                         </Grid>

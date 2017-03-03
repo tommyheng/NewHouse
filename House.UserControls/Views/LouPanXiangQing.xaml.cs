@@ -168,11 +168,16 @@ namespace House.UserControls.Views
             //                          select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute);
 
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
-            //webBrowserDiTu.Navigate("http://map.baidu.com/");
+
+            //TODO
+            //webBrowserDiTu.Navigate(string.Format(louPanMapUri, bId));
+            //webBrowserDiTu.Document=
 
             //buildingInfo.XiangQing
 
         }
+
+        private string louPanMapUri = Utility.ConfigHelper.GetAppSetting("LouPanMapURL");
 
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
         {
