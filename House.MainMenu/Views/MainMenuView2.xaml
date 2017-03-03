@@ -7,8 +7,7 @@
                          mc:Ignorable="d"
                          d:DesignHeight="300"
                          d:DesignWidth="300"
-                         xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
-                         Background="#ECECEC">
+                         xmlns:House="clr-namespace:House.Utility;assembly=House.Utility">
 
     <UserControl.DataContext>
         <Binding Path="MainMenuViewModel"

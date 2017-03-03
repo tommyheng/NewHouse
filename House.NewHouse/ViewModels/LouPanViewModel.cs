@@ -43,7 +43,7 @@ namespace House.NewHouse.ViewModels
                 get { return _imageUrl; }
                 set
                 {
-                    Set(()=>ImageUrl, ref _imageUrl, value);
+                    Set(() => ImageUrl, ref _imageUrl, value);
                     RaisePropertyChanged("ImageSource");
                 }
             }
@@ -75,7 +75,13 @@ namespace House.NewHouse.ViewModels
 
         }
 
-        public ObservableCollection<LouPanDataItem> LouPanList;
+        private IEnumerable<LouPanDataItem> louPanList;
+
+        public IEnumerable<LouPanDataItem> LouPanList
+        {
+            get { return louPanList; }
+            set { Set(() => LouPanList, ref louPanList, value); }
+        }
 
         private LouPanDataItem _selectedItem;
         public LouPanDataItem SelectedItem
@@ -182,22 +188,24 @@ namespace House.NewHouse.ViewModels
             var buildings = buildingslist.data;
             if (TotalCounts == 0) TotalCounts = buildingslist.TotalRows;
 
-            var LouPanDataList = (from s in buildings
-                                  select new LouPanDataItem
-                                  {
-                                      ID = s.ID,
-                                      Name = s.Name,
-                                      YongJin = s.YongJin,
-                                      ImageUrl = DAL.DataRepository.Instance.ApiUrl + s.ImageUrl,
-                                      Price = s.Price,
-                                      DaiKanYongJin = s.DaiKanYongJin,
-                                      JieShuanZhouQi = s.JieShuanZhouQi,
-                                      JiangLi = s.JiangLi,
-                                      ZhiDing = s.ZhiDing
-                                  }).ToList();
+            var LouPanDataList = from s in buildings
+                                 select new LouPanDataItem
+                                 {
+                                     ID = s.ID,
+                                     Name = s.Name,
+                                     YongJin = s.YongJin,
+                                     ImageUrl = DAL.DataRepository.Instance.ApiUrl + s.ImageUrl,
+                                     Price = s.Price,
+                                     DaiKanYongJin = s.DaiKanYongJin,
+                                     JieShuanZhouQi = s.JieShuanZhouQi,
+                                     JiangLi = s.JiangLi,
+                                     ZhiDing = s.ZhiDing
+                                 };
 
             LouPanList = null;
-            LouPanList = new ObservableCollection<LouPanDataItem>(LouPanDataList);
+            //LouPanList = new ObservableCollection<LouPanDataItem>(LouPanDataList);
+            LouPanList = LouPanDataList;
+
         }
 
 
