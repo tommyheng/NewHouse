@@ -7,11 +7,9 @@
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
                          xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                          xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls"
-                         mc:Ignorable="d"
-                         d:DesignHeight="300"
-                         d:DesignWidth="1160"
-                         Width="1160"
-                         Loaded="LouPanViewLoaded">
+                         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                         mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="1160"
+                         x:Name="louPanView" Width="1160">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -30,13 +28,15 @@
                         Width="300"
                         HorizontalAlignment="Left">
                     <TextBox controls:TextBoxHelper.ButtonCommand="{Binding SearchCommand, Mode=OneWay}"
+                             controls:TextBoxHelper.ButtonCommandParameter="{Binding Text, ElementName=sk_TextBox}"
                              controls:TextBoxHelper.ClearTextButton="True"
                              controls:TextBoxHelper.UseFloatingWatermark="True"
-                             controls:TextBoxHelper.Watermark="请输入手机号码"
-                             Text="{Binding SearchingKey}">
+                             controls:TextBoxHelper.Watermark="请输入楼盘关键字"
+                             Text="{Binding SearchingKey, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                             x:Name="sk_TextBox">
                         <TextBox.InputBindings>
                             <KeyBinding Key="Return"
-                                        Command="{Binding SearchCommand, Mode=OneWay}" />
+                                        Command="{Binding SearchCommand, Mode=OneWay}" CommandParameter="{Binding Path=Text,ElementName=sk_TextBox}"/>
                         </TextBox.InputBindings>
                         <TextBox.Style>
                             <Style BasedOn="{StaticResource SearchMetroTextBox}"
@@ -85,12 +85,11 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemsSource="{Binding LouPanList}"
                   BorderThickness="0"
-                  SelectionChanged="ListView_SelectionChanged"
                   SelectedItem="{Binding SelectedItem}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"
-                               IsItemsHost="True" />
+                               IsItemsHost="True" ItemWidth="570"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -98,12 +97,33 @@
                     <uc:LouPanItem />
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
 
-        <uc:DataPager Grid.Row="2"
+        <uc:DataPager x:Name="dataPager" Grid.Row="2"
                       TotalCount="{Binding TotalCounts}"
                       PageSize="{Binding PageSize}"
                       VerticalAlignment="Center"
-                      FontSize="18"></uc:DataPager>
+                      FontSize="18">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="PageChanging">
+                    <i:InvokeCommandAction Command="{Binding Path=DataContext.PageChangingCommand, ElementName=louPanView}" 
+                                           CommandParameter="{Binding Path=NewPageIndex, ElementName=dataPager}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </uc:DataPager>
     </Grid>
 </House:MyUserControlBase>

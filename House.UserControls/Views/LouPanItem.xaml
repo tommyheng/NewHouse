@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="415"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Style="{DynamicResource DefaultBorderStyle}">
-                <Image Source="{Binding ImageSource}"/>
+                <Image Source="{Binding ImageSource}" Margin="2"/>
             </Border>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -43,7 +43,10 @@
                 <DockPanel Grid.Row="0">
                     <TextBlock Text="{Binding Name}" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
                     <Button x:Name="ZhiDingBtn" DockPanel.Dock="Right" HorizontalAlignment="Right"
-                            Style="{DynamicResource ZhiDingButtonStyle}" Background="{Binding ZhiDing, Converter={StaticResource zhiDingConverter}}"/>
+                            Style="{DynamicResource ZhiDingButtonStyle}" 
+                            Tag="{Binding ID}"
+                            Background="{Binding ZhiDing, Converter={StaticResource zhiDingConverter}}"
+                            Click="OnZhiDingClicked"/>
                 </DockPanel>
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="成交奖励 ："/>

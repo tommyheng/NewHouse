@@ -19,7 +19,7 @@ namespace House.UserControls.Views
     /// <summary>
     /// DataPager.xaml 的交互逻辑
     /// </summary>
-    public partial class DataPager : MyUserControlBase
+    public partial class DataPager : MyUserControlBase, INotifyPropertyChanged
     {
         public DataPager()
         {
@@ -108,7 +108,16 @@ namespace House.UserControls.Views
         public static readonly DependencyProperty PageCountProperty =
             DependencyProperty.Register("PageCount", typeof(int), typeof(DataPager), new UIPropertyMetadata(1));
 
-
+        /// <summary>
+        /// 需要跳转的新页
+        /// </summary>
+        public int NewPageIndex
+        {
+            get { return (int)GetValue(NewPageIndexProperty); }
+            set { SetValue(NewPageIndexProperty, value); }
+        }
+        public static readonly DependencyProperty NewPageIndexProperty =
+            DependencyProperty.Register("NewPageIndex", typeof(int), typeof(DataPager), new UIPropertyMetadata(1));
 
         /// <summary>
         /// 是否可以点击首页和上一页按钮
@@ -199,6 +208,7 @@ namespace House.UserControls.Views
             if (pageIndex < 1) pageIndex = 1;
             if (pageIndex > this.PageCount) pageIndex = this.PageCount;
 
+            NewPageIndex = pageIndex;
             var oldPageIndex = this.PageIndex;
             var newPageIndex = pageIndex;
             var eventArgs = new PageChangingEventArgs() { OldPageIndex = oldPageIndex, NewPageIndex = newPageIndex };

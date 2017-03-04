@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GalaSoft.MvvmLight;
 using System.Diagnostics;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace House.NewHouse.Views
 {
@@ -30,15 +31,5 @@ namespace House.NewHouse.Views
             this.DataContext = dataContext;
         }
 
-        private void LouPanViewLoaded(object sender, RoutedEventArgs e)
-        {
-            //LouPan_ListView.ItemsSource = dataContext.LouPanList;
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectItem = (e.Source as ListView).SelectedItem as LouPanViewModel.LouPanDataItem;
-            Debug.WriteLine("select id {0}", selectItem.ID);
-        }
     }
 }

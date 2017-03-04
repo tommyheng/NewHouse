@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using House.Utility;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace House.UserControls.Views
 {
@@ -26,6 +27,10 @@ namespace House.UserControls.Views
             InitializeComponent();
         }
 
+        private void OnZhiDingClicked(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send((sender as Button).Tag.CastTo<int>(), "LouPanItemZhiDing");
+        }
     }
 
     [ValueConversion(typeof(bool), typeof(string))]
@@ -60,7 +65,7 @@ namespace House.UserControls.Views
             if (value == null) return null;
 
             var zhiding = int.Parse(value.ToString());
-            var bitmap = zhiding > 0 ? _ZhiDing : _ZhiDingQuXiao;
+            var bitmap = zhiding > 0 ? _ZhiDingQuXiao : _ZhiDing;
 
             var imageBrush = new ImageBrush(bitmap);
             imageBrush.Stretch = Stretch.Uniform;

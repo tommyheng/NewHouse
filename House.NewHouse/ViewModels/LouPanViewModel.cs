@@ -13,6 +13,7 @@ using House.Models;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using FangChan.WPFModel;
+using System.Diagnostics;
 
 namespace House.NewHouse.ViewModels
 {
@@ -75,14 +76,16 @@ namespace House.NewHouse.ViewModels
 
         }
 
-        private IEnumerable<LouPanDataItem> louPanList;
+        //楼盘列表
+        private IEnumerable<LouPanDataItem> _louPanList;
 
         public IEnumerable<LouPanDataItem> LouPanList
         {
-            get { return louPanList; }
-            set { Set(() => LouPanList, ref louPanList, value); }
+            get { return _louPanList; }
+            set { Set(() => LouPanList, ref _louPanList, value); }
         }
 
+        //选中的楼盘节点信息
         private LouPanDataItem _selectedItem;
         public LouPanDataItem SelectedItem
         {
@@ -94,6 +97,7 @@ namespace House.NewHouse.ViewModels
             }
         }
 
+        //所有记录的个数
         private int _totalCounts = 0;
         public int TotalCounts
         {
@@ -101,8 +105,15 @@ namespace House.NewHouse.ViewModels
             set { Set(() => TotalCounts, ref _totalCounts, value); }
         }
 
-        public int PageSize { get; set; }
+        //每页显示的记录个数
+        private int _pageSize = 20;
+        public int PageSize
+        {
+            get { return _pageSize; }
+            set { Set(() => PageSize, ref _pageSize, value); }
+        }
 
+        //搜索字符串
         private string _searchingKey = null;
         public string SearchingKey
         {
@@ -110,8 +121,10 @@ namespace House.NewHouse.ViewModels
             set { Set(() => SearchingKey, ref _searchingKey, value); }
         }
 
+        //所在城市包含的区域列表
         public List<DiQuModel> RegionList { get; set; }
 
+        //选择的区域ID
         private int _selectedRegionID;
         public int SelectedRegionID
         {
@@ -123,6 +136,15 @@ namespace House.NewHouse.ViewModels
             }
         }
 
+        //当前浏览页面的页码
+        private int _currentPageIndex = 1;
+        public int CurrentPageIndex
+        {
+            get { return _currentPageIndex; }
+            set { Set(() => CurrentPageIndex, ref _currentPageIndex, value); }
+        }
+
+        //用户所在城市
         public string City
         {
             get { return DAL.GlobalDataPool.Instance.LoginData.DiQu.Name; }
@@ -130,9 +152,14 @@ namespace House.NewHouse.ViewModels
         #endregion
 
         #region Command
+        //楼盘搜索命令
         public ICommand SearchCommand { get; private set; }
 
+        //区域筛选命令
         public ICommand RegionFilterCommand { get; private set; }
+
+        //翻页命令
+        public ICommand PageChangingCommand { get; private set; }
         #endregion
 
         #endregion
@@ -142,9 +169,18 @@ namespace House.NewHouse.ViewModels
         /// </summary>
         public LouPanViewModel()
         {
-            PageSize = 20;
+            InitMessenger();
             InitCommand();
             InitData();
+            
+        }
+
+        /// <summary>
+        /// 初始化 Messenger
+        /// </summary>
+        private void InitMessenger()
+        {
+            Messenger.Default.Register<int>(this, "LouPanItemZhiDing", LouPanItemZhiDing);
         }
 
         /// <summary>
@@ -152,14 +188,20 @@ namespace House.NewHouse.ViewModels
         /// </summary>
         private void InitCommand()
         {
-            SearchCommand = new RelayCommand(OnExecuteLouPanSearchCmd);
+            SearchCommand = new RelayCommand<string>(OnExecuteLouPanSearchCmd);
+            PageChangingCommand = new RelayCommand<string>(OnExecutePageChangeCmd);
         }
 
-        private void OnExecuteLouPanSearchCmd()
+        private void OnExecuteLouPanSearchCmd(string searchingKey)
         {
-            UpdateLouPanList(0, SearchingKey, 1);
+            UpdateLouPanList(SelectedRegionID, searchingKey, 1);
         }
 
+        private void OnExecutePageChangeCmd(string pageIndex)
+        {
+            CurrentPageIndex = int.Parse(pageIndex);
+            UpdateLouPanList(SelectedRegionID, null, CurrentPageIndex);
+        }
 
         /// <summary>
         /// 初始化数据
@@ -170,6 +212,14 @@ namespace House.NewHouse.ViewModels
             RegionList = GlobalDataPool.Instance.LoginData.DiQuList;
             //获取楼盘数据列表
             UpdateLouPanList();
+        }
+        /// <summary>
+        /// 置顶/取消置顶
+        /// </summary>
+        /// <param name="louPanID">选中的楼盘ID</param>
+        private void LouPanItemZhiDing(int louPanID)
+        {
+            Debug.WriteLine("发出置顶/取消置顶请求，楼盘ID：{0}", louPanID);
         }
 
         /// <summary>
@@ -186,7 +236,7 @@ namespace House.NewHouse.ViewModels
 
             //获得楼盘列表 和 总记录个数
             var buildings = buildingslist.data;
-            if (TotalCounts == 0) TotalCounts = buildingslist.TotalRows;
+            TotalCounts = buildingslist.TotalRows;
 
             var LouPanDataList = from s in buildings
                                  select new LouPanDataItem
@@ -202,8 +252,6 @@ namespace House.NewHouse.ViewModels
                                      ZhiDing = s.ZhiDing
                                  };
 
-            LouPanList = null;
-            //LouPanList = new ObservableCollection<LouPanDataItem>(LouPanDataList);
             LouPanList = LouPanDataList;
 
         }
