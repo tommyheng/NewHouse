@@ -62,7 +62,7 @@
                            VerticalAlignment="Center"/>
             </WrapPanel>
 
-            <WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="10 0 20 0">
+            <!--<WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="10 0 20 0">
                 <Border Margin="0 0 0 0" Width="240"  BorderThickness="1" CornerRadius="8" BorderBrush="White" Background="White">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -83,7 +83,7 @@
 
                 </Border>
 
-            </WrapPanel>
+            </WrapPanel>-->
 
         </Grid>
         <Grid Grid.Row="1">
@@ -153,7 +153,7 @@
                 <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <uc:DataPager Margin="20 0 0 0" PageChanged="dataPager_PageChanged" PageChanging="dataPager_PageChanging"></uc:DataPager>
+            <uc:DataPager x:Name="myPager" Margin="20 0 0 0" PageChanged="dataPager_PageChanged" PageChanging="dataPager_PageChanging"></uc:DataPager>
                 <Button Grid.Column="1" Margin="0,0,45,0"                       
                     Height="35"
                     Width="110"
