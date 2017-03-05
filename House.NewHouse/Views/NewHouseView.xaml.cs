@@ -204,7 +204,9 @@ namespace House.NewHouse.Views
 
                         GC.Collect();
                     }
+                    bigHeaderView.Title = view.Title;
                     RootPanel.Content = view;
+
                     break;
 
                 case ViewType.SingleWindow://单个视图。主要为了显示帮助窗口

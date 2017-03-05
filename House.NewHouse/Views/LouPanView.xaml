@@ -8,8 +8,12 @@
                          xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                          xmlns:uc="clr-namespace:House.UserControls.Views;assembly=House.UserControls"
                          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-                         mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="1160"
-                         x:Name="louPanView" Width="1160">
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
+                         d:DesignWidth="1160"
+                         x:Name="louPanView"
+                         Width="1160"
+                         Title="新房">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -36,7 +40,8 @@
                              x:Name="sk_TextBox">
                         <TextBox.InputBindings>
                             <KeyBinding Key="Return"
-                                        Command="{Binding SearchCommand, Mode=OneWay}" CommandParameter="{Binding Path=Text,ElementName=sk_TextBox}"/>
+                                        Command="{Binding SearchCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding Path=Text,ElementName=sk_TextBox}" />
                         </TextBox.InputBindings>
                         <TextBox.Style>
                             <Style BasedOn="{StaticResource SearchMetroTextBox}"
@@ -89,7 +94,8 @@
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"
-                               IsItemsHost="True" ItemWidth="570"/>
+                               IsItemsHost="True"
+                               ItemWidth="570" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -99,29 +105,36 @@
             </ListView.ItemTemplate>
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                    <Setter Property="Margin"
+                            Value="0" />
                     <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Transparent"/>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="Transparent" />
                         </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="Transparent"/>
+                        <Trigger Property="IsSelected"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="Transparent" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <uc:DataPager x:Name="dataPager" Grid.Row="2"
+        <uc:DataPager x:Name="dataPager"
+                      Grid.Row="2"
                       TotalCount="{Binding TotalCounts}"
                       PageSize="{Binding PageSize}"
                       VerticalAlignment="Center"
                       FontSize="18">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="PageChanging">
-                    <i:InvokeCommandAction Command="{Binding Path=DataContext.PageChangingCommand, ElementName=louPanView}" 
-                                           CommandParameter="{Binding Path=NewPageIndex, ElementName=dataPager}"/>
+                    <i:InvokeCommandAction Command="{Binding Path=DataContext.PageChangingCommand, ElementName=louPanView}"
+                                           CommandParameter="{Binding Path=NewPageIndex, ElementName=dataPager}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </uc:DataPager>
