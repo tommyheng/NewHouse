@@ -150,5 +150,10 @@ namespace House.UserControls
             }
             return childList;
         }
+
+        private void onSearchClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
