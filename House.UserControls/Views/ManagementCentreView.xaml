@@ -5,26 +5,40 @@
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:local="clr-namespace:House.UserControls.Views"
                          xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:uc="clr-namespace:House.UserControls.Views"
                          mc:Ignorable="d"
                          Title="管理中心"
                          d:DesignHeight="300"
                          d:DesignWidth="1160"
-                         x:Name="louPanView"
+                         x:Name="userCenter"
                          Width="1160"
+                         Loaded="userCenter_Loaded"
                          xmlns:House="clr-namespace:House.Utility;assembly=House.Utility">
-    <!--<UserControl.DataContext>
-        <Binding Path="FooterViewModel"
-                 Source="{StaticResource ResourceKey=Locator}"></Binding>
-    </UserControl.DataContext>-->
-    <!--<Grid Background="{DynamicResource AccentColorBrush2}">
-        -->
-    <!--<TextBlock Text="下载手机版"></TextBlock>-->
-    <!--
-    </Grid>-->
+
     <Grid>
+        <Grid.Resources>
+            <!--ListViewItem的样式-->
+            <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                            <ContentPresenter />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition Width="1160"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -46,7 +60,100 @@
                      IsEnabled="False"></TabItem>
             <TabItem Header="我报备的新房"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource NewHouseIconBrush}"></TabItem>
+                     Background="{DynamicResource NewHouseIconBrush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Background="#F4F4F4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <WrapPanel Orientation="Horizontal"  VerticalAlignment="Center">
+                            <TextBlock FontSize="18" Margin="20 0 0 0"
+                                        Foreground="#FF37A508"
+                                        VerticalAlignment="Center"
+                                        Text="我的报备新房"/>
+                        </WrapPanel>
+
+                        <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10 0 60 0">
+                            <Border Margin="0 0 0 0" Width="240"  BorderThickness="1" CornerRadius="8" BorderBrush="White" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="25"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox FontSize="16" Controls:TextBoxHelper.Watermark="楼盘名/客户名/经纪人名" BorderThickness="0" Margin="10,0,0,0"/>
+
+                                    <Button Grid.Column="1" Margin="0 0 10 0"
+                                Style="{DynamicResource SearchButtonStyle}"
+                                Width="15"
+                                Height="15"
+                                Click="onSearchClick"></Button>
+                                </Grid>
+
+                            </Border>
+
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Row="2" Background="#F4F4F4">
+                        <uc:DataPager x:Name="myPager" Margin="20 0 0 0"  PageChanging="dataPager_PageChanging"></uc:DataPager>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <ScrollViewer FocusVisualStyle="{x:Null}">
+                            <ListView x:Name="listView"   Focusable="False"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                      Background="Transparent" BorderThickness="0"  Margin="16">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="0 0 15 15">
+                                            <Grid Margin="10">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="1"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="45"></RowDefinition>
+                                                    <RowDefinition Height="45"></RowDefinition>
+                                                    <RowDefinition Height="45"></RowDefinition>
+                                                    <RowDefinition Height="45"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid Background="#E3E3E3" Grid.Row="0" Grid.Column="1"></Grid>
+                                                <Grid Background="#E3E3E3" Grid.Row="1" Grid.Column="1"></Grid>
+                                                <Grid Background="#E3E3E3" Grid.Row="2" Grid.Column="1"></Grid>
+                                                <WrapPanel>
+                                                    <TextBlock>楼盘名称：</TextBlock>
+                                                    <TextBlock Text="{Binding LouPanName}"></TextBlock>
+                                                </WrapPanel>
+                                                <WrapPanel Grid.Column="2">
+                                                    <TextBlock>应结佣金：</TextBlock>
+                                                    <TextBlock Text="{Binding YongJin}"></TextBlock>
+                                                </WrapPanel>
+
+                                                <WrapPanel Grid.Row="3" Grid.ColumnSpan="3">
+                                                    <TextBlock>111111111111111111111111111111111111111111111111111111111111</TextBlock>
+
+                                                </WrapPanel>
+                                            </Grid>
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
             <TabItem Header="分割线"
                      Style="{x:Null}"
                      Height="1"
