@@ -155,5 +155,15 @@ namespace House.UserControls
         {
 
         }
+
+        private void dataPager_PageChanged(object sender, Views.PageChangedEventArgs e)
+        {
+
+        }
+
+        private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
+        {
+
+        }
     }
 }

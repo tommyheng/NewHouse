@@ -6,7 +6,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"     
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-    xmlns:local="clr-namespace:House.UserControls"      
+    xmlns:local="clr-namespace:House.UserControls"     
+    xmlns:uc="clr-namespace:House.UserControls.Views"
     mc:Ignorable="d"   
     Title="我要报备"   
     Height="385"    
@@ -152,8 +153,8 @@
                 <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1" Margin="0,0,45,0"
-                       
+            <uc:DataPager Margin="20 0 0 0" PageChanged="dataPager_PageChanged" PageChanging="dataPager_PageChanging"></uc:DataPager>
+                <Button Grid.Column="1" Margin="0,0,45,0"                       
                     Height="35"
                     Width="110"
                         Style="{DynamicResource QueRenBaoBeiButtonStyle}"
