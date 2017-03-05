@@ -30,20 +30,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <!--<RowDefinition Height="20"></RowDefinition>-->
         </Grid.RowDefinitions>
-        <!--<Grid.Resources>
-                    Controls:TabControlHelper.IsUnderlined="True"
-        
-            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
-        </Grid.Resources>-->
         <TabControl Grid.Row="1"
                     Grid.Column="1"
                     Style="{DynamicResource ManagementCentreTabControl}"
                     TabStripPlacement="Left">
             <TabItem Header="个人资料"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource 个人图标Brush}"></TabItem>
+                     Background="{DynamicResource PersonalIconBrush}"></TabItem>
             <TabItem Header="分割线"
                      Style="{x:Null}"
                      Height="1"
@@ -52,7 +46,7 @@
                      IsEnabled="False"></TabItem>
             <TabItem Header="我报备的新房"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource 新房图标Brush}"></TabItem>
+                     Background="{DynamicResource NewHouseIconBrush}"></TabItem>
             <TabItem Header="分割线"
                      Style="{x:Null}"
                      Height="1"
@@ -61,7 +55,7 @@
                      IsEnabled="False"></TabItem>
             <TabItem Header="我的客户"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource 客户图标Brush}"></TabItem>
+                     Background="{DynamicResource CustomerIconBrush}"></TabItem>
             <TabItem Header="所有客户"
                      Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
             <TabItem Header="添加客户"
