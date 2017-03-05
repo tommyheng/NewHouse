@@ -150,5 +150,20 @@ namespace House.UserControls
             }
             return childList;
         }
+
+        private void onSearchClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dataPager_PageChanged(object sender, Views.PageChangedEventArgs e)
+        {
+
+        }
+
+        private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
+        {
+
+        }
     }
 }
