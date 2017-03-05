@@ -60,10 +60,11 @@ namespace House.BigHeader.Views
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Messenger.Default.Send<string>(null, MessengerToken.ShutdownApp);
+            //Messenger.Default.Send<string>(null, MessengerToken.ShutdownApp);
 
             //Messenger.Default.Send<string>(null, Models.MessengerToken.SwitchMainMenuToSmall);
-
+            ViewInfo viewInfo2 = new ViewInfo(ViewName.LouPanLieBiao, ViewType.View);
+            Messenger.Default.Send<ViewInfo>(viewInfo2, MessengerToken.NewHouseInternalNavigate);
 
         }
 
