@@ -69,15 +69,8 @@ namespace House.BigHeader.Views
 
         private void changeAreaButton_OnClick(object sender, RoutedEventArgs e)
         {
-
             //TODO 点击之后弹出地区选择对话框，改变地区之后从新设置显示地区
-
-
-
-
             btnCurrentArea.Content = GlobalDataPool.Instance.LoginData.DiQu.Name;
-
-
         }
     }
 }

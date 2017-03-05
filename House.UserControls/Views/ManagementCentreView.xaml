@@ -4,6 +4,7 @@
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:local="clr-namespace:House.UserControls.Views"
+                         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                          mc:Ignorable="d"
                          Title="管理中心"
                          d:DesignHeight="300"
@@ -29,28 +30,42 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <!--<RowDefinition Height="20"></RowDefinition>-->
         </Grid.RowDefinitions>
+        <!--<Grid.Resources>
+                    Controls:TabControlHelper.IsUnderlined="True"
+        
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+        </Grid.Resources>-->
         <TabControl Grid.Row="1"
                     Grid.Column="1"
+                    Style="{DynamicResource ManagementCentreTabControl}"
                     TabStripPlacement="Left">
-            <TabItem Header="个人资料" IsEnabled="False"></TabItem>
-            <TabItem Header="我报备的新房"></TabItem>
-            <TabItem Header="我的客户"  IsEnabled="False"></TabItem>
-            <TabItem Header="所有客户">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition Height="60"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DockPanel VerticalAlignment="Center">
-                        <TextBlock>所有客户</TextBlock>
-                    </DockPanel>
-                    
-                </Grid>
-            </TabItem>
-            <TabItem Header="添加客户"></TabItem>
+            <TabItem Header="个人资料"
+                     Style="{DynamicResource ManagementCentreTabItem}"
+                     Background="{DynamicResource 个人图标Brush}"></TabItem>
+            <TabItem Header="分割线"
+                     Style="{x:Null}"
+                     Height="1"
+                     Margin="5 0"
+                     Background="#F4F4F4"
+                     IsEnabled="False"></TabItem>
+            <TabItem Header="我报备的新房"
+                     Style="{DynamicResource ManagementCentreTabItem}"
+                     Background="{DynamicResource 新房图标Brush}"></TabItem>
+            <TabItem Header="分割线"
+                     Style="{x:Null}"
+                     Height="1"
+                     Margin="5 0"
+                     Background="#F4F4F4"
+                     IsEnabled="False"></TabItem>
+            <TabItem Header="我的客户"
+                     Style="{DynamicResource ManagementCentreTabItem}"
+                     Background="{DynamicResource 客户图标Brush}"></TabItem>
+            <TabItem Header="所有客户"
+                     Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
+            <TabItem Header="添加客户"
+                     Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
 
         </TabControl>
     </Grid>
