@@ -116,4 +116,16 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/窗口切换.png" />
 
+    <ImageBrush x:Key="个人图标Brush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/个人图标.png" />
+
+    <ImageBrush x:Key="客户图标Brush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/客户图标.png" />
+
+    <ImageBrush x:Key="新房图标Brush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/新房图标.png" />
+
 </ResourceDictionary>
