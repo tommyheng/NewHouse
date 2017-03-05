@@ -14,15 +14,25 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <ControlTemplate x:Key="PageButtonTemplate" TargetType="{x:Type Button}">
-            <Border Style="{DynamicResource DefaultBorderStyle}">
+            <Border x:Name="cBorder" Style="{DynamicResource DefaultBorderStyle}">
                 <TextBlock x:Name="textBlock" VerticalAlignment="Stretch" Text="{TemplateBinding Content}" HorizontalAlignment="Stretch" 
-                       Cursor="Hand" Foreground="Blue" FontSize="18" Background="Transparent"/>
+                       Cursor="Hand" Foreground="#959595" FontSize="18" Background="Transparent"/>
             </Border>
-            
+
             <ControlTemplate.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Foreground" TargetName="textBlock" Value="#FFABA5A5"/>
                     <Setter Property="Cursor" Value="None"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver"  Value="True">
+                    <Setter Property="Foreground" TargetName="textBlock" Value="#FFFFFF"/>
+                    <Setter TargetName="cBorder" Property="BorderBrush" Value="#BC3C23" />
+                    <Setter TargetName="cBorder" Property="Background" Value="#FC4823" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="cBorder" Property="Background" Value="#FC4823" />
+                    <Setter TargetName="cBorder" Property="BorderBrush" Value="#BC3C23" />
+                    <Setter Property="Foreground" TargetName="textBlock" Value="#FFFFFF"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -41,7 +51,7 @@
         <Button x:Name="btnPrev" Content="上一页" Template="{DynamicResource PageButtonTemplate}" VerticalAlignment="Center" Margin="10,0,0,0" Click="btnPrev_Click" IsEnabled="{Binding CanGoFirstOrPrev, ElementName=userControl}" />
         <Button x:Name="btnNext" Content="下一页" VerticalAlignment="Center" Template="{DynamicResource PageButtonTemplate}" Margin="10,0,0,0" Click="btnNext_Click" IsEnabled="{Binding CanGoLastOrNext, ElementName=userControl}" />
         <Button x:Name="btnLast" VerticalAlignment="Center" Template="{DynamicResource PageButtonTemplate}" Margin="10,0,0,0" Click="btnLast_Click" IsEnabled="{Binding CanGoLastOrNext, ElementName=userControl}" Content="末页" />
-        <TextBox x:Name="txtPageIndex" Width="40" VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding PageIndex, ElementName=userControl, Mode=OneWay}"/>
+        <TextBox x:Name="txtPageIndex" Width="40" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Text="{Binding PageIndex, ElementName=userControl, Mode=OneWay}"/>
         <Button x:Name="btnGoTo" Content="转到" Template="{DynamicResource PageButtonTemplate}" VerticalAlignment="Center" Margin="10,0,0,0" Click="btnGoTo_Click" />
     </StackPanel>
 </House:MyUserControlBase>
