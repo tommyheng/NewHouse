@@ -39,6 +39,7 @@
     <!--分割线、边框颜色 灰色-->
     <Color x:Key="GrayColor">#E3E3E3</Color>
     <Color x:Key="GrayColor1">#F4F4F4</Color>
+    <Color x:Key="GrayWordColor">#666666</Color>
     
     <SolidColorBrush x:Key="BorderColorBrush"
                      Color="{StaticResource GrayColor}"
@@ -46,6 +47,9 @@
     <SolidColorBrush x:Key="BorderBackgroudColorBrush"
                      Color="{StaticResource GrayColor1}"
                      options:Freeze="True" />
+    <SolidColorBrush x:Key="GrayWordColorBrush"
+                     Color="{StaticResource GrayWordColor}"
+                     options:Freeze="True"/>
 
     <!--按钮颜色-->
     <!--橘黄色-->

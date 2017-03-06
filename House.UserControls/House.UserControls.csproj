@@ -80,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrollingTextControl.cs" />
     <Compile Include="ViewModels\FooterViewModel.cs" />
+    <Compile Include="ViewModels\UserInformationViewModel.cs" />
     <Compile Include="Views\BaoBeiItem.xaml.cs">
       <DependentUpon>BaoBeiItem.xaml</DependentUpon>
     </Compile>
@@ -97,6 +98,9 @@
     </Compile>
     <Compile Include="Views\ManagementCentreView.xaml.cs">
       <DependentUpon>ManagementCentreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserInformation.xaml.cs">
+      <DependentUpon>UserInformation.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +135,10 @@
     <Page Include="Views\ManagementCentreView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

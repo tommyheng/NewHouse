@@ -219,6 +219,14 @@ namespace House.NewHouse.ViewModels
         /// <param name="louPanID">选中的楼盘ID</param>
         private void LouPanItemZhiDing(int louPanID)
         {
+            var rst = DataRepository.Instance.SetOrCancelTop(DAL.GlobalDataPool.Instance.Uid, louPanID);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+                return;
+            }
+
+            UpdateLouPanList(SelectedRegionID, SearchingKey, CurrentPageIndex);
             Debug.WriteLine("发出置顶/取消置顶请求，楼盘ID：{0}", louPanID);
         }
 

@@ -100,7 +100,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:LouPanItem />
+                    <uc:LouPanItem x:Name="louPanItem"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemContainerStyle>
