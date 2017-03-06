@@ -486,7 +486,24 @@ namespace House.DAL
                    false,
                    Encoding.UTF8);
         }
-        #endregion
-    }
+
+        //10.上传头像
+        //http://test.fang101.com/App/TouXiangUpLoad
+        //参数：
+        //UserID：用户ID
+        //TouXiang：图片
+
+        //返回：
+        //{"success": true, "message": "成功", "TouXiang": "123456798.jpg"}
+
+//        10.楼盘置顶
+//http://test.fang101.com/App/LouPanZhiDing
+//参数：
+//UserID：用户ID
+//LouPanID：楼盘ID
+//返回：
+//{"success": true, "message": "成功"}
+    #endregion
+}
 }
 
