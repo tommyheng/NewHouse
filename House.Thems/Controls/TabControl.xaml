@@ -974,7 +974,7 @@
         <Setter Property="Background"
                 Value="Transparent" />
         <Setter Property="BorderBrush"
-                Value="Red " />
+                Value="White" />
         <Setter Property="BorderThickness"
                 Value="1" />
         <!--<Setter Property="Foreground"
