@@ -487,23 +487,75 @@ namespace House.DAL
                    Encoding.UTF8);
         }
 
-        //10.上传头像
-        //http://test.fang101.com/App/TouXiangUpLoad
-        //参数：
-        //UserID：用户ID
-        //TouXiang：图片
+        ///<summary>
+        /// 上传头像
+        /// /App/TouXiangUpLoad
+        /// 参数：
+        /// UserID：用户ID
+        /// TouXiang：图片
+        /// 返回：
+        /// {"success": true, "message": "成功", "TouXiang": "123456798.jpg"}
+        ///</summary>
+        public UploadImageModel3 UploadTouXiangImage(int uId, string imgPath)
+        {
+            string url = string.Format("{0}App/TouXiangUpLoad", ApiUrl);
+            FangChan.Common.WebClient wc = new FangChan.Common.WebClient();
+            wc.Encoding = System.Text.Encoding.UTF8;
+            FangChan.Common.MultipartForm mf = new FangChan.Common.MultipartForm();
+            mf.AddFlie("TouXiang", imgPath);
+            mf.AddString("UserID", uId.ToString());
+            string s = wc.Post(url, mf);
 
-        //返回：
-        //{"success": true, "message": "成功", "TouXiang": "123456798.jpg"}
+            return ValueConvert.StrToObj<UploadImageModel3>(s);
+        }
 
-        //10.楼盘置顶
-        //http://test.fang101.com/App/LouPanZhiDing
-        //参数：
-        //UserID：用户ID
-        //LouPanID：楼盘ID
-        //返回：
-        //{"success": true, "message": "成功"}
-    #endregion
-}
+        ///<summary>
+        /// 楼盘置顶(置顶和取消置顶都用这个)
+        /// /App/LouPanZhiDing
+        /// 参数：
+        /// UserID：用户ID
+        /// LouPanID：楼盘ID
+        /// 返回：
+        /// { "success": true, "message": "成功"}
+        ///</summary>
+        public ApiResultModelBase SetOrCancelTop(int uId, int bId)
+        {
+            string url = string.Format("{0}App/LouPanZhiDing", ApiUrl);
+
+            string postData = string.Format("UserID={0}&LouPanID={1}",
+                 uId, bId);
+
+            return httpHelper.PostAndGetEntity<ApiResultModelBase>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 获取公告
+        /// /App/GetGongGao
+        /// 参数：
+        /// UserID：用户ID
+        /// 返回：GongGaoTextList
+        /// </summary>
+        public GongGaoTextList GetNotice(int uId)
+        {
+            string url = string.Format("{0}App/GetGongGao", ApiUrl);
+
+            string postData = string.Format("UserID={0}",uId);
+
+            return httpHelper.PostAndGetEntity<GongGaoTextList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+        #endregion
+    }
 }
 
