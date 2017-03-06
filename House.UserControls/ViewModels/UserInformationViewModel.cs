@@ -1,10 +1,13 @@
-﻿using GalaSoft.MvvmLight;
+﻿using FangChan.WPFModel;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using House.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,6 +20,9 @@ namespace House.UserControls.ViewModels
         #region properties
 
         #region private property
+
+        private UserModel UserInfo = null;
+
         #endregion
 
         #region dataContext
@@ -39,6 +45,13 @@ namespace House.UserControls.ViewModels
             get { return new BitmapImage(new Uri(_imageUrl)); }
         }
 
+        //上传头像路径
+        private string _figurePath = "未选择任何图像文件";
+        public string FigurePath
+        {
+            get { return _figurePath; }
+            set { Set(() => FigurePath, ref _figurePath, value); }
+        }
 
         //手机号码
         private string _telephone = string.Empty;
@@ -124,14 +137,20 @@ namespace House.UserControls.ViewModels
         #endregion
 
         #region Command
-        //楼盘搜索命令
-        public ICommand SearchCommand { get; private set; }
+        //修改手机号命令
+        public ICommand ChangeTelephoneCommand { get; private set; }
 
-        //区域筛选命令
-        public ICommand RegionFilterCommand { get; private set; }
+        //修改个人信息命令
+        public ICommand ChangeUserInfoCommand { get; private set; }
 
-        //翻页命令
-        public ICommand PageChangingCommand { get; private set; }
+        //上传头像命令
+        public ICommand UploadFigureCommand { get; private set; }
+
+        //获取验证码命令
+        public ICommand GetSecurityCodeCommand { get; private set;}
+
+        //修改密码命令
+        public ICommand ChangePasswordCommand { get; private set; }
         #endregion
 
         #endregion
@@ -160,10 +179,53 @@ namespace House.UserControls.ViewModels
         /// </summary>
         private void InitCommand()
         {
-            //SearchCommand = new RelayCommand<string>(OnExecuteLouPanSearchCmd);
-            //PageChangingCommand = new RelayCommand<string>(OnExecutePageChangeCmd);
+            ChangeTelephoneCommand = new RelayCommand(OnExecuteTelephoneChangeCmd);
+            ChangeUserInfoCommand = new RelayCommand(OnExecuteUserInfoChangeCmd);
+            ChangePasswordCommand = new RelayCommand(OnExecutePasswordChangeCmd);
+            UploadFigureCommand = new RelayCommand(OnExecuteUploadFigureCmd);
+            GetSecurityCodeCommand = new RelayCommand(OnExecuteGetSecurityCodeCmd);
         }
 
+        private void OnExecuteGetSecurityCodeCmd()
+        {
+            var rst = DataRepository.Instance.GetRePassSMSCode(UserInfo.DianHua);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+            }
+        }
+
+        private void OnExecuteUploadFigureCmd()
+        {
+            var rst = DataRepository.Instance.UploadTouXiangImage(UserInfo.ID, FigurePath);
+            if (rst.success)
+            {
+                ImageUrl = DAL.DataRepository.Instance.ApiUrl + @"Images/TouXiang/" + rst.TouXiang;
+                return;
+            }
+
+            MessageBox.Show(rst.message);
+        }
+
+        private void OnExecutePasswordChangeCmd()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnExecuteUserInfoChangeCmd()
+        {
+            var rst = DataRepository.Instance.UpdateUserInfo(UserInfo.ID, Name, Sex, null, WorkingAge);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+            }
+        }
+
+        private void OnExecuteTelephoneChangeCmd()
+        {
+            var rst = DataRepository.Instance;
+        }
+        
 
         /// <summary>
         /// 初始化数据
@@ -171,7 +233,14 @@ namespace House.UserControls.ViewModels
         private void InitData()
         {
             //获取用户信息
-            var userInfo = GlobalDataPool.Instance.LoginData.GeRenXinXi.UserInfo;
+            UserInfo = GlobalDataPool.Instance.LoginData.GeRenXinXi.UserInfo;
+
+            ImageUrl = DAL.DataRepository.Instance.ApiUrl + @"Images/TouXiang/" + UserInfo.TouXiang;
+            Name = UserInfo.UserName;
+            Telephone = UserInfo.DianHua;
+            Sex = UserInfo.XingBie;
+            WorkingAge = UserInfo.CongYeNianXian;
+
         }
     }
 }
