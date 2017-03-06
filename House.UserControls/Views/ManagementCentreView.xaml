@@ -109,7 +109,7 @@
                                       Background="Transparent" BorderThickness="0"  Margin="16">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" />
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ItemWidth="550" />
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
                                 <ListView.ItemTemplate>
