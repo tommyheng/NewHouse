@@ -106,7 +106,7 @@
                     <Grid Grid.Row="1">
                         <ScrollViewer FocusVisualStyle="{x:Null}">
                             <ListView x:Name="listView"   Focusable="False"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                      Background="Transparent" BorderThickness="0"  Margin="16">
+                                      Background="Transparent" BorderThickness="0"  Margin="0">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" IsItemsHost="True" ItemWidth="550" />
