@@ -170,6 +170,10 @@
     <Resource Include="Images\客户图标.png" />
     <Resource Include="Images\新房图标.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\查看报备详情按钮.png" />
+    <Resource Include="Images\查看报备详情按钮2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

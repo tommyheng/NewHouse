@@ -128,4 +128,12 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/新房图标.png" />
 
+    <ImageBrush x:Key="BaoBeiXiangQingBtnNormalBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/查看报备详情按钮.png" />
+
+    <ImageBrush x:Key="BaoBeiXiangQingBtnHoverBrush"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/查看报备详情按钮2.png" />
+
 </ResourceDictionary>
