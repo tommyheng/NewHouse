@@ -46,9 +46,8 @@
               Grid.Column="0"
               Grid.ColumnSpan="3"
               Background="{DynamicResource AccentColorBrush}" />
-        <bigHeader:BigHeaderView Grid.Row="0"
-                                 Grid.Column="1"
-                                 DataContext="{Binding BigHeaderViewModel}" />
+        <bigHeader:BigHeaderView x:Name="bigHeaderView" Grid.Row="0"
+                                 Grid.Column="1" />
         <Grid Grid.Row="1"
               Grid.Column="0"
               Grid.ColumnSpan="3"
@@ -57,7 +56,6 @@
                                     Grid.Column="1"
                                     Hyperlink="https://github.com/tommyheng/NewHouse/"
                                     ScrollingText="新房天下项目地址 https://github.com/tommyheng/NewHouse/ 点击可直接进入，在 Visual Studio S中 GIT 克隆地址 https://github.com/tommyheng/NewHouse.git 如有问题请联系 01234567890123456789" />
-
         <ContentControl x:Name="RootPanel"
                         Grid.Column="1"
                         Grid.Row="2">

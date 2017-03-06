@@ -24,9 +24,7 @@ namespace House.UserControls
         public int Bid { get; set; }
         public string BName { get; set; }
         public int Total { get; set; }
-        public int IndexPage { get; set; }
 
-        private int rows = 10;
 
         public RecordCustomerView()
         {
@@ -38,13 +36,14 @@ namespace House.UserControls
             LoadData();
         }
 
-        private void LoadData()
+        private void LoadData(int pageIndex = 1, int rows = 10)
         {
-            IndexPage = 1;
+
             BuildingsName.Text = BName;
 
             var result = DataRepository.Instance.GetBuildingsCustomerList1(Bid,
-                GlobalDataPool.Instance.Uid, IndexPage, rows);
+                GlobalDataPool.Instance.Uid, pageIndex, rows);
+            //var result = DataRepository.Instance.GetBuildingsCustomerList2("",GlobalDataPool.Instance.Uid, pageIndex, rows);
             if (result.success)
             {
                 Total = result.TotalRows;
@@ -82,6 +81,9 @@ namespace House.UserControls
                         StateInfo = result.KeHuList[i].LouPanBaoBei == true ? "已报备" : "未报备"
                     });
                 }
+                myPager.TotalCount = Infos.Count;
+                myPager.PageIndex = pageIndex;
+                myPager.PageSize = rows;
                 listView.ItemsSource = Infos;
             }
         }
@@ -123,7 +125,7 @@ namespace House.UserControls
                                 {
                                     MessageBox.Show("报备客户失败", "温馨提示");
                                 }
-                               
+
                             }
                         }
                         break;
@@ -149,6 +151,21 @@ namespace House.UserControls
                 childList.AddRange(GetChildObjects<T>(child, typename));
             }
             return childList;
+        }
+
+        private void onSearchClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dataPager_PageChanged(object sender, Views.PageChangedEventArgs e)
+        {
+            //LoadData(1);
+        }
+
+        private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
+        {
+            LoadData(myPager.NewPageIndex);
         }
     }
 }

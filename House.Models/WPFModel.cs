@@ -27,6 +27,36 @@ namespace FangChan.WPFModel
         public string ChengJiaoQueRenImage { get; set; }
     }
 
+    /// <summary>
+    /// 公告数据model
+    /// </summary>
+    public class GongGaoTextItem
+    {
+        public int ID { get; set; }
+        public string Text { get; set; }
+        public string Url { get; set; }
+    }
+
+    /// <summary>
+    /// 请求公告数据结果
+    /// </summary>
+    public class GongGaoTextList
+    {
+        public bool success { get; set; }
+
+        public string message { get; set; }
+        public List<GongGaoTextItem> GongGaoList { get; set; }
+    }
+
+    /// <summary>
+    /// 修改头像
+    /// </summary>
+    public class UploadImageModel3 : ApiResultModelBase
+    {
+        //登录是否成功
+        public string TouXiang { get; set; }
+    }
+
 
     /// <summary>
     /// 添加或者修改客户

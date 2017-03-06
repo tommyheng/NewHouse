@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace House.Utility
@@ -225,6 +226,45 @@ namespace House.Utility
     /// </summary>
     public class MyUserControlBase : UserControl, IDisposable
     {
+
+        #region  Title
+
+        /// <summary>
+        /// 管理中心，新房，上面的文字
+        /// </summary>
+        public string Title
+        {
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
+        }
+
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register
+            ("TitleProperty", typeof(string), typeof(MyUserControlBase), new PropertyMetadata("新房"));
+
+        //private static void OnTitlePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+
+        //    var h = (BigHeaderView)d;
+        //    if (e.NewValue != e.OldValue)
+        //    {
+        //        h.setTitleText(e.NewValue as string);
+        //    }
+        //}
+
+        //private void setTitleText(string title)
+        //{
+        //    //this.tickerTape.Text = text;
+        //    this.title.Text = title;
+        //}
+
+        #endregion
+
+
+
+
+
+
+
         #region  释放资源
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using House.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,36 @@ namespace House.UserControls.Views
         {
             InitializeComponent();
         }
+
+        private void onSearchClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void userCenter_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+        }
+        #region 我的报备客户
+        private void dataPager_PageChanging(object sender, PageChangingEventArgs e)
+        {
+            LoadData(myPager.NewPageIndex, 10);
+        }
+        private void LoadData(int pageIndex = 1, int rows = 10)
+        {
+            var result = DataRepository.Instance.GetBuildingsOrdersList2("",
+                GlobalDataPool.Instance.Uid, pageIndex, rows);
+            if (result.success)
+            {
+                myPager.TotalCount = result.TotalRows;
+                myPager.PageIndex = pageIndex;
+                myPager.PageSize = rows;
+                listView.ItemsSource = result.data;
+            }
+        }
+        #endregion
+
+
     }
 }
