@@ -146,7 +146,7 @@ namespace FangChan.WPFModel
         public string ZhiWu { get; set; }
 
         //从业所限
-        public int ChongYeNianXian { get; set; }
+        public int CongYeNianXian { get; set; }
 
         //服务宣言
         public string FuWuXuanYan { get; set; }

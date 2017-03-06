@@ -31,7 +31,9 @@
         <TabControl Grid.Row="1"
                     Grid.Column="1"
                     TabStripPlacement="Left">
-            <TabItem Header="个人资料"></TabItem>
+            <TabItem Header="个人资料">
+                <local:UserInformation/>
+            </TabItem>
             <TabItem Header="我报备的新房"></TabItem>
             <TabItem Header="我报备的新房"></TabItem>
             <TabItem Header="我的客户"></TabItem>
