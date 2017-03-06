@@ -22,7 +22,7 @@
                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                        Background="Transparent"
                        BorderThickness="0" 
-                       Margin="20">
+                       Margin="0">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" IsItemsHost="True" />
@@ -30,8 +30,8 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="0 0 15 15">
-                            <Grid Width="300">
+                        <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="15 15 15 0">
+                            <Grid Width="305">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50"></RowDefinition>
                                     <RowDefinition Height="50"></RowDefinition>
