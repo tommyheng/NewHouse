@@ -140,12 +140,12 @@
                                        x:Name="bName"
                                        VerticalAlignment="Center"
                                        FontSize="22"
-                                       Text="区地址"></TextBlock>
+                                       Text="地区未知"></TextBlock>
 
                             <TextBlock   x:Name="prise"
                                          Grid.Row="1"
                                          VerticalAlignment="Center"
-                                         Text="价格"
+                                         Text="价格未知"
                                          FontSize="22"
                                          Margin="10 0 0 0"
                                          Foreground="#FC4823"></TextBlock>
@@ -157,7 +157,7 @@
                                    Height="20"
                                    Source="pack://application:,,,/House.Thems;component/Images/地址标注图标.png"></Image>
                             <TextBlock  x:Name="address"
-                                        Text="address"
+                                        Text="地址未知"
                                         VerticalAlignment="Center"
                                         Margin="10 0 0 0"
                                         FontSize="16"
@@ -187,7 +187,7 @@
                     <Grid Height="62">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="kehushuliang"
-                                       Text="hunnanqu"
+                                       Text="合作经济人：未知  |  意向客户：未知  |  我的客户：未知"
                                        FontSize="18"
                                        VerticalAlignment="Center"
                                        Foreground="#666666"></TextBlock>
@@ -195,7 +195,6 @@
                                     Style="{DynamicResource TransparentBackgroundButtonStyle}"
                                     Content="[ 查看 ]"></Button>
                         </StackPanel>
-
                     </Grid>
                     <Separator></Separator>
                     <Grid Height="62">
@@ -206,7 +205,7 @@
                                        VerticalAlignment="Center"
                                        Foreground="#666666"></TextBlock>
                             <TextBlock x:Name="yongjing"
-                                       Text="总房款1.5%"
+                                       Text="未知"
                                        FontSize="18"
                                        VerticalAlignment="Center"
                                        Foreground="#FC4823"></TextBlock>
@@ -215,7 +214,7 @@
                                        VerticalAlignment="Center"
                                        Margin="20 0 0 0"
                                        Foreground="#666666"></TextBlock>
-                            <TextBlock Text="50元/人"
+                            <TextBlock Text="未知"
                                        x:Name="daikan"
                                        FontSize="18"
                                        VerticalAlignment="Center"
@@ -234,6 +233,7 @@
 
                             <TextBlock  x:Name="zhiyeguwen"
                                         FontSize="18"
+                                        Text="咨询业务员  未知"
                                         VerticalAlignment="Center"
                                         Margin="10 0 0 0"
                                         Foreground="#666666"></TextBlock>
@@ -283,7 +283,7 @@
                             <RowDefinition Height="0"></RowDefinition>
                             <RowDefinition Height="0"></RowDefinition>
                             <RowDefinition Height="0"></RowDefinition>
-                            
+
                             <RowDefinition Height="50"></RowDefinition>
                             <RowDefinition Height="20"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -301,7 +301,7 @@
                                            Margin="10 0 0 0"
                                            Foreground="#666666"
                                            VerticalAlignment="Center"
-                                           Text="佣金："></TextBlock>
+                                           Text="佣金：未知"></TextBlock>
                             </StackPanel>
 
                         </Grid>
@@ -445,7 +445,6 @@
                                         </StackPanel>-->
                                         </Grid>
                                     </Border>
-
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                             <!--<WrapPanel Grid.Row="3"
@@ -493,38 +492,36 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock FontSize="16"
                                            VerticalAlignment="Center"
-                                           Foreground="#666666"
+                                           Foreground="Black"
                                            Text="报备规则"></TextBlock>
                                 <TextBlock x:Name="BaoBeiGuiZe"
                                            FontSize="16"
                                            Margin="0 10"
                                            VerticalAlignment="Center"
                                            Foreground="#666666"
-                                           Text="报备规则"></TextBlock>
+                                           Text="暂无数据"></TextBlock>
                                 <TextBlock  FontSize="16"
                                             VerticalAlignment="Center"
-                                            Foreground="#666666"
+                                            Foreground="Black"
                                             Text="带看规则"></TextBlock>
                                 <TextBlock x:Name="DiaKanGuiZe"
                                            FontSize="16"
                                            Margin="0 10"
                                            VerticalAlignment="Center"
                                            Foreground="#666666"
-                                           Text="带看规则"></TextBlock>
+                                           Text="暂无数据"></TextBlock>
                                 <TextBlock FontSize="16"
                                            VerticalAlignment="Center"
-                                           Foreground="#666666"
+                                           Foreground="Black"
                                            Text="成交规则"></TextBlock>
                                 <TextBlock x:Name="ChengJiaoGuiZe"
                                            FontSize="16"
                                            Margin="0 10 0 0"
                                            VerticalAlignment="Center"
                                            Foreground="#666666"
-                                           Text="成交规则"></TextBlock>
+                                           Text="暂无数据"></TextBlock>
                             </StackPanel>
-
                         </Grid>
-
                         <Grid Grid.Row="9"
                               Background="#F4F4F4">
                             <StackPanel Orientation="Horizontal">
@@ -534,7 +531,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/成交奖励.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
-                                           Foreground="#666666"
+                                           Foreground="Black"
                                            VerticalAlignment="Center"
                                            Text="成交奖励"></TextBlock>
                             </StackPanel>
@@ -552,7 +549,7 @@
                                            Margin="10 0 0 0"
                                            VerticalAlignment="Center"
                                            Foreground="#666666"
-                                           Text="成交奖励"></TextBlock>
+                                           Text="暂无数据"></TextBlock>
                             </StackPanel>
 
                         </Grid>
@@ -566,7 +563,7 @@
                                        Source="pack://application:,,,/House.Thems;component/Images/结算周期.png"></Image>
                                 <TextBlock FontSize="18"
                                            Margin="10 0 0 0"
-                                           Foreground="#666666"
+                                           Foreground="Black"
                                            VerticalAlignment="Center"
                                            Text="结算周期"></TextBlock>
                             </StackPanel>
@@ -584,7 +581,7 @@
                                            Margin="10 0 0 0"
                                            VerticalAlignment="Center"
                                            Foreground="#666666"
-                                           Text="结算周期"></TextBlock>
+                                           Text="暂无数据"></TextBlock>
                             </StackPanel>
                         </Grid>
                     </Grid>
