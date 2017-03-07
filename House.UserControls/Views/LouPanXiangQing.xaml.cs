@@ -89,11 +89,13 @@ namespace House.UserControls.Views
             //                 };
 
             buildingsName = buildingInfo.Name;
-            bName.Text = buildingInfo.QuYu + "  |  " + buildingInfo.Name;
-            prise.Text = buildingInfo.Price;
-            address.Text = buildingInfo.Address;
+            bName.Text = (string.IsNullOrWhiteSpace(buildingInfo.QuYu) ? "区域未知" : buildingInfo.QuYu) + "  |  "
+                + (string.IsNullOrWhiteSpace(buildingInfo.Name) ? "楼盘名未知" : buildingInfo.Name);
 
-            kehushuliang.Text = "合作经济人：" + buildingInfo.HeZhuoJingJiRenNumber
+            prise.Text = string.IsNullOrWhiteSpace(buildingInfo.Price) ? "？元/平米" : buildingInfo.Price;
+            address.Text = string.IsNullOrWhiteSpace(buildingInfo.Address) ? "地址未知" : buildingInfo.Address;
+
+            kehushuliang.Text = "合作经济人：" +  buildingInfo.HeZhuoJingJiRenNumber
                 + "  |  " + "意向客户：" + buildingInfo.YiXiangKeHuNumber
                 + "  |  " + "我的客户：" + buildingInfo.WoDeKeHuNumber;
 
