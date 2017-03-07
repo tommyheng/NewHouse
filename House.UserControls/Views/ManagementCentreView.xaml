@@ -203,7 +203,9 @@
             <TabItem Header="所有客户"
                      Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
             <TabItem Header="添加客户"
-                     Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
+                     Style="{DynamicResource ManagementCentreTabItem}">
+                <local:AddCustomer/>
+            </TabItem>
 
         </TabControl>
     </Grid>

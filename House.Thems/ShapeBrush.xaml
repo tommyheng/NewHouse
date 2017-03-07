@@ -136,4 +136,28 @@
                 Stretch="Uniform"
                 ImageSource="pack://application:,,,/House.Thems;component/Images/查看报备详情按钮2.png" />
 
+    <ImageBrush x:Key="UserInfo.AddTelephoneBrush.Normal"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/AddTelephoneNormal.png" />
+
+    <ImageBrush x:Key="UserInfo.AddTelephoneBrush.Hover"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/AddTelephoneHover.png" />
+    
+    <ImageBrush x:Key="UserInfo.DelTelephoneBrush.Normal"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/DelTelephoneHover.png" />
+
+    <ImageBrush x:Key="UserInfo.DelTelephoneBrush.Hover"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/DelTelephonNormal.png" />
+
+    <ImageBrush x:Key="UserInfo.AddCustomer.Normal"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/ConfirmNormal.png" />
+
+    <ImageBrush x:Key="UserInfo.AddCustomer.Hover"
+                Stretch="Uniform"
+                ImageSource="pack://application:,,,/House.Thems;component/Images/ConfirmHover.png" />
+
 </ResourceDictionary>
