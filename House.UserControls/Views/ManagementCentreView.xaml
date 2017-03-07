@@ -201,7 +201,125 @@
                      Style="{DynamicResource ManagementCentreTabItem}"
                      Background="{DynamicResource CustomerIconBrush}"></TabItem>
             <TabItem Header="所有客户"
-                     Style="{DynamicResource ManagementCentreTabItem}"></TabItem>
+                     Style="{DynamicResource ManagementCentreTabItem}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Background="#F4F4F4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <WrapPanel Orientation="Horizontal"  VerticalAlignment="Center">
+                            <TextBlock FontSize="18" Margin="20 0 0 0"
+                                        Foreground="#FF37A508"
+                                        VerticalAlignment="Center"
+                                        Text="所有客户"/>
+                        </WrapPanel>
+
+                        <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10 0 60 0">
+                            <Border Margin="0 0 0 0" Width="240"  BorderThickness="1" CornerRadius="8" BorderBrush="White" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="25"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox FontSize="16" Controls:TextBoxHelper.Watermark="客户姓名/手机号码" BorderThickness="0" Margin="10,0,0,0"/>
+
+                                    <Button Grid.Column="1" Margin="0 0 10 0"
+                                Style="{DynamicResource SearchButtonStyle}"
+                                Width="15"
+                                Height="15"
+                                Click="onSearchClick"></Button>
+                                </Grid>
+
+                            </Border>
+
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Row="2" Background="#F4F4F4">
+                        <uc:DataPager x:Name="usersPager" Margin="20 0 0 0"  PageChanging="userDataPager_PageChanging"></uc:DataPager>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0 15 0 0">
+                        <ScrollViewer FocusVisualStyle="{x:Null}">
+                            <ListView x:Name="userlistView"   Focusable="False"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                      Background="Transparent" BorderThickness="0"  Margin="0">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ItemWidth="475" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="0 0 15 15">
+                                            <Grid  Margin="10 10 0 0">
+                                                <Grid.Resources>
+                                                    <Style TargetType="{x:Type TextBlock }">
+                                                        <Setter Property="FontSize" Value="17"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                    </Style>
+                                                </Grid.Resources>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="185"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="35"></RowDefinition>
+                                                    <RowDefinition Height="12"></RowDefinition>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="30"></ColumnDefinition>
+                                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image x:Name="imgHead" Width="22" Height="22" Source="pack://application:,,,/House.Thems;component/Images/man.png" Margin="3,0,2,5"></Image>
+                                                    <TextBlock Grid.Column="1" Text="{Binding UserName}" Margin="0,5,5,5" ></TextBlock>
+                                                    <ComboBox  Grid.Column="2" Margin="0,0,5,5" ItemsSource="{Binding DianHuaList}" SelectedIndex="0">
+                                                        <ComboBox.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Path=DianHua}" />
+                                                            </DataTemplate>
+                                                        </ComboBox.ItemTemplate>
+                                                    </ComboBox>
+                                                </Grid>
+
+                                                <WrapPanel Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Right">
+                                                    <TextBlock Foreground="#FFFE4620" Margin="20,5,5,5" >编辑</TextBlock>
+                                                    <TextBlock Foreground="#FFFE4620" Margin="5,5,15,5" >详情</TextBlock>
+                                                </WrapPanel>
+
+                                                <StackPanel  Grid.Row="1"  Grid.ColumnSpan="2" >
+                                                    <Line X1="0" Y1="10" X2="440" Y2="10" StrokeDashArray="8" Stroke="#666666"  StrokeThickness="0.5"></Line>
+                                                </StackPanel>
+
+                                                <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                                                    <TextBlock  Foreground="#959595" Text="{Binding MaiFangRunning}"></TextBlock>
+                                                </WrapPanel>
+                                            </Grid>
+                                        </Border>
+
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding XingBie}" Value="女士">
+                                                <Setter TargetName="imgHead" Property="Source" Value="pack://application:,,,/House.Thems;component/Images/woman.png" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+                    </Grid>
+
+                </Grid>
+
+            </TabItem>
             <TabItem Header="添加客户"
                      Style="{DynamicResource ManagementCentreTabItem}">
                 <local:AddCustomer/>

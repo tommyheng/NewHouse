@@ -175,6 +175,10 @@
     <Resource Include="Images\查看报备详情按钮2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\woman.png" />
+    <Resource Include="Images\man.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\DelTelephonNormal.png" />
     <Resource Include="Images\DelTelephoneHover.png" />
     <Resource Include="Images\AddTelephoneNormal.png" />

@@ -123,7 +123,7 @@ namespace House.Login.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            //this.DialogResult = false;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
