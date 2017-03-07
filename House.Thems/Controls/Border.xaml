@@ -73,4 +73,5 @@
         <Setter Property="BorderThickness" Value="1.5"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderColorBrush}"/>
     </Style>
+    
 </ResourceDictionary>

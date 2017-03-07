@@ -51,7 +51,9 @@
                     TabStripPlacement="Left">
             <TabItem Header="个人资料"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource PersonalIconBrush}"></TabItem>
+                     Background="{DynamicResource PersonalIconBrush}">
+                <local:UserInformation/>
+            </TabItem>
             <TabItem Header="分割线"
                      Style="{x:Null}"
                      Height="1"
@@ -103,45 +105,80 @@
                         <uc:DataPager x:Name="myPager" Margin="20 0 0 0"  PageChanging="dataPager_PageChanging"></uc:DataPager>
                     </Grid>
 
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" Margin="0 15 0 0">
                         <ScrollViewer FocusVisualStyle="{x:Null}">
                             <ListView x:Name="listView"   Focusable="False"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                                       Background="Transparent" BorderThickness="0"  Margin="0">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ItemWidth="550" />
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ItemWidth="475" />
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Border CornerRadius="4" BorderBrush="#666666"  Background="#F4F4F4" Margin="0 0 15 15">
-                                            <Grid Margin="10">
+                                            <Grid  Margin="10 10 0 0">
+                                                <Grid.Resources>
+                                                    <Style TargetType="{x:Type TextBlock }">
+                                                        <Setter Property="FontSize" Value="17"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+
+                                                    </Style>
+                                                </Grid.Resources>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
                                                     <ColumnDefinition Width="1"></ColumnDefinition>
-                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="185"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="45"></RowDefinition>
-                                                    <RowDefinition Height="45"></RowDefinition>
-                                                    <RowDefinition Height="45"></RowDefinition>
-                                                    <RowDefinition Height="45"></RowDefinition>
+                                                    <RowDefinition Height="35"></RowDefinition>
+                                                    <RowDefinition Height="35"></RowDefinition>
+                                                    <RowDefinition Height="27"></RowDefinition>
+                                                    <RowDefinition Height="12"></RowDefinition>
+                                                    <RowDefinition Height="35"></RowDefinition>
                                                 </Grid.RowDefinitions>
                                                 <Grid Background="#E3E3E3" Grid.Row="0" Grid.Column="1"></Grid>
                                                 <Grid Background="#E3E3E3" Grid.Row="1" Grid.Column="1"></Grid>
                                                 <Grid Background="#E3E3E3" Grid.Row="2" Grid.Column="1"></Grid>
                                                 <WrapPanel>
-                                                    <TextBlock>楼盘名称：</TextBlock>
+                                                    <TextBlock >楼盘名称：</TextBlock>
                                                     <TextBlock Text="{Binding LouPanName}"></TextBlock>
                                                 </WrapPanel>
-                                                <WrapPanel Grid.Column="2">
+                                                <WrapPanel Grid.Column="2" Margin="10 0 0 0">
                                                     <TextBlock>应结佣金：</TextBlock>
                                                     <TextBlock Text="{Binding YongJin}"></TextBlock>
+                                                    <TextBlock>元</TextBlock>
                                                 </WrapPanel>
 
-                                                <WrapPanel Grid.Row="3" Grid.ColumnSpan="3">
-                                                    <TextBlock>111111111111111111111111111111111111111111111111111111111111</TextBlock>
+                                                <WrapPanel Grid.Row="1">
+                                                    <TextBlock xml:space="preserve">客户       ：</TextBlock>
+                                                    <TextBlock Text="{Binding KeHuName}"></TextBlock>
+                                                    <TextBlock Foreground="#959595" Margin="3 0 0 0" Text="{Binding KeHuDianHua}"></TextBlock>
+                                                </WrapPanel>
+                                                <WrapPanel Grid.Row="1" Grid.Column="2" Margin="10 0 0 0">
+                                                    <TextBlock>已结佣金：</TextBlock>
+                                                    <TextBlock Foreground="#FFFE4620" Text="{Binding YiJieYongJin}"></TextBlock>
+                                                    <TextBlock>元</TextBlock>
+                                                </WrapPanel>
 
+                                                <WrapPanel Grid.Row="2" >
+                                                    <TextBlock xml:space="preserve">经纪人    ：</TextBlock>
+                                                    <TextBlock Text="{Binding JingJiRenName}"></TextBlock>
+                                                    <TextBlock  Foreground="#959595" Margin="3 0 0 0" Text="{Binding JingJiRenDianHua}"></TextBlock>
+                                                </WrapPanel>
+                                                <WrapPanel Grid.Row="2" Grid.Column="2" Margin="10 0 0 0">
+                                                    <TextBlock>未结佣金：</TextBlock>
+                                                    <TextBlock Foreground="#FFFE4620" Text="{Binding WeiJieYongJIn}"></TextBlock>
+                                                    <TextBlock>元</TextBlock>
+                                                </WrapPanel>
+                                                <StackPanel  Grid.Row="3"  Grid.ColumnSpan="3" >
+                                                    <Line X1="0" Y1="10" X2="440" Y2="10" StrokeDashArray="8" Stroke="#666666"  StrokeThickness="0.5"></Line>
+                                                </StackPanel>
+
+                                                <WrapPanel Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Center">
+                                                    <TextBlock  Foreground="#959595" Text="{Binding LastTime}"></TextBlock>
+                                                    <TextBlock Margin="3 0 0 0" Foreground="#959595">通过报备</TextBlock>
+                                                    <Button Style="{DynamicResource BaoBeiXiangqingButtonStyle}" Margin="110 0 0 0" Width="113" Height="23"></Button>
                                                 </WrapPanel>
                                             </Grid>
                                         </Border>
