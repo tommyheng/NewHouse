@@ -976,7 +976,7 @@
         <Setter Property="BorderBrush"
                 Value="Red " />
         <Setter Property="BorderThickness"
-                Value="1" />
+                Value="0" />
         <!--<Setter Property="Foreground"
                 Value="Red" />-->
         <Setter Property="Template">
