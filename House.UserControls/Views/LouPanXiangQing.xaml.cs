@@ -172,7 +172,7 @@ namespace House.UserControls.Views
             //webBrowserDiTu.Source = new Uri("www.map.baidu.com");
 
             //TODO
-            webBrowserDiTu.Navigate(string.Format(louPanMapUri, bId));
+            //webBrowserDiTu.Navigate(string.Format(louPanMapUri, bId));
             //webBrowserDiTu.Document=
 
             //buildingInfo.XiangQing
