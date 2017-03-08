@@ -13,6 +13,7 @@
             <Setter Property="Foreground" Value="{DynamicResource GrayWordColorBrush}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <local:VisibilityConverter x:Key="visibilityConverter" />
     </UserControl.Resources>
     <Grid>
         <StackPanel>
@@ -39,29 +40,34 @@
                 <TextBlock Grid.Row="0" Grid.Column="2" Text="：" Margin="0,0,10,0"/>
                 <TextBlock Grid.Row="1" Grid.Column="2" Text="："/>
                 <TextBlock Grid.Row="2" Grid.Column="2" Text="：" VerticalAlignment="Top" Margin="0,10"/>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="" Width="140" HorizontalAlignment="Left" Margin="0,10"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Name}" Width="140" HorizontalAlignment="Left" Margin="0,10"/>
                 <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center">
-                    <RadioButton  Content="女" Margin="0,0,10,0"/>
-                    <RadioButton IsChecked="True" Content="男"/>
+                    <RadioButton IsChecked="{Binding IsWoman}" Content="女" Margin="0,0,10,0"/>
+                    <RadioButton IsChecked="{Binding IsMan}" Content="男"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="3" >
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Text="" Height="32" Width="230" Margin="0,10,10,10" />
-                        <Button Style="{DynamicResource UserInfo.AddCustomer.AddTelephoneBtnStyle}" />
+                        <TextBox Text="{Binding Telephone}" Height="32" Width="230" Margin="0,10,10,10" />
+                        <Button Style="{DynamicResource UserInfo.AddCustomer.AddTelephoneBtnStyle}"
+                                Command="{Binding AddTelephoneCmd}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text=""  Height="32" Width="230" Margin="0,10,10,10" />
-                        <Button Style="{DynamicResource UserInfo.AddCustomer.DelTelephoneBtnStyle}" />
+                    <StackPanel Orientation="Horizontal" Visibility="{Binding SecondTelephoneVisibility, Converter={StaticResource visibilityConverter}}">
+                        <TextBox Text="{Binding SecondTelephone}"  Height="32" Width="230" Margin="0,10,10,10" />
+                        <Button Style="{DynamicResource UserInfo.AddCustomer.DelTelephoneBtnStyle}"
+                                Command="{Binding DelTelephoneCmd}" CommandParameter="{Binding SecondTelephone}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text=""  Height="32" Width="230" Margin="0,10,10,10" />
-                        <Button Style="{DynamicResource UserInfo.AddCustomer.DelTelephoneBtnStyle}" />
+                    <StackPanel Orientation="Horizontal" Visibility="{Binding ThirdTelephoneVisibility, Converter={StaticResource visibilityConverter}}">
+                        <TextBox Text="{Binding ThirdTelephone}"  Height="32" Width="230" Margin="0,10,10,10" />
+                        <Button Style="{DynamicResource UserInfo.AddCustomer.DelTelephoneBtnStyle}"
+                                Command="{Binding DelTelephoneCmd}" CommandParameter="{Binding ThirdTelephone}"/>
                     </StackPanel>
                 </StackPanel>
                 
             </Grid>
             <Separator Margin="0,20"/>
-            <Button Style="{DynamicResource UserInfo.AddCustomer.ConfirmBtnStyle}" HorizontalAlignment="Left"/>
+            <Button Style="{DynamicResource UserInfo.AddCustomer.ConfirmBtnStyle}" 
+                    HorizontalAlignment="Left"
+                    Command="{Binding UpLoadCustomerInfoCmd}"/>
         </StackPanel>
     </Grid>
 </House:MyUserControlBase>

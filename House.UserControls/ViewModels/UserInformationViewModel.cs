@@ -81,7 +81,7 @@ namespace House.UserControls.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(Sex)) return false;
+                if (string.IsNullOrEmpty(Sex)) return false;
                 return Sex.Equals("先生") ? true : false;
             }
             set
@@ -96,7 +96,7 @@ namespace House.UserControls.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(Sex)) return false;
+                if (string.IsNullOrEmpty(Sex)) return false;
                 return Sex.Equals("女士") ? true : false;
             }
             set
