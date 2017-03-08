@@ -1485,10 +1485,13 @@
                             <Border Height="450"
                                     BorderThickness="3"
                                     BorderBrush="#F4F4F4">
-                                <WebBrowser x:Name="webBrowserDiTu">
-                                    <!--<TextBlock Text="地理位置内容"></TextBlock>-->
+                                <!--<WebBrowser x:Name="webBrowserDiTu">
+                                    --><!--<TextBlock Text="地理位置内容"></TextBlock>--><!--
 
-                                </WebBrowser>
+                                </WebBrowser>-->
+                                <Grid x:Name="mapGrid">
+                                    
+                                </Grid>
 
                             </Border>
 

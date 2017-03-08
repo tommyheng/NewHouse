@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Wpf.XP.39.0.0\build\CefSharp.Wpf.XP.props" Condition="Exists('..\packages\CefSharp.Wpf.XP.39.0.0\build\CefSharp.Wpf.XP.props')" />
+  <Import Project="..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.props" Condition="Exists('..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,6 +15,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +39,42 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19038, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
@@ -120,9 +160,29 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\House.BigHeader\House.BigHeader.csproj">
+      <Project>{22bc0801-e782-4402-9fef-ac1a20926ce7}</Project>
+      <Name>House.BigHeader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.DAL\House.DAL.csproj">
+      <Project>{a13ad0fd-cc91-4b8f-a3bb-6fce0d7a5373}</Project>
+      <Name>House.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.Footer\House.Footer.csproj">
+      <Project>{301100f4-c0ed-4478-823d-576564c6eaf5}</Project>
+      <Name>House.Footer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.HeaderNews\House.HeaderNews.csproj">
+      <Project>{ec72e053-64c1-4582-ad7f-4888b6b088ec}</Project>
+      <Name>House.HeaderNews</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Login\House.Login.csproj">
       <Project>{c3cc49ca-4a35-435a-9960-767f2ae4b167}</Project>
       <Name>House.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.MainMenu\House.MainMenu.csproj">
+      <Project>{8085a863-d09c-4471-ae84-6fa5683e3aa6}</Project>
+      <Name>House.MainMenu</Name>
     </ProjectReference>
     <ProjectReference Include="..\House.MainModule\House.MainModule.csproj">
       <Project>{45f70948-bcbc-4fa1-8292-2e519aa71c0f}</Project>
@@ -132,9 +192,21 @@
       <Project>{10e51932-7f07-4928-b1db-7a9ae008e3e6}</Project>
       <Name>House.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\House.NewHouse\House.NewHouse.csproj">
+      <Project>{8f59e3a6-172b-4d8a-b5ca-6d42c4b90cf4}</Project>
+      <Name>House.NewHouse</Name>
+    </ProjectReference>
     <ProjectReference Include="..\House.Thems\House.Thems.csproj">
       <Project>{525007b0-b040-460f-8e49-54d8bb885bd3}</Project>
       <Name>House.Thems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.UserControls\House.UserControls.csproj">
+      <Project>{89ee2118-c97d-4e35-ac21-7dc7d91d81f0}</Project>
+      <Name>House.UserControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\House.UserInfo\House.UserInfo.csproj">
+      <Project>{a2109688-ddca-466b-b00f-06a9d8d7506c}</Project>
+      <Name>House.UserInfo</Name>
     </ProjectReference>
     <ProjectReference Include="..\House.Utility\House.Utility.csproj">
       <Project>{ff1c850c-b7e6-4b15-b5c5-b867ef5099ba}</Project>
@@ -146,6 +218,19 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Wpf.XP.39.0.0\build\CefSharp.Wpf.XP.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.XP.39.0.0\build\CefSharp.Wpf.XP.props'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.targets" Condition="Exists('..\packages\CefSharp.Common.XP.39.0.0\build\CefSharp.Common.XP.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

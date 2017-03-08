@@ -25,7 +25,7 @@ namespace House.MainModule.Views
         {
             InitializeComponent();
             userInfo.UserName = GlobalDataPool.Instance.UserName;
-            userInfo.UserTitle = string.Format("职务：{0}", GlobalDataPool.Instance.Position); 
+            userInfo.UserTitle = string.Format("职务：{0}", GlobalDataPool.Instance.Position);
         }
     }
 }

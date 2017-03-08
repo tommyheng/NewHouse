@@ -95,7 +95,7 @@ namespace House.UserControls.Views
             prise.Text = string.IsNullOrWhiteSpace(buildingInfo.Price) ? "？元/平米" : buildingInfo.Price;
             address.Text = string.IsNullOrWhiteSpace(buildingInfo.Address) ? "地址未知" : buildingInfo.Address;
 
-            kehushuliang.Text = "合作经济人：" +  buildingInfo.HeZhuoJingJiRenNumber
+            kehushuliang.Text = "合作经济人：" + buildingInfo.HeZhuoJingJiRenNumber
                 + "  |  " + "意向客户：" + buildingInfo.YiXiangKeHuNumber
                 + "  |  " + "我的客户：" + buildingInfo.WoDeKeHuNumber;
 
@@ -176,9 +176,11 @@ namespace House.UserControls.Views
             //webBrowserDiTu.Document=
 
             //buildingInfo.XiangQing
-
+            browser = new CefSharp.Wpf.ChromiumWebBrowser();
+            browser.Address = string.Format(louPanMapUri, bId);
+            mapGrid.Children.Add(browser);
         }
-
+        CefSharp.Wpf.ChromiumWebBrowser browser;
         private string louPanMapUri = Utility.ConfigHelper.GetAppSetting("LouPanMapURL");
 
         private void PropertyConsultantsClick(object sender, RoutedEventArgs e)
