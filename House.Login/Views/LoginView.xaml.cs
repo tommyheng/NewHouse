@@ -124,6 +124,10 @@ namespace House.Login.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //this.DialogResult = false;
+
+            ModifyPasswordView f = new ModifyPasswordView();
+            //f.Parent = this;
+            f.ShowDialog();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
