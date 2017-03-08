@@ -159,7 +159,7 @@ namespace House.Login.Views
             }
             else
             {
-                MessageBox.Show("修改密码", rst.message);
+                MessageBox.Show(rst.message, "修改密码");
             }
         }
 
@@ -167,23 +167,23 @@ namespace House.Login.Views
         {
             if (smsCode.Text.Trim() != smsCodeReceive)
             {
-                MessageBox.Show("修改密码", "验证码错误");
+                MessageBox.Show("验证码错误", "修改密码");
             }
 
             if (newPwd.Password.Trim() != reNewPwd.Password.Trim())
             {
-                MessageBox.Show("修改密码", "新密码输入不一致，请重新输入");
+                MessageBox.Show("新密码输入不一致，请重新输入", "修改密码");
             }
 
             var result = DataRepository.Instance.RePass(this.phoneNo.Text, newPwd.Password.Trim(), smsCodeReceive);
             if (result.success == true)
             {
-                MessageBox.Show("修改密码", "密码");
+                MessageBox.Show("修改密码成功", "修改密码");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("修改密码", "密码修改错误，请重试！");
+                MessageBox.Show("密码修改错误，请重试！", "修改密码");
                 this.Close();
 
             }
