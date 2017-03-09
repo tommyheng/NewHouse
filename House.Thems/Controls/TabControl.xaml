@@ -611,7 +611,7 @@
                     <Grid x:Name="templateRoot"
                           SnapsToDevicePixels="true"
                           HorizontalAlignment="Right"
-                          Width="166"
+                          Width="170"
                           Height="50">
                         <Border x:Name="mainBorder"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -620,7 +620,7 @@
                                 Width="22"
                                 Height="22"
                                 HorizontalAlignment="Left"
-                                Margin="2 0 0 0">
+                                Margin="5 0 0 0">
 
                             <Border x:Name="innerBorder"
                                     BorderBrush="Transparent"
@@ -631,7 +631,7 @@
                         <ContentPresenter x:Name="contentPresenter"
                                           ContentSource="Header"
                                           Focusable="False"
-                                          Margin="27 0 0 0"
+                                          Margin="33 0 0 0"
                                           HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
                                           RecognizesAccessKey="True"
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
