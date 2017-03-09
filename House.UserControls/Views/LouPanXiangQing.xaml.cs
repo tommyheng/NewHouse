@@ -225,5 +225,15 @@ namespace House.UserControls.Views
                                                    select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute);
             bigImageView.ShowDialog();
         }
+
+        private void ShowMyCustomers(object sender, RoutedEventArgs e)
+        {
+            MyCustomerView win = new MyCustomerView();
+            win.Bid = bId;
+            win.ShowDialog();
+
+
+        }
+
     }
 }
