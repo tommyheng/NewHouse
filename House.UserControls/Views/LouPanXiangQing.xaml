@@ -114,6 +114,7 @@
                                             Value="{Binding Path=SelectedIndex, Mode=TwoWay, Converter={vc:Int32IndexToNumberConverter}}" />
                     <TextBlock VerticalAlignment="Center"
                                Foreground="Black"
+                               FontSize="12"
                                Background="Transparent"
                                Margin="0 0 4 0">
                     <Run Text="/" />
@@ -775,12 +776,15 @@
                                               MouseLeave="UIElement_OnMouseLeave">
                                             <controls:FlipView x:Name="FlipView3nd"
                                                                Margin="0 0 5 0"
-                                                               IsBannerEnabled="False"
+                                                               IsBannerEnabled="True"
+                                                               BannerText="点击图片可查看大图"
                                                                MouseOverGlowEnabled="false"
                                                                CircularNavigation="true"
                                                                IsNavigationEnabled="true"
                                                                Orientation="Horizontal"
                                                                DownTransition="Left"
+                                                               Cursor="Hand"
+                                                               MouseDown="FlipView3nd_OnMouseDown"
                                                                ItemTemplate="{StaticResource ImageDataTemplate}"
                                                                ItemsSource="{Binding Images ,Converter={vc:ImageModel2Uri}}" />
                                             <StackPanel Orientation="Horizontal"
@@ -797,11 +801,13 @@
                                                                         Maximum="{Binding Path=Items.Count, Mode=OneWay}"
                                                                         Value="{Binding Path=SelectedIndex, Mode=TwoWay, Converter={vc:Int32IndexToNumberConverter}}" />
                                                 <TextBlock VerticalAlignment="Center"
-                                                           Foreground="Black"
+                                                           Foreground="#666666"
                                                            Background="Transparent"
+                                                           FontSize="12"
                                                            Margin="0 0 4 0">
                     <Run Text="/" />
-                    <Run Text="{Binding Path=Items.Count, Mode=OneWay}" />
+                    <Run Text="{Binding Path=Items.Count, Mode=OneWay}"
+                                                    Foreground="#666666" />
                                                 </TextBlock>
                                             </StackPanel>
                                         </Grid>
@@ -1486,11 +1492,13 @@
                                     BorderThickness="3"
                                     BorderBrush="#F4F4F4">
                                 <!--<WebBrowser x:Name="webBrowserDiTu">
-                                    --><!--<TextBlock Text="地理位置内容"></TextBlock>--><!--
+                                    -->
+                                <!--<TextBlock Text="地理位置内容"></TextBlock>-->
+                                <!--
 
                                 </WebBrowser>-->
                                 <Grid x:Name="mapGrid">
-                                    
+
                                 </Grid>
 
                             </Border>
