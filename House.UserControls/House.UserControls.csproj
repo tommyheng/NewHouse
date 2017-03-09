@@ -149,6 +149,9 @@
     <Compile Include="Views\BigImageView.xaml.cs">
       <DependentUpon>BigImageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BaoBeiXiangQingView.xaml.cs">
+      <DependentUpon>BaoBeiXiangQingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserInformation.xaml.cs">
       <DependentUpon>UserInformation.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BigImageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaoBeiXiangQingView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
