@@ -46,14 +46,17 @@ namespace House.UserControls.ViewModels
         }
 
         //上传头像路径
-        private string _figurePath = "未选择任何图像文件";
+        private static string DEFAULT_FIGURE_PATH = "未选择任何图像文件";
+        private string _figurePath = DEFAULT_FIGURE_PATH;
         public string FigurePath
         {
             get { return _figurePath; }
             set { Set(() => FigurePath, ref _figurePath, value); }
         }
 
-        //手机号码
+        //旧手机号码
+        public string OldTelephone { get; private set; }
+        //新手机号码
         private string _telephone = string.Empty;
         public string Telephone
         {
@@ -146,8 +149,10 @@ namespace House.UserControls.ViewModels
         //上传头像命令
         public ICommand UploadFigureCommand { get; private set; }
 
-        //获取验证码命令
-        public ICommand GetSecurityCodeCommand { get; private set;}
+        //修改密码时获取验证码命令
+        public ICommand GetSecurityCodeChangePwdCommand { get; private set;}
+        //修改手机时获取验证码命令
+        public ICommand GetSecurityCodeChangeTelCommand { get; private set; }
 
         //修改密码命令
         public ICommand ChangePasswordCommand { get; private set; }
@@ -183,20 +188,57 @@ namespace House.UserControls.ViewModels
             ChangeUserInfoCommand = new RelayCommand(OnExecuteUserInfoChangeCmd);
             ChangePasswordCommand = new RelayCommand(OnExecutePasswordChangeCmd);
             UploadFigureCommand = new RelayCommand(OnExecuteUploadFigureCmd);
-            GetSecurityCodeCommand = new RelayCommand(OnExecuteGetSecurityCodeCmd);
+            GetSecurityCodeChangePwdCommand = new RelayCommand(OnExecuteGetSecurityCodeChangePwdCmd);
+            GetSecurityCodeChangeTelCommand = new RelayCommand(OnExecuteGetSecurityCodeChangeTelCmd);
         }
 
-        private void OnExecuteGetSecurityCodeCmd()
+        /// <summary>
+        /// 修改手机时获取验证码
+        /// </summary>
+        private void OnExecuteGetSecurityCodeChangeTelCmd()
+        {
+            if (string.IsNullOrWhiteSpace(OldTelephone) || string.IsNullOrWhiteSpace(Telephone))
+            {
+                MessageBox.Show("新手机号码不能为空！");
+                return;
+            }
+            var rst = DataRepository.Instance.GetReLoginNameSMSCode(OldTelephone, Telephone);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+            }
+            else
+            {
+                MessageBox.Show("获取验证码成功！请查看手机！");
+            }
+        }
+
+        /// <summary>
+        /// 修改密码时获取验证码
+        /// </summary>
+        private void OnExecuteGetSecurityCodeChangePwdCmd()
         {
             var rst = DataRepository.Instance.GetRePassSMSCode(UserInfo.DianHua);
             if (!rst.success)
             {
                 MessageBox.Show(rst.message);
             }
+            else
+            {
+                MessageBox.Show("获取验证码成功！请查看手机！");
+            }
         }
 
+        /// <summary>
+        /// 上传头像
+        /// </summary>
         private void OnExecuteUploadFigureCmd()
         {
+            if (FigurePath.Equals(DEFAULT_FIGURE_PATH))
+            {
+                MessageBox.Show("请选择头像文件！");
+                return;
+            }
             var rst = DataRepository.Instance.UploadTouXiangImage(UserInfo.ID, FigurePath);
             if (rst.success)
             {
@@ -207,23 +249,69 @@ namespace House.UserControls.ViewModels
             MessageBox.Show(rst.message);
         }
 
+        /// <summary>
+        /// 修改密码
+        /// </summary>
         private void OnExecutePasswordChangeCmd()
         {
-            throw new NotImplementedException();
+            if (!NewPassword.Equals(NewPasswordAgain) || string.IsNullOrWhiteSpace(NewPassword) || string.IsNullOrWhiteSpace(NewPasswordAgain))
+            {
+                MessageBox.Show("您输入的两次新密码不相同，请确认！");
+                return;
+            }
+
+            var rst = DataRepository.Instance.RePass(UserInfo.LoginName, NewPassword, SecurityCode);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+            }
+            else
+            {
+                MessageBox.Show("修改密码成功！请使用新的密码重新登录！");
+            }
         }
 
+        /// <summary>
+        /// 修改用户资料
+        /// </summary>
         private void OnExecuteUserInfoChangeCmd()
         {
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                MessageBox.Show("真实姓名不能为空！");
+                return;
+            }
+
             var rst = DataRepository.Instance.UpdateUserInfo(UserInfo.ID, Name, Sex, null, WorkingAge);
             if (!rst.success)
             {
                 MessageBox.Show(rst.message);
             }
+            else
+            {
+                MessageBox.Show("修改资料成功！");
+            }
         }
 
+        /// <summary>
+        /// 修改手机号码
+        /// </summary>
         private void OnExecuteTelephoneChangeCmd()
         {
-            var rst = DataRepository.Instance;
+            if (string.IsNullOrWhiteSpace(SecurityCode))
+            {
+                MessageBox.Show("请填写验证码！");
+                return;
+            }
+            var rst = DataRepository.Instance.ReLoginName(OldTelephone, Telephone, SecurityCode);
+            if (!rst.success)
+            {
+                MessageBox.Show(rst.message);
+            }
+            else
+            {
+                MessageBox.Show("修改手机号码成功！");
+            }
         }
         
 
@@ -237,7 +325,7 @@ namespace House.UserControls.ViewModels
 
             ImageUrl = DAL.DataRepository.Instance.ApiUrl + @"Images/TouXiang/" + UserInfo.TouXiang;
             Name = UserInfo.UserName;
-            Telephone = UserInfo.DianHua;
+            OldTelephone = UserInfo.DianHua;
             Sex = UserInfo.XingBie;
             WorkingAge = UserInfo.CongYeNianXian;
 
