@@ -111,6 +111,9 @@
   <ItemGroup>
     <Compile Include="Converter\ImageModel2Uri.cs" />
     <Compile Include="Converter\Int32IndexToNumberConverter.cs" />
+    <Compile Include="Dialogs\MyCustomerView.xaml.cs">
+      <DependentUpon>MyCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\RecordCustomerView.xaml.cs">
       <DependentUpon>RecordCustomerView.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dialogs\MyCustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\RecordCustomerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

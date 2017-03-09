@@ -193,7 +193,7 @@
                                        Foreground="#666666"></TextBlock>
                             <Button Margin="20 0 0 0"
                                     Style="{DynamicResource TransparentBackgroundButtonStyle}"
-                                    Content="[ 查看 ]"></Button>
+                                    Content="[ 查看 ]" Click="ShowMyCustomers"></Button>
                         </StackPanel>
                     </Grid>
                     <Separator></Separator>

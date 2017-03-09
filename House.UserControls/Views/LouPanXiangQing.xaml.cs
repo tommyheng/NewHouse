@@ -197,5 +197,14 @@ namespace House.UserControls.Views
             win.Bid = bId;
             win.ShowDialog();
         }
+
+        private void ShowMyCustomers(object sender, RoutedEventArgs e)
+        {
+            MyCustomerView win = new MyCustomerView();
+            win.Bid = bId;
+            win.ShowDialog();
+
+
+        }
     }
 }
