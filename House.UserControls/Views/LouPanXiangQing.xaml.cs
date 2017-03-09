@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FangChan.WPFModel;
+using House.UserControls.Converter;
 
 namespace House.UserControls.Views
 {
@@ -197,5 +199,41 @@ namespace House.UserControls.Views
             win.Bid = bId;
             win.ShowDialog();
         }
+
+        //private void ListViewHuXingTuiJian_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // throw new NotImplementedException();
+        //    var v = listViewHuXingTuiJian.SelectedItem as HuXingModel ;
+        //    if (v == null)
+        //    {
+        //        return;
+        //    }
+        //    MessageBox.Show(v.Name );
+        //}
+
+        private void FlipView3nd_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var v = listViewHuXingTuiJian.SelectedItem as HuXingModel;
+            if (v == null)
+            {
+                return;
+            }
+            //MessageBox.Show(v.Name);
+            BigImageView bigImageView = new BigImageView();
+            //ImageModel2Uri imageModel2Uri = new ImageModel2Uri();
+            bigImageView.FlipView3nd.ItemsSource = from a in v.Images.OrderBy(a => a.ImageIndex)
+                                                   select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute);
+            bigImageView.ShowDialog();
+        }
+
+        private void ShowMyCustomers(object sender, RoutedEventArgs e)
+        {
+            MyCustomerView win = new MyCustomerView();
+            win.Bid = bId;
+            win.ShowDialog();
+
+
+        }
+
     }
 }
