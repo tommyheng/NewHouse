@@ -38,13 +38,37 @@ namespace House.UserControls
         {
 
             var result = DataRepository.Instance.GetBuildingsOrder(NewFangRunningListItem.ID);
-            if (result.success)
+            if (!result.success)
             {
+                return;
                 //result.data.JinDuTiao.;
                 //BaoBeiXiangQingView view = new BaoBeiXiangQingView();
                 //view.NewFangRunningListItem = newFangRunningListItem;
                 //view.ShowDialog();
             }
+
+
+
+            loupanmingcheng.Text = NewFangRunningListItem.LouPanName;
+            kehu.Text = NewFangRunningListItem.KeHuName + " " + NewFangRunningListItem.KeHuDianHua;
+            jingjiren.Text = NewFangRunningListItem.JingJiRenName + " " + NewFangRunningListItem.JingJiRenDianHua;
+            
+            var data = result.data;
+            jindu1Left.Text = data.JinDuText[0].LeftText;
+            Jindu1Right.Text = data.JinDuText[0].RightText;
+
+            jindu2Left.Text = data.JinDuText[1].LeftText;
+            Jindu2Right.Text = data.JinDuText[1].RightText;
+
+            jindu3Left.Text = data.JinDuText[2].LeftText;
+            Jindu3Right.Text = data.JinDuText[2].RightText;
+
+            jindu4Left.Text = data.JinDuText[3].LeftText;
+            Jindu4Right.Text = data.JinDuText[3].RightText;
+
+            jindu5Left.Text = data.JinDuText[4].LeftText;
+            Jindu5Right.Text = data.JinDuText[4].RightText;
+
             //var result = DataRepository.Instance.GetBuildingsOrdersList1(Bid,
             //    GlobalDataPool.Instance.Uid, pageIndex, rows);
             //if (result.success)
