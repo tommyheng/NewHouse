@@ -21,7 +21,8 @@ namespace House.UserControls
     /// </summary>
     public partial class BaoBeiXiangQingView
     {
-        public int Bid { get; set; }
+        //public RunningsModel RunningsModel { get; set; }
+        public NewFangRunningListItem NewFangRunningListItem { get; set; }
 
         public BaoBeiXiangQingView()
         {
@@ -33,27 +34,36 @@ namespace House.UserControls
             LoadData();
         }
 
-        private void LoadData(int pageIndex = 1, int rows = 10)
+        private void LoadData()
         {
-            var result = DataRepository.Instance.GetBuildingsOrdersList1(Bid,
-                GlobalDataPool.Instance.Uid, pageIndex, rows);
+
+            var result = DataRepository.Instance.GetBuildingsOrder(NewFangRunningListItem.ID);
             if (result.success)
             {
-                myPager.TotalCount = result.TotalRows;
-                myPager.PageIndex = pageIndex;
-                myPager.PageSize = rows;
-                listView.ItemsSource = result.data;
+                //result.data.JinDuTiao.;
+                //BaoBeiXiangQingView view = new BaoBeiXiangQingView();
+                //view.NewFangRunningListItem = newFangRunningListItem;
+                //view.ShowDialog();
             }
+            //var result = DataRepository.Instance.GetBuildingsOrdersList1(Bid,
+            //    GlobalDataPool.Instance.Uid, pageIndex, rows);
+            //if (result.success)
+            //{
+            //    myPager.TotalCount = result.TotalRows;
+            //    myPager.PageIndex = pageIndex;
+            //    myPager.PageSize = rows;
+            //    listView.ItemsSource = result.data;
+            //}
         }
 
-        private void dataPager_PageChanged(object sender, Views.PageChangedEventArgs e)
-        {
-            //LoadData(1);
-        }
+        //private void dataPager_PageChanged(object sender, Views.PageChangedEventArgs e)
+        //{
+        //    //LoadData(1);
+        //}
 
-        private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
-        {
-            LoadData(myPager.NewPageIndex);
-        }
+        //private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
+        //{
+        //    LoadData(myPager.NewPageIndex);
+        //}
     }
 }

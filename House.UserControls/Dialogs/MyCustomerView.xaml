@@ -163,6 +163,8 @@
                                         <Button Style="{DynamicResource BaoBeiXiangqingButtonStyle}"
                                                 Margin="110 0 0 0"
                                                 Width="113"
+                                                Click="ButtonBase_OnClick"
+                                                Tag="{Binding}"
                                                 Height="23"></Button>
                                     </WrapPanel>
                                 </Grid>

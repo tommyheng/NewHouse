@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using House.Utility;
 
 namespace House.UserControls
 {
@@ -54,6 +55,20 @@ namespace House.UserControls
         private void dataPager_PageChanging(object sender, Views.PageChangingEventArgs e)
         {
             LoadData(myPager.NewPageIndex);
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewFangRunningListItem newFangRunningListItem = ((Button)sender).Tag as NewFangRunningListItem;
+            //var result = DataRepository.Instance.GetBuildingsOrder(newFangRunningListItem.ID);
+            //if (result.success)
+            //{
+            BaoBeiXiangQingView view = new BaoBeiXiangQingView();
+            view.NewFangRunningListItem = newFangRunningListItem;
+            view.ShowDialog();
+            //}
+
+
         }
     }
 }

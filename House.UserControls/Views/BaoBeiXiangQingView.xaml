@@ -53,7 +53,7 @@
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0"
+        <!--<Grid Grid.Row="0"
               Margin="15 15 0 0">
             <ScrollViewer FocusVisualStyle="{x:Null}">
                 <ListView x:Name="listView"
@@ -192,6 +192,6 @@
                           PageChanged="dataPager_PageChanged"
                           PageChanging="dataPager_PageChanging"></uc:DataPager>
 
-        </Grid>
+        </Grid>-->
     </Grid>
 </controls:MetroWindow>
