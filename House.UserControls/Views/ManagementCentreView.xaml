@@ -322,7 +322,7 @@
             </TabItem>
             <TabItem Header="添加客户"
                      Style="{DynamicResource ManagementCentreTabItem}">
-                <local:AddCustomer/>
+                <local:AddCustomer Tag="添加客户"/>
             </TabItem>
 
         </TabControl>

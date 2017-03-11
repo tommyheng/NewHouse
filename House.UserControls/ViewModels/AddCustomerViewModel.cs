@@ -66,6 +66,7 @@ namespace House.UserControls.ViewModels
             set
             {
                 Set(() => SecondTelephone, ref _secondTelephone, value);
+                SecondTelephoneVisibility = true;
             }
         }
 
@@ -76,6 +77,7 @@ namespace House.UserControls.ViewModels
             set
             {
                 Set(() => ThirdTelephone, ref _thirdTelephone, value);
+                ThirdTelephoneVisibility = true;
             }
         }
 

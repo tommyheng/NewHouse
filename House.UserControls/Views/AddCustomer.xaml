@@ -7,7 +7,8 @@
              xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="300"
-             Width="950" MinWidth="950" FontFamily="Microsoft YaHei" FontSize="14">
+             Width="950" MinWidth="950" FontFamily="Microsoft YaHei" FontSize="14"
+             x:Name="Customer">
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource GrayWordColorBrush}"/>
@@ -17,7 +18,7 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <TextBlock FontSize="18" Foreground="#FF37A508" VerticalAlignment="Center" Text="添加客户"/>
+            <TextBlock FontSize="18" Foreground="#FF37A508" VerticalAlignment="Center" Text="{Binding ElementName=Customer, Path=Tag}"/>
             <Separator Margin="0,20"/>
             <Grid>
                 <Grid.RowDefinitions>
