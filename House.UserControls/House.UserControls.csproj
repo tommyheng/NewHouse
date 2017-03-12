@@ -128,6 +128,8 @@
     <Compile Include="ScrollingTextControl.cs" />
     <Compile Include="ViewModels\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\FooterViewModel.cs" />
+    <Compile Include="ViewModels\LouPanDataItem.cs" />
+    <Compile Include="ViewModels\MyCustomerViewModel.cs" />
     <Compile Include="ViewModels\UserInformationViewModel.cs" />
     <Compile Include="Views\AddCustomer.xaml.cs">
       <DependentUpon>AddCustomer.xaml</DependentUpon>
@@ -155,6 +157,9 @@
     </Compile>
     <Compile Include="Views\BaoBeiXiangQingView.xaml.cs">
       <DependentUpon>BaoBeiXiangQingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyCustomer.xaml.cs">
+      <DependentUpon>MyCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserInformation.xaml.cs">
       <DependentUpon>UserInformation.xaml</DependentUpon>
@@ -212,6 +217,10 @@
     <Page Include="Views\BaoBeiXiangQingView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserInformation.xaml">
       <SubType>Designer</SubType>

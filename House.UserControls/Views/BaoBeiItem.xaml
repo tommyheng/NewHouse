@@ -8,23 +8,21 @@
              xmlns:House="clr-namespace:House.Utility;assembly=House.Utility"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="750"
-             FontFamily="Microsoft YaHei" FontSize="26">
-    <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/House.Thems;component/Default.xaml"/>
-    </UserControl.Resources>
+             Width="465" Height="160"
+             FontFamily="Microsoft YaHei" FontSize="16" Foreground="Black">
     <Grid>
-        <Border CornerRadius="10" Background="{DynamicResource BaoBei.ItemBackgroudBrush}">
-            <Grid x:Name="mainGrid" Margin="20">
+        <Border CornerRadius="10" Background="{DynamicResource BorderBackgroudColorBrush}" Margin="5">
+            <Grid x:Name="mainGrid" Margin="7,7,7,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid x:Name="grid" Margin="0,0,0,20">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -39,21 +37,21 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" Text="{StaticResource BaoBei.HousesName}"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="："/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" Text="首创国际城"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding LouPanName}"/>
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="{StaticResource BaoBei.Customer}"/>
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="："/>
                         <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock Text="流通" Tag="name"/>
-                            <TextBlock Text="12345556666" Tag="tel" Foreground="Gray" Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding KeHuName}" Tag="name"/>
+                            <TextBlock Text="{Binding KeHuDianHua}" Tag="tel" Foreground="Gray" Margin="10,0,0,0"/>
                         </StackPanel>
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="{StaticResource BaoBei.Broker}"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="："/>
                         <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock Text="流通" Tag="name"/>
-                            <TextBlock Text="12345556666" Tag="tel" Foreground="Gray" Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding JingJiRenName}" Tag="name"/>
+                            <TextBlock Text="{Binding JingJiRenDianHua}" Tag="tel" Foreground="Gray" Margin="10,0,0,0"/>
                         </StackPanel>
                     </Grid>
-                    <Line Grid.Column="1" X1="0" Y1="0" X2="0" Y2="{Binding ElementName=grid, Path=ActualHeight}" Stroke="{StaticResource SeperatorColor}" StrokeThickness="3"/>
+                    <Line Grid.Column="1" X1="0" Y1="0" X2="0" Y2="{Binding ElementName=grid, Path=ActualHeight}" Stroke="{DynamicResource BorderColorBrush}" StrokeThickness="3"/>
                     <Grid Grid.Column="2" Margin="20,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -68,28 +66,30 @@
                         <TextBlock Grid.Row="0" Grid.Column="0" Text="{StaticResource BaoBei.Commissions}"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="："/>
                         <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock Text="5000" Tag="money"/>
+                            <TextBlock Text="{Binding YongJin}" Tag="money"/>
                             <TextBlock Text="{StaticResource MoneyUnit}" Tag="tel"/>
                         </StackPanel>
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="{StaticResource BaoBei.PaidCommissions}"/>
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="："/>
                         <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Tag="money"/>
+                            <TextBlock Text="{Binding YiJieYongJin}" Foreground="#FFFE4620" Tag="money"/>
                             <TextBlock Text="{StaticResource MoneyUnit}" Tag="tel"/>
                         </StackPanel>
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="{StaticResource BaoBei.OutStandingCommissions}"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="："/>
                         <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Tag="money"/>
+                            <TextBlock Foreground="#FFFE4620" Text="{Binding WeiJieYongJIn}" Tag="money"/>
                             <TextBlock Text="{StaticResource MoneyUnit}"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
 
-                <Line Grid.Row="1" X1="0" Y1="0" Y2="0" X2="{Binding ElementName=mainGrid, Path=ActualWidth}" StrokeDashArray="4,2" StrokeThickness="3" Stroke="{StaticResource SeperatorColor}"/>
-                <DockPanel Grid.Row="2" VerticalAlignment="Bottom">
-                    <TextBlock Text="17-01-15 17:30 通过报备" Foreground="Gray" VerticalAlignment="Center"/>
-                    <Button Style="{DynamicResource ButtonStyle2}" Content="{DynamicResource BaoBei.Details}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+                <Line Grid.Row="1" X1="0" Y1="0" Y2="0" X2="{Binding ElementName=mainGrid, Path=ActualWidth}" StrokeDashArray="4,2" StrokeThickness="3" Stroke="{DynamicResource BorderColorBrush}"/>
+                <DockPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="0,7">
+                    <TextBlock Text="{Binding LastTime}" Foreground="{DynamicResource GrayWordColorBrush}" VerticalAlignment="Center" FontSize="14"/>
+                    <TextBlock Text="  通过报备" Foreground="{DynamicResource GrayWordColorBrush}" VerticalAlignment="Center" FontSize="14"/>
+                    <Button Style="{DynamicResource ButtonStyle2}" Content="{DynamicResource BaoBei.Details}" FontSize="14"
+                            DockPanel.Dock="Right" HorizontalAlignment="Right" Click="OnCheckBaoBeiDetailsClicked"/>
                 </DockPanel>
             </Grid>
         </Border>
