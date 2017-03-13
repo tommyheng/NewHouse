@@ -199,7 +199,9 @@
                      IsEnabled="False"></TabItem>
             <TabItem Header="我的客户"
                      Style="{DynamicResource ManagementCentreTabItem}"
-                     Background="{DynamicResource CustomerIconBrush}"></TabItem>
+                     Background="{DynamicResource CustomerIconBrush}">
+                <local:MyCustomer />
+            </TabItem>
             <TabItem Header="所有客户"
                      Style="{DynamicResource ManagementCentreTabItem}">
                 <Grid>

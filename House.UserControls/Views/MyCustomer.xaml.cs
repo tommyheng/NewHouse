@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using House.UserControls.ViewModels;
 using House.Utility;
 using System;
 using System.Collections.Generic;
@@ -17,18 +17,15 @@ using System.Windows.Shapes;
 namespace House.UserControls.Views
 {
     /// <summary>
-    /// BaoBei.xaml 的交互逻辑
+    /// MyCustomer.xaml 的交互逻辑
     /// </summary>
-    public partial class BaoBeiItem : MyUserControlBase
+    public partial class MyCustomer : MyUserControlBase
     {
-        public BaoBeiItem()
+        private MyCustomerViewModel dataContext = new MyCustomerViewModel();
+        public MyCustomer()
         {
             InitializeComponent();
-        }
-
-        private void OnCheckBaoBeiDetailsClicked(object sender, RoutedEventArgs e)
-        {
-            //Messenger.Default.Send();
+            this.DataContext = dataContext;
         }
     }
 }

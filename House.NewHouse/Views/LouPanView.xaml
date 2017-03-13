@@ -24,7 +24,7 @@
                 BorderBrush="{DynamicResource BorderColorBrush}"
                 BorderThickness="1"
                 Background="{DynamicResource BorderBackgroudColorBrush}"
-                Margin="0,15,0,15">
+                Margin="0,15">
             <DockPanel Background="Transparent"
                        VerticalAlignment="Center">
                 <Border BorderBrush="{DynamicResource BorderColorBrush}"
@@ -46,7 +46,7 @@
                         <TextBox.Style>
                             <Style BasedOn="{StaticResource SearchMetroTextBox}"
                                    TargetType="{x:Type TextBox}">
-                                <Style.Triggers>
+                                <!--<Style.Triggers>
                                     <Trigger Property="controls:TextBoxHelper.HasText"
                                              Value="True">
                                         <Setter Property="controls:TextBoxHelper.ButtonContent"
@@ -54,7 +54,7 @@
                                         <Setter Property="controls:TextBoxHelper.ButtonContentTemplate"
                                                 Value="{x:Null}" />
                                     </Trigger>
-                                </Style.Triggers>
+                                </Style.Triggers>-->
                             </Style>
                         </TextBox.Style>
                     </TextBox>
