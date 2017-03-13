@@ -12,9 +12,9 @@
                       Height="930"
                       MinHeight="930"
                       MaxHeight="930"
-                      Width="550"
-                      MinWidth="550"
-                      MaxWidth="550"
+                      Width="500"
+                      MinWidth="500"
+                      MaxWidth="500"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveWindowTitleBrush="{DynamicResource AccentColorBrush}"
                       WindowTitleBrush="{DynamicResource AccentColorBrush}"
@@ -49,7 +49,7 @@
             </Setter>
         </Style>
     </Window.Resources>-->
-    <Grid Margin="10 0 10 10"
+    <Grid Margin="15 0 15 15"
           ShowGridLines="False ">
         <Grid.RowDefinitions>
             <RowDefinition Height="33"></RowDefinition>
@@ -207,16 +207,150 @@
             <Separator VerticalAlignment="Bottom"></Separator>
         </Grid>
 
-        <Grid Grid.Row="6"
-              Background="YellowGreen">
+        <Grid Grid.Row="6">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   Width="150"
+                   Height="100"
+                   x:Name="biTian"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/带看单.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="biTianMenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+            <Image Grid.Row="0"
+                   Grid.Column="1"
+                   Width="150"
+                   Height="100"
+                   x:Name="shoulouchu"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/售楼处.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="shoulouchuMenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+            <Image Grid.Row="0"
+                   Grid.Column="2"
+                   Width="150"
+                   Height="100"
+                   x:Name="shoulouyuan"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"></Image>
 
-            <Separator VerticalAlignment="Bottom"></Separator>
+            <Image Grid.Row="1"
+                   Grid.Column="0"
+                   Width="150"
+                   Height="100"
+                   x:Name="jingjirenImage"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"></Image>
+            <Image Grid.Row="1"
+                   Grid.Column="1"
+                   Width="150"
+                   Height="100"
+                   x:Name="qita11"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+            <Image Grid.Row="1"
+                   Grid.Column="2"
+                   Width="150"
+                   Height="100"
+                   x:Name="qita12"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+
+            <Separator Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       VerticalAlignment="Bottom"></Separator>
         </Grid>
 
-        <Grid Grid.Row="9"
-              Background="AliceBlue">
+        <Grid Grid.Row="9">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   Width="150"
+                   Height="100"
+                   x:Name="biTian2"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/带看单.png"></Image>
+            <Image Grid.Row="0"
+                   Grid.Column="1"
+                   Width="150"
+                   Height="100"
+                   x:Name="shoulouchu2"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/售楼处.png"></Image>
+            <Image Grid.Row="0"
+                   Grid.Column="2"
+                   Width="150"
+                   Height="100"
+                   x:Name="shoulouyuan2"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"></Image>
 
-            <Separator VerticalAlignment="Bottom"></Separator>
+            <Image Grid.Row="1"
+                   Grid.Column="0"
+                   Width="150"
+                   Height="100"
+                   x:Name="jingjirenImage2"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"></Image>
+            <Image Grid.Row="1"
+                   Grid.Column="1"
+                   Width="150"
+                   Height="100"
+                   x:Name="qita21"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+            <Image Grid.Row="1"
+                   Grid.Column="2"
+                   Width="150"
+                   Height="100"
+                   x:Name="qita22"
+                   Cursor="Hand"
+                   MouseLeftButtonDown="OnMouseDown_Image"
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+
+            <Separator Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       VerticalAlignment="Bottom"></Separator>
         </Grid>
 
         <!--<Grid Grid.Row="0"
