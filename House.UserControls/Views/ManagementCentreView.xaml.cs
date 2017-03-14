@@ -1,4 +1,6 @@
-﻿using House.DAL;
+﻿using FangChan.WPFModel;
+using House.DAL;
+using House.UserControls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,7 @@ namespace House.UserControls.Views
     /// </summary>
     public partial class ManagementCentreView
     {
+        private List<KeHuShowListItem> _customerList = null;
         private string newHouseKey = "";
         private string userListKey = "";
         public ManagementCentreView()
@@ -80,6 +83,7 @@ namespace House.UserControls.Views
                 usersPager.PageIndex = pageIndex;
                 usersPager.PageSize = rows;
                 userlistView.ItemsSource = result.KeHuList;
+                _customerList = result.KeHuList;
             }
         }
 
@@ -90,6 +94,24 @@ namespace House.UserControls.Views
         private void userDataPager_PageChanging(object sender, PageChangingEventArgs e)
         {
             LoadCustomerListData(usersPager.NewPageIndex, 14);
+        }
+
+        private void OnEditCustomerInfoBtnClicked(object sender, RoutedEventArgs e)
+        {
+            var customerID = int.Parse((sender as Button).Tag.ToString());
+            var customerInfo = _customerList.Find(c => c.ID == customerID);
+            var window = new EditCustomerInfo("Edit", customerInfo);
+            //window.Owner = Application.Current.MainWindow;
+            window.ShowDialog();
+        }
+
+        private void OnCustomerDetailsBtnClicked(object sender, RoutedEventArgs e)
+        {
+            var customerID = int.Parse((sender as Button).Tag.ToString());
+            var customerInfo = _customerList.Find(c => c.ID == customerID);
+            var window = new EditCustomerInfo("Details", customerInfo);
+            //window.Owner = Application.Current.MainWindow;
+            window.ShowDialog();
         }
     }
 }

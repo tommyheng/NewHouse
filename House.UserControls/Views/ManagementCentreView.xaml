@@ -200,7 +200,6 @@
             <TabItem Header="我的客户"
                      Style="{DynamicResource ManagementCentreTabItem}"
                      Background="{DynamicResource CustomerIconBrush}">
-                <local:MyCustomer />
             </TabItem>
             <TabItem Header="所有客户"
                      Style="{DynamicResource ManagementCentreTabItem}">
@@ -294,8 +293,10 @@
                                                 </Grid>
 
                                                 <WrapPanel Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Right">
-                                                    <TextBlock Foreground="#FFFE4620" Margin="20,5,5,5" >编辑</TextBlock>
-                                                    <TextBlock Foreground="#FFFE4620" Margin="5,5,15,5" >详情</TextBlock>
+                                                    <Button Style="{DynamicResource TransparentBackgroundButtonStyle}" Foreground="#FFFE4620" Margin="20,5,5,5" 
+                                                            Content="编辑" Tag="{Binding ID}" VerticalContentAlignment="Center" Click="OnEditCustomerInfoBtnClicked"/>
+                                                    <Button Style="{DynamicResource TransparentBackgroundButtonStyle}" Foreground="#FFFE4620" Margin="5,5,15,5" 
+                                                            Content="详情" Tag="{Binding ID}" VerticalContentAlignment="Center" Click="OnCustomerDetailsBtnClicked"/>
                                                 </WrapPanel>
 
                                                 <StackPanel  Grid.Row="1"  Grid.ColumnSpan="2" >

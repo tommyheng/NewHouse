@@ -49,6 +49,7 @@ namespace House.UserControls.ViewModels
         }
 
         //手机号码
+        private string _originTelephone = string.Empty;
         private string _telephone = string.Empty;
         public string Telephone
         {
@@ -59,6 +60,7 @@ namespace House.UserControls.ViewModels
             }
         }
 
+        private string _originSecondTelephone = string.Empty;
         private string _secondTelephone = string.Empty;
         public string SecondTelephone
         {
@@ -70,6 +72,7 @@ namespace House.UserControls.ViewModels
             }
         }
 
+        private string _originThirdTelephone = string.Empty;
         private string _thirdTelephone = string.Empty;
         public string ThirdTelephone
         {
@@ -118,6 +121,9 @@ namespace House.UserControls.ViewModels
         //上传客户信息
         public ICommand UpLoadCustomerInfoCmd { get; private set; }
 
+        //修改客户信息
+        public ICommand EditCustomerInfoCmd { get; private set; }
+
         //添加电话号码
         public ICommand AddTelephoneCmd { get; private set; }
         //删除电话号码
@@ -132,25 +138,68 @@ namespace House.UserControls.ViewModels
             InitCommand();
         }
 
+        private KeHuShowListItem _customerInfo = null;
+        public void InitData(KeHuShowListItem customerInfo)
+        {
+            _customerInfo = customerInfo;
+
+            Name = customerInfo.UserName;
+            if (customerInfo.XingBie.Equals("先生"))
+            {
+                IsMan = true;
+                IsWoman = false;
+            }
+            else
+            {
+                IsWoman = true;
+                IsMan = false;
+            }
+
+            var count = customerInfo.DianHuaList.Count;
+            if (count == 1)
+            {
+                Telephone = customerInfo.DianHuaList[0].DianHua;
+                _originTelephone = Telephone;
+            }
+            else if (count == 2)
+            {
+                Telephone = customerInfo.DianHuaList[0].DianHua;
+                SecondTelephone = customerInfo.DianHuaList[1].DianHua;
+                _originTelephone = Telephone;
+                _originSecondTelephone = SecondTelephone;
+            }
+            else if (count == 3)
+            {
+                Telephone = customerInfo.DianHuaList[0].DianHua;
+                SecondTelephone = customerInfo.DianHuaList[1].DianHua;
+                ThirdTelephone = customerInfo.DianHuaList[2].DianHua;
+                _originTelephone = Telephone;
+                _originSecondTelephone = SecondTelephone;
+                _originThirdTelephone = ThirdTelephone;
+            }
+
+        }
         private void InitCommand()
         {
             UpLoadCustomerInfoCmd = new RelayCommand(OnExecuteUpLoadCustomerInfoCmd);
+            EditCustomerInfoCmd = new RelayCommand(OnExecuteEditCustomerInfoCmd);
             AddTelephoneCmd = new RelayCommand(OnExecuteAddTelephoneCmd);
             DelTelephoneCmd = new RelayCommand<string>(OnExecuteDelTelephoneCmd);
         }
+
 
         private void OnExecuteDelTelephoneCmd(string telephone)
         {
             if (telephone.Equals(SecondTelephone))
             {
-                SecondTelephoneVisibility = false;
                 SecondTelephone = string.Empty;
+                SecondTelephoneVisibility = false;
             }
 
             if (telephone.Equals(ThirdTelephone))
             {
-                ThirdTelephoneVisibility = false;
                 ThirdTelephone = string.Empty;
+                ThirdTelephoneVisibility = false; 
             }
         }
 
@@ -177,7 +226,18 @@ namespace House.UserControls.ViewModels
 
         }
 
+        private void OnExecuteEditCustomerInfoCmd()
+        {
+            AddOfModifyCustomerInfo(false);
+
+        }
+
         private void OnExecuteUpLoadCustomerInfoCmd()
+        {
+            AddOfModifyCustomerInfo(true);
+        }
+
+        private void AddOfModifyCustomerInfo(bool isAdd)
         {
             if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name))
             {
@@ -190,21 +250,58 @@ namespace House.UserControls.ViewModels
                 return;
             }
 
-            _telephoneList.Add(Telephone);
-            if (!string.IsNullOrEmpty(SecondTelephone) && !_telephoneList.Contains(SecondTelephone)) _telephoneList.Add(SecondTelephone);
-            if (!string.IsNullOrEmpty(ThirdTelephone) && !_telephoneList.Contains(ThirdTelephone)) _telephoneList.Add(ThirdTelephone);
-
             var customerInfo = new AddKeHuModel();
-            customerInfo.ID = 0;
+            customerInfo.ID = isAdd ? 0 : 1;
             customerInfo.UserName = Name;
             customerInfo.XingBie = _sex;
-            customerInfo.KeHuDianHua = (from t in _telephoneList
-                                        select new DianHuaModel
-                                        {
-                                            ID = 0,
-                                            DianHua = t
-                                        }).ToList();
+            if (isAdd)
+            {
+                //添加客户信息
+                _telephoneList.Clear();
+                _telephoneList.Add(Telephone);
+                if (!string.IsNullOrEmpty(SecondTelephone) && !_telephoneList.Contains(SecondTelephone)) _telephoneList.Add(SecondTelephone);
+                if (!string.IsNullOrEmpty(ThirdTelephone) && !_telephoneList.Contains(ThirdTelephone)) _telephoneList.Add(ThirdTelephone);
 
+                customerInfo.KeHuDianHua = (from t in _telephoneList
+                                            select new DianHuaModel
+                                            {
+                                                ID = 0,
+                                                DianHua = t
+                                            }).ToList();
+            }
+            else
+            {
+                //修改客户信息
+                customerInfo.KeHuDianHua = new List<DianHuaModel>();
+
+                if (_originTelephone != string.Empty && _originTelephone != Telephone)
+                {
+                    var tmp = _customerInfo.DianHuaList[0];
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = Telephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
+                }
+                if (_originSecondTelephone != string.Empty && _originSecondTelephone != SecondTelephone)
+                {
+                    var tmp = _customerInfo.DianHuaList[1];
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = Telephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
+                }
+                if (_originThirdTelephone != string.Empty && _originThirdTelephone != ThirdTelephone)
+                {
+                    var tmp = _customerInfo.DianHuaList[2];
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = Telephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
+                }
+
+                if (_originSecondTelephone == string.Empty && SecondTelephone != string.Empty)
+                {
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = 0, DianHua = SecondTelephone });
+                }
+
+                if (_originThirdTelephone == string.Empty && ThirdTelephone != string.Empty)
+                {
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = 0, DianHua = ThirdTelephone });
+                }
+            }
+
+            //发送请求
             var rst = DataRepository.Instance.AddOrModifyCustomer(GlobalDataPool.Instance.Uid, customerInfo);
             if (!rst.success)
             {

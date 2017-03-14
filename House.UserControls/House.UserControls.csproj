@@ -128,7 +128,6 @@
     <Compile Include="ScrollingTextControl.cs" />
     <Compile Include="ViewModels\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\FooterViewModel.cs" />
-    <Compile Include="ViewModels\LouPanDataItem.cs" />
     <Compile Include="ViewModels\MyCustomerViewModel.cs" />
     <Compile Include="ViewModels\UserInformationViewModel.cs" />
     <Compile Include="Views\AddCustomer.xaml.cs">
