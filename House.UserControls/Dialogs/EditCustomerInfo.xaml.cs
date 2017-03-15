@@ -40,6 +40,7 @@ namespace House.UserControls.Dialogs
                 EditBtn.Visibility = Visibility.Collapsed;
                 dataContext.InitData(customerInfo);
             }
+            
         }
     }
 }

@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using House.DAL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -251,7 +252,7 @@ namespace House.UserControls.ViewModels
             }
 
             var customerInfo = new AddKeHuModel();
-            customerInfo.ID = isAdd ? 0 : 1;
+            customerInfo.ID = isAdd ? 0 : _customerInfo.ID;
             customerInfo.UserName = Name;
             customerInfo.XingBie = _sex;
             if (isAdd)
@@ -282,12 +283,12 @@ namespace House.UserControls.ViewModels
                 if (_originSecondTelephone != string.Empty && _originSecondTelephone != SecondTelephone)
                 {
                     var tmp = _customerInfo.DianHuaList[1];
-                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = Telephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = SecondTelephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
                 }
                 if (_originThirdTelephone != string.Empty && _originThirdTelephone != ThirdTelephone)
                 {
                     var tmp = _customerInfo.DianHuaList[2];
-                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = Telephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
+                    customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = tmp.ID, DianHua = ThirdTelephone, IsMoRen = tmp.IsMoRen, Remark = tmp.Remark });
                 }
 
                 if (_originSecondTelephone == string.Empty && SecondTelephone != string.Empty)
@@ -300,7 +301,7 @@ namespace House.UserControls.ViewModels
                     customerInfo.KeHuDianHua.Add(new DianHuaModel() { ID = 0, DianHua = ThirdTelephone });
                 }
             }
-
+            
             //发送请求
             var rst = DataRepository.Instance.AddOrModifyCustomer(GlobalDataPool.Instance.Uid, customerInfo);
             if (!rst.success)
@@ -309,8 +310,11 @@ namespace House.UserControls.ViewModels
             }
             else
             {
-                MessageBox.Show("添加客户成功！");
+                var str = isAdd ? "添加" : "修改";
+                MessageBox.Show(string.Format("{0}客户成功！", str));
+                
             }
+            
         }
     }
 }

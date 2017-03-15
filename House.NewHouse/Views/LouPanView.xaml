@@ -13,7 +13,7 @@
                          d:DesignWidth="1160"
                          x:Name="louPanView"
                          Width="1160"
-                         Title="新房">
+                         Title="新房" FontSize="16">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -29,7 +29,7 @@
                        VerticalAlignment="Center">
                 <Border BorderBrush="{DynamicResource BorderColorBrush}"
                         BorderThickness="1"
-                        Width="300"
+                        Width="300" Height="30"
                         HorizontalAlignment="Left">
                     <TextBox controls:TextBoxHelper.ButtonCommand="{Binding SearchCommand, Mode=OneWay}"
                              controls:TextBoxHelper.ButtonCommandParameter="{Binding Text, ElementName=sk_TextBox}"
@@ -37,7 +37,7 @@
                              controls:TextBoxHelper.UseFloatingWatermark="True"
                              controls:TextBoxHelper.Watermark="请输入楼盘关键字"
                              Text="{Binding SearchingKey, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
-                             x:Name="sk_TextBox">
+                             x:Name="sk_TextBox" FontSize="16">
                         <TextBox.InputBindings>
                             <KeyBinding Key="Return"
                                         Command="{Binding SearchCommand, Mode=OneWay}"
@@ -66,7 +66,7 @@
                                TextAlignment="Center"
                                VerticalAlignment="Center"
                                Background="Transparent"
-                               FontSize="14" />
+                               FontSize="16" />
                     <ComboBox x:Name="regioncb"
                               Width="120"
                               FontSize="14"
