@@ -54,7 +54,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="33"></RowDefinition>
             <RowDefinition Height="33"></RowDefinition>
-            <RowDefinition Height="33"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
@@ -63,7 +63,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="220"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="38"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal"
@@ -83,6 +83,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
+                    Margin="0 0 0 2"
                     VerticalAlignment="Center">
             <TextBlock FontSize="16">经纪人                        ：</TextBlock>
             <TextBlock x:Name="jingjiren"
@@ -201,10 +202,140 @@
             <Separator VerticalAlignment="Bottom"></Separator>
         </Grid>
 
-        <Grid Grid.Row="3"
-              Background="Beige">
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*" />
+                <ColumnDefinition Width="167*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="12,8,12,0"
+                        Grid.ColumnSpan="2">
+                <Image x:Name="Dian1"
+                       Width="35"
+                       Height="35"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
+                <Image x:Name="Xian1"
+                       Width="100"
+                       Height="2"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
+                <Image x:Name="Dian2"
+                       Width="35"
+                       Height="35"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
+                <Image x:Name="Xian2"
+                       Width="100"
+                       Height="2"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
+                <Image x:Name="Dian3"
+                       Width="35"
+                       Height="35"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
+                <Image x:Name="Xian4"
+                       Width="100"
+                       Height="2"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
+                <Image x:Name="Dian4"
+                       Width="35"
+                       Height="35"
+                       Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
 
-            <Separator VerticalAlignment="Bottom"></Separator>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="0 50 0 0"
+                        Grid.ColumnSpan="2">
+                <TextBlock x:Name="Dian1Text"
+                           Foreground="#37A508"
+                           FontSize="22"
+                           TextAlignment="Left"
+                           Width="130"
+                           Margin="10 0 0 0"
+                           TextWrapping="WrapWithOverflow"
+                           Text="报备"></TextBlock>
+                <TextBlock x:Name="Dian2Text"
+                           Foreground="#37A508"
+                           FontSize="22"
+                           TextAlignment="Left"
+                           Width="140"
+                           TextWrapping="WrapWithOverflow"
+                           Text="带看"></TextBlock>
+                <TextBlock x:Name="Dian3Text"
+                           Foreground="#37A508"
+                           FontSize="22"
+                           TextAlignment="Left"
+                           Width="130"
+                           TextWrapping="WrapWithOverflow"
+                           Text="成交"></TextBlock>
+                <TextBlock x:Name="Dian4Text"
+                           Foreground="#37A508"
+                           FontSize="22"
+                           TextAlignment="Left"
+                           Width="100"
+                           TextWrapping="WrapWithOverflow"
+                           Text="结佣"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="0 27 0 0"
+                        Grid.ColumnSpan="2">
+                <TextBlock x:Name="Xian1Text1"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Width="90"
+                           Margin="50 0 0 0"
+                           Text="通过审核">
+                </TextBlock>
+                <TextBlock x:Name="Xian2Text1"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Margin="47 0 0 0"
+                           Width="90"
+                           Text="已带看"></TextBlock>
+                <TextBlock x:Name="Xian3Text1"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Margin="43 0 0 0"
+                           Width="90"
+                           Text="已成交"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="0 45 0 0"
+                        Grid.ColumnSpan="2">
+                <TextBlock x:Name="Xian1Text2"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Width="90"
+                           Margin="50 0 0 0"
+                           Text="可待看">
+                </TextBlock>
+                <TextBlock x:Name="Xian2Text2"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Margin="47 0 0 0"
+                           Width="90"
+                           Text="等待成交"></TextBlock>
+                <TextBlock x:Name="Xian3Text2"
+                           Foreground="#37A508"
+                           FontSize="14"
+                           TextAlignment="Center"
+                           Margin="43 0 0 0"
+                           Width="90"
+                           Text="佣金已结"></TextBlock>
+            </StackPanel>
+
+            <Separator VerticalAlignment="Bottom"
+                       Grid.ColumnSpan="2"
+                       Margin="0,0,0,2"></Separator>
         </Grid>
 
         <Grid Grid.Row="6">
@@ -254,7 +385,14 @@
                    x:Name="shoulouyuan"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="shoulouyuanMenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
 
             <Image Grid.Row="1"
                    Grid.Column="0"
@@ -263,7 +401,14 @@
                    x:Name="jingjirenImage"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="jingjirenMenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="1"
                    Grid.Column="1"
                    Width="150"
@@ -271,7 +416,14 @@
                    x:Name="qita11"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="qita11MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="1"
                    Grid.Column="2"
                    Width="150"
@@ -279,7 +431,14 @@
                    x:Name="qita12"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="qita12MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
 
             <Separator Grid.Row="1"
                        Grid.Column="0"
@@ -304,7 +463,14 @@
                    x:Name="biTian2"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/带看单.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/带看单.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="biTian2MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="0"
                    Grid.Column="1"
                    Width="150"
@@ -312,7 +478,14 @@
                    x:Name="shoulouchu2"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/售楼处.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/售楼处.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="shoulouchu2MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="0"
                    Grid.Column="2"
                    Width="150"
@@ -320,7 +493,14 @@
                    x:Name="shoulouyuan2"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="shoulouyuan2MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
 
             <Image Grid.Row="1"
                    Grid.Column="0"
@@ -329,7 +509,14 @@
                    x:Name="jingjirenImage2"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="jingjirenImage2MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="1"
                    Grid.Column="1"
                    Width="150"
@@ -337,7 +524,14 @@
                    x:Name="qita21"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="qita21MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
             <Image Grid.Row="1"
                    Grid.Column="2"
                    Width="150"
@@ -345,7 +539,14 @@
                    x:Name="qita22"
                    Cursor="Hand"
                    MouseLeftButtonDown="OnMouseDown_Image"
-                   Source="pack://application:,,,/House.Thems;component/Images/其他.png"></Image>
+                   Source="pack://application:,,,/House.Thems;component/Images/其他.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="删除"
+                                  Click="qita22MenuItem_OnClick"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
 
             <Separator Grid.Row="1"
                        Grid.Column="0"
