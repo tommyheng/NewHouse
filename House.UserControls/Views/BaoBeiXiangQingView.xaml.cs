@@ -55,6 +55,24 @@ namespace House.UserControls
             jingjiren.Text = NewFangRunningListItem.JingJiRenName + " " + NewFangRunningListItem.JingJiRenDianHua;
 
             var data = result.data;
+
+
+            Dian1Text.Text = data.JinDuTiao.Dian1Text;
+            Dian2Text.Text = data.JinDuTiao.Dian2Text;
+            Dian3Text.Text = data.JinDuTiao.Dian3Text;
+            Dian4Text.Text = data.JinDuTiao.Dian4Text;
+
+            Xian1Text1.Text = data.JinDuTiao.Xian1Text1;
+            Xian2Text1.Text = data.JinDuTiao.Xian2Text1;
+            Xian3Text1.Text = data.JinDuTiao.Xian3Text1;
+
+            Xian1Text2.Text = data.JinDuTiao.Xian1Text2;
+            Xian2Text2.Text = data.JinDuTiao.Xian2Text2;
+            Xian3Text2.Text = data.JinDuTiao.Xian3Text2;
+
+            //TODO 点的颜色
+
+
             runningsModel = data;
             jindu1Left.Text = data.JinDuText[0].LeftText;
             Jindu1Right.Text = data.JinDuText[0].RightText;
@@ -106,14 +124,37 @@ namespace House.UserControls
 
 
             var images2 = (from a in data.ChengJiaoQueRenImage.OrderBy(a => a.ImageIndex)
-                           select new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/" + a.ImageUrl, UriKind.Absolute)).ToList();
-            if (images2.Count > 0) biTian2.Source = new BitmapImage(images2[0]);
-            if (images2.Count > 1) shoulouchu2.Source = new BitmapImage(images2[1]);
-            if (images2.Count > 2) shoulouyuan2.Source = new BitmapImage(images2[2]);
-            if (images2.Count > 3) jingjirenImage2.Source = new BitmapImage(images2[3]);
-            if (images2.Count > 4) qita21.Source = new BitmapImage(images2[4]);
-            if (images2.Count > 5) qita22.Source = new BitmapImage(images2[5]);
-
+                           select new KeyValuePair<Uri, int>(new Uri(ConfigHelper.GetAppSetting("ApiUrl") + @"Images/DaiKanQueRenImage/" + a.ImageUrl, UriKind.Absolute), a.ImageIndex)).ToList();
+            if (images2.Count > 0)
+            {
+                biTian2.Source = new BitmapImage(images2[0].Key);
+                biTian2.Tag = images2[0].Value;
+            }
+            if (images2.Count > 1)
+            {
+                shoulouchu2.Source = new BitmapImage(images2[1].Key);
+                shoulouchu2.Tag = images2[0].Value;
+            }
+            if (images2.Count > 2)
+            {
+                shoulouyuan2.Source = new BitmapImage(images2[2].Key);
+                shoulouyuan2.Tag = images2[0].Value;
+            }
+            if (images2.Count > 3)
+            {
+                jingjirenImage2.Source = new BitmapImage(images2[3].Key);
+                jingjirenImage2.Tag = images2[0].Value;
+            }
+            if (images2.Count > 4)
+            {
+                qita21.Source = new BitmapImage(images2[4].Key);
+                qita21.Tag = images2[0].Value;
+            }
+            if (images2.Count > 5)
+            {
+                qita22.Source = new BitmapImage(images2[5].Key);
+                qita22.Tag = images2[0].Value;
+            }
 
 
             //data.i
@@ -164,34 +205,181 @@ namespace House.UserControls
             }
         }
 
-        private void Qita12_OnMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        #region 图片删除
+
+        private void biTianMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void OnMouseRightButtonDown_Image(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void MenuItembiTian_OnClick(object sender, RoutedEventArgs e)
-        {
-
+            var id = biTian.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/带看单.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
         }
 
         private void shoulouchuMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-
+            var id = shoulouchu.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/售楼处.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
         }
 
-        private void biTianMenuItem_OnClick(object sender, RoutedEventArgs e)
+
+        private void shoulouyuanMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-
+            var id = shoulouyuan.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
         }
+
+        private void jingjirenMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = jingjirenImage.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void qita11MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = qita11.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/其他.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void qita12MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = qita12.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/其他.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+
+        private void biTian2MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = biTian2.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/带看单.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void shoulouchu2MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = shoulouchu2.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/售楼处.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+
+        private void shoulouyuan2MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = shoulouyuan2.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/客户与售楼员.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void jingjirenImage2MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = jingjirenImage2.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/客户与经纪人.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void qita21MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = qita11.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/其他.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        private void qita22MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var id = qita12.Tag.GetInt();
+            var result = DataRepository.Instance.DeleteImage(id);
+            if (result.success == true)
+            {
+                biTian.Source = new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/其他.png"));
+            }
+            else
+            {
+                MessageBox.Show("删除失败", "删除");
+            }
+        }
+
+        #endregion 
+
+
     }
 }
