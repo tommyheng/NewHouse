@@ -215,30 +215,37 @@
                 <Image x:Name="Dian1"
                        Width="35"
                        Height="35"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
                 <Image x:Name="Xian1"
                        Width="100"
                        Height="2"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
                 <Image x:Name="Dian2"
                        Width="35"
                        Height="35"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
                 <Image x:Name="Xian2"
                        Width="100"
                        Height="2"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
                 <Image x:Name="Dian3"
                        Width="35"
                        Height="35"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
-                <Image x:Name="Xian4"
+                <Image x:Name="Xian3"
                        Width="100"
                        Height="2"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png"></Image>
                 <Image x:Name="Dian4"
                        Width="35"
                        Height="35"
+                       Stretch="Fill"
                        Source="pack://application:,,,/House.Thems;component/Images/进度条绿色点.png"></Image>
 
             </StackPanel>
@@ -462,7 +469,7 @@
                    Height="100"
                    x:Name="biTian2"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/带看单.png">
                 <Image.ContextMenu>
                     <ContextMenu>
@@ -477,7 +484,7 @@
                    Height="100"
                    x:Name="shoulouchu2"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/售楼处.png">
                 <Image.ContextMenu>
                     <ContextMenu>
@@ -492,7 +499,7 @@
                    Height="100"
                    x:Name="shoulouyuan2"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/客户与售楼员.png">
                 <Image.ContextMenu>
                     <ContextMenu>
@@ -508,7 +515,7 @@
                    Height="100"
                    x:Name="jingjirenImage2"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/客户与经纪人.png">
                 <Image.ContextMenu>
                     <ContextMenu>
@@ -523,7 +530,7 @@
                    Height="100"
                    x:Name="qita21"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/其他.png">
                 <Image.ContextMenu>
                     <ContextMenu>
@@ -538,7 +545,7 @@
                    Height="100"
                    x:Name="qita22"
                    Cursor="Hand"
-                   MouseLeftButtonDown="OnMouseDown_Image"
+                   MouseLeftButtonDown="OnMouseDown_Image2"
                    Source="pack://application:,,,/House.Thems;component/Images/其他.png">
                 <Image.ContextMenu>
                     <ContextMenu>
