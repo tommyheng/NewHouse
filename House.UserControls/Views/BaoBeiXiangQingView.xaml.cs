@@ -70,7 +70,7 @@ namespace House.UserControls
             Xian2Text2.Text = data.JinDuTiao.Xian2Text2;
             Xian3Text2.Text = data.JinDuTiao.Xian3Text2;
 
-            //TODO 点的颜色
+
             Dian1.Source = data.JinDuTiao.Dian1Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
             Dian2.Source = data.JinDuTiao.Dian2Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
             Dian3.Source = data.JinDuTiao.Dian3Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
@@ -79,6 +79,13 @@ namespace House.UserControls
             Xian1.Source = data.JinDuTiao.Xian1Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
             Xian2.Source = data.JinDuTiao.Xian2Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
             Xian3.Source = data.JinDuTiao.Xian3Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
+
+            //TODO 文字的颜色
+            //Xian1Text1.Foreground = data.JinDuTiao.Xian1Text1Color == "1"
+            //    ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("37A508"))
+            //    : new SolidColorBrush((Color)ColorConverter.ConvertFromString("666666"));
+
+
 
 
             runningsModel = data;
