@@ -74,19 +74,21 @@ namespace House.UserControls
             Dian1.Source = data.JinDuTiao.Dian1Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
             Dian2.Source = data.JinDuTiao.Dian2Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
             Dian3.Source = data.JinDuTiao.Dian3Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
-            Dian3.Source = data.JinDuTiao.Dian4Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
+            Dian4.Source = data.JinDuTiao.Dian4Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色点.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色点.png"));
 
             Xian1.Source = data.JinDuTiao.Xian1Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
             Xian2.Source = data.JinDuTiao.Xian2Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
             Xian3.Source = data.JinDuTiao.Xian3Color == "1" ? new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条绿色横线.png")) : new BitmapImage(new Uri("pack://application:,,,/House.Thems;component/Images/进度条灰色横线.png"));
 
-            //TODO 文字的颜色
-            //Xian1Text1.Foreground = data.JinDuTiao.Xian1Text1Color == "1"
-            //    ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("37A508"))
-            //    : new SolidColorBrush((Color)ColorConverter.ConvertFromString("666666"));
+            //线文字的颜色
+            setXianTextColor(Xian1Text1, data.JinDuTiao.Xian1Text1Color);
+            setXianTextColor(Xian1Text2, data.JinDuTiao.Xian1Text1Color);
 
+            setXianTextColor(Xian2Text1, data.JinDuTiao.Xian2Text1Color);
+            setXianTextColor(Xian2Text2, data.JinDuTiao.Xian2Text1Color);
 
-
+            setXianTextColor(Xian3Text1, data.JinDuTiao.Xian3Text1Color);
+            setXianTextColor(Xian3Text2, data.JinDuTiao.Xian3Text1Color);
 
             runningsModel = data;
             jindu1Left.Text = data.JinDuText[0].LeftText;
@@ -183,6 +185,23 @@ namespace House.UserControls
             //    myPager.PageSize = rows;
             //    listView.ItemsSource = result.data;
             //}
+        }
+
+        private void setXianTextColor(TextBlock tb, string xianTextColor)
+        {
+            //1 绿色 2 灰色 3 橙色
+            switch (xianTextColor)
+            {
+                case "1":
+                    tb.Foreground = FindResource("AccentColorBrush").CastTo<SolidColorBrush>();
+                    break;
+                case "2":
+                    tb.Foreground = FindResource("GrayWordColorBrush").CastTo<SolidColorBrush>();
+                    break;
+                case "3":
+                    tb.Foreground = FindResource("HouseAccentColorBrush").CastTo<SolidColorBrush>();
+                    break;
+            }
         }
 
         private void OnMouseDown_Image(object sender, MouseButtonEventArgs e)
