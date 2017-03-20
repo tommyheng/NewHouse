@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FangChan.WPFModel
 {
-
+    #region ================= 新房和用户中心等 ==================
     public class ApiResultModelBase
     {
         //登录是否成功
@@ -762,5 +762,245 @@ namespace FangChan.WPFModel
         public string RightTextColor { get; set; }
 
     }
+
+    #endregion
+
+    #region ==================== 装修 ================================
+
+    /// <summary>
+    /// 返回装修公司列表信息
+    /// Url:/App/GetZhuangXiuGongShiShowList
+    /// 参数：UserID    请求人UserID
+    ///       DiQuID    区域筛选ID
+    ///       Page      页码
+    ///       Rows      第页记录数
+    /// </summary>
+    public class ZhuangXiuGongShiShowList
+    {
+        //是否成功
+        public bool success { get; set; }
+        //错误信息
+        public string message { get; set; }
+        //装修公司列表
+        public List<ZhuangXiuGongShiShowListItem> data { get; set; }
+        //装修公司总记录数
+        public int TotalRows { get; set; }
+    }
+    public class ZhuangXiuGongShiShowListItem
+    {
+        //流水号
+        public int RowID { get; set; }
+        //ID
+        public int ID { get; set; }
+        //名称
+        public string Name { get; set; }
+        //区域
+        public string DiQuName { get; set; }
+        //奖励
+        public string JiangLi { get; set; }
+        //佣金
+        public string YongJin { get; set; }
+        //结算周期
+        public string YongJinZhangQi { get; set; }
+        //图片（/Images/）
+        public string ImageUrl { get; set; }
+        //带看条件
+        public string DaiKanTiaoJian { get; set; }
+        //结算条件
+        public string JieShuanTiaoJian { get; set; }
+    }
+
+    /// <summary>
+    /// 返回装修公司详细信息
+    /// Url:/App/GetZhuangXiuGongShiModel
+    /// 参数：UserID                请求人UserID
+    ///       ZhuangXiuGongShiID    装修公司ID
+    /// </summary>
+    public class ReturnZhuangXiuGongShiModel
+    {
+        //是否成功
+        public bool success { get; set; }
+        //错误信息
+        public string message { get; set; }
+        //装修公司信息（是个数组，第一条就行）
+        public List<ZhuangXiuGongShiModel> data { get; set; }
+    }
+    public class ZhuangXiuGongShiModel
+    {
+        //ID
+        public int ID { get; set; }
+        //名称
+        public string Name { get; set; }
+        //说明
+        public string Remark { get; set; }
+        //地址
+        public string Address { get; set; }
+        //区域
+        public string DiQuName { get; set; }
+        //佣金标题
+        public string YongJin { get; set; }
+        //佣金详情
+        public string GuiZhe { get; set; }
+        //合作经纪人数量
+        public int HeZhuoJingJiRenNumber { get; set; }
+        //意向客户数量
+        public int YiXiangKeHuNumber { get; set; }
+        //结算周期
+        public string JieShuanZhouQi { get; set; }
+        //我的客户数量
+        public int WoDeKeHuNumber { get; set; }
+        //不用
+        public float X { get; set; }
+        //不用
+        public float Y { get; set; }
+        //报备规则
+        public string BaoBeiGuiZhe { get; set; }
+        //带看规则
+        public string DaiKanGuiZhe { get; set; }
+        //成交规则
+        public string ChengJiaoGuiZhe { get; set; }
+        //奖励
+        public string JiangLi { get; set; }
+        //图片
+        public string ImageUrl { get; set; }
+        //负责人姓名
+        public string FuZheRenName { get; set; }
+        //负责人电话
+        public string FuZheRenDianHua { get; set; }
+        //优惠信息
+        public string YouHuiXinXi { get; set; }
+        //图片列表
+        public string ImageList { get; set; }
+        //收费标准
+        public string BaoJia { get; set; }
+        //带看条件
+        public string DaiKanTiaoJian { get; set; }
+        //结算条件
+        public string JieShuanTiaoJian { get; set; }
+    }
+
+    /// <summary>
+    /// 返回装修公司门店
+    /// Url:/App/GetZhuangXiuGuWenList
+    /// 参数：UserID                请求人UserID
+    ///       ZhuangXiuGongShiID    装修公司ID
+    /// </summary>
+    public class ReturnZhuangXiuGongShiMenDianModel
+    {
+        //是否成功
+        public bool success { get; set; }
+        //错误信息
+        public string message { get; set; }
+        //装修公司门店
+        public List<ZhuangXiuGongShiMenDianModel> data { get; set; }
+    }
+
+    public class ZhuangXiuGongShiMenDianModel
+    {
+        //ID
+        public int ID { get; set; }
+        //名称
+        public string Name { get; set; }
+        //地址
+        public string Address { get; set; }
+        //地区编号
+        public string DiQuID { get; set; }
+        //地区名称
+        public string DiQuName { get; set; }
+        //装修顾问
+        public List<ZhuangXiuGuWenModel> ZhuangXiuGuWen { get; set; }
+    }
+    /// <summary>
+    /// 装修顾问
+    /// </summary>
+    public class ZhuangXiuGuWenModel
+    {
+        //ID
+        public int ID { get; set; }
+        //姓名
+        public string Name { get; set; }
+        //职务
+        public string ZhiWu { get; set; }
+        //电话
+        public string DianHua { get; set; }
+        //备注
+        public string Remark { get; set; }
+    }
+
+    /// <summary>
+    /// 返回装修订单信息
+    /// 1、获得装修详情里我的客户
+    ///     Url:/App/GetZhuangXiuRunningsList
+    ///     参数：ZhuangXiuGongShiID 查询装修公司ID
+    ///           UserID   请求人UserID
+    ///           Page      页码
+    ///           Rows      每页行数
+    /// 2、获得我报备的新房订单
+    ///     Url:/App/GetZhuangXiuRunningsList
+    ///     参数：Name     搜索关键字
+    ///           UserID   请求人UserID
+    ///           Page      页码
+    ///           Rows      每页行数
+    /// 
+    /// </summary>
+    /// 
+    /// <summary>
+    /// 返回客户列表
+    /// 装修订单详情
+    /// Url:/App/GetZhuangXiuRunningModel
+    /// 参数：ID   查询订单ID
+    /// 
+    /// 颜色1绿   2灰   3橙色
+    /// </summary>
+    ///这三个接口返回的和新房的一样，用的新房的Model
+
+
+    /// <summary>
+    /// 返回客户列表
+    /// 1、装修公司详情报备客户
+    ///     Url:/App/GetKeHuShowList
+    ///     参数：ChaXunZhuangXiuGongShiID 查询装修公司ID
+    ///           UserID   请求人UserID
+    ///           Page      页码
+    ///           Rows      每页行数
+    ///     看ZhuangXiuGongShiBaoBei这个属性是否报备过此装修公司
+
+
+    #endregion
+
+
+    #region ==================== 金融 ====================
+
+    /// <summary>
+    /// 返回项目列表
+    /// Url:/App/GetJinRongList
+    /// 参数：UserID
+    ///       ParentID：父项ID 第一层传0
+    /// </summary>
+    public class JinRongList
+    {
+        //登录是否成功
+        public bool success { get; set; }
+
+        //错误信息
+        public string message { get; set; }
+        public List<JinRongItem> JinRongItemList { get; set; }
+
+    }
+    public class JinRongItem
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Icon { get; set; }
+        public int NodeNumber { get; set; }
+        public List<JinRongAttrItem> Attr { get; set; }
+    }
+    public class JinRongAttrItem
+    {
+        public string Icon { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+    #endregion
 
 }

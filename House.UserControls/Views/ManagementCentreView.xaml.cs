@@ -56,14 +56,33 @@ namespace House.UserControls.Views
         /// <param name="rows"></param>
         private void LoadData(int pageIndex = 1, int rows = 10)
         {
+            CurrentBuildingsOrdersList = null;
             var result = DataRepository.Instance.GetBuildingsOrdersList2(newHouseKey,
                 GlobalDataPool.Instance.Uid, pageIndex, rows);
             if (result.success)
             {
+                CurrentBuildingsOrdersList = result.data;
                 myPager.TotalCount = result.TotalRows;
                 myPager.PageIndex = pageIndex;
                 myPager.PageSize = rows;
                 listView.ItemsSource = result.data;
+            }
+        }
+
+        private List<NewFangRunningListItem> CurrentBuildingsOrdersList;
+
+        private void OnClickBaoBeiXiangQingBtn(object sender, RoutedEventArgs e)
+        {
+            if (CurrentBuildingsOrdersList != null)
+            {
+                int id = int.Parse((e.Source as Button).Tag.ToString());
+                var item = CurrentBuildingsOrdersList.FirstOrDefault(m => m.ID == id);
+                if (item != null)
+                {
+                    BaoBeiXiangQingView win = new BaoBeiXiangQingView();
+                    win.NewFangRunningListItem = item;
+                    win.ShowDialog();
+                }
             }
         }
 
@@ -113,5 +132,7 @@ namespace House.UserControls.Views
             //window.Owner = Application.Current.MainWindow;
             window.ShowDialog();
         }
+
+
     }
 }

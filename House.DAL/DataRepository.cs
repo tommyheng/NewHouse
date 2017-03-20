@@ -40,6 +40,8 @@ namespace House.DAL
             }
         }
 
+        #region ================= 新房与个人中心 =================
+
         #region 下行数据（获取数据接口）
 
         /// <summary>
@@ -546,7 +548,7 @@ namespace House.DAL
         {
             string url = string.Format("{0}App/GetGongGao", ApiUrl);
 
-            string postData = string.Format("UserID={0}",uId);
+            string postData = string.Format("UserID={0}", uId);
 
             return httpHelper.PostAndGetEntity<GongGaoTextList>(
                    url,
@@ -557,6 +559,168 @@ namespace House.DAL
                    Encoding.UTF8);
         }
         #endregion
+
+        #endregion
+
+
+
+
+        #region ================= 装修 =================
+        /// <summary>
+        /// 返回装修公司列表信息
+        /// Url:/App/GetZhuangXiuGongShiShowList
+        /// 参数：UserID    请求人UserID
+        ///       DiQuID    区域筛选ID
+        ///       Page      页码
+        ///       Rows      第页记录数
+        /// </summary>
+        public ZhuangXiuGongShiShowList GetZhuangXiuGongsiList(int uId, int areaId, int page, int rows)
+        {
+            string url = string.Format("{0}App/GetZhuangXiuGongShiShowList", ApiUrl);
+
+            string postData = string.Format("UserID={0}&DiQuID={1}&Page={2}&Rows={3}",
+                uId, areaId, page, rows);
+
+            return httpHelper.PostAndGetEntity<ZhuangXiuGongShiShowList>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+
+
+        /// <summary>
+        /// 返回装修公司详细信息
+        /// Url:/App/GetZhuangXiuGongShiModel
+        /// 参数：UserID                请求人UserID
+        ///       ZhuangXiuGongShiID    装修公司ID
+        /// </summary>
+        public ReturnZhuangXiuGongShiModel GetZhuangXiuGongsiInfo(int uId, int cId)
+        {
+            string url = string.Format("{0}App/GetZhuangXiuGongShiModel", ApiUrl);
+
+            string postData = string.Format("UserID={0}&ZhuangXiuGongShiID={1}",
+                uId, cId);
+
+            return httpHelper.PostAndGetEntity<ReturnZhuangXiuGongShiModel>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+
+
+        /// <summary>
+        /// 返回装修公司门店列表
+        /// Url:/App/GetZhuangXiuGuWenList
+        /// 参数：UserID                请求人UserID
+        ///       ZhuangXiuGongShiID    装修公司ID
+        /// </summary>
+        public ReturnZhuangXiuGongShiMenDianModel GetZhuangXiuGongSiMenDianList(int uId, int cId)
+        {
+            string url = string.Format("{0}App/GetZhuangXiuGuWenList", ApiUrl);
+
+            string postData = string.Format("UserID={0}&ZhuangXiuGongShiID={1}",
+                uId, cId);
+
+            return httpHelper.PostAndGetEntity<ReturnZhuangXiuGongShiMenDianModel>(
+                   url,
+                   postData,
+                   null,
+                   null,
+                   false,
+                   Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 1、获得装修详情里我的客户
+        ///     Url:/App/GetZhuangXiuRunningsList
+        ///     参数：ZhuangXiuGongShiID 查询装修公司ID
+        ///           UserID   请求人UserID
+        ///           Page      页码
+        ///           Rows      每页行数
+        /// </summary>   
+
+
+
+        /// <summary>          
+        /// 2、获得我报备的装修订单
+        ///     Url:/App/GetZhuangXiuRunningsList
+        ///     参数：Name     搜索关键字
+        ///           UserID   请求人UserID
+        ///           Page      页码
+        ///           Rows      每页行数 
+        /// </summary>    
+
+
+
+        /// <summary>
+        /// 装修报备客户
+        /// 
+        /// Url:
+        ///     /App/BaoBeiKeHuForZhuangXiu
+        /// 参数：
+        ///     UserID：操作人ID
+        ///     KeHuID：客户ID
+        ///     ZhuangXiuGongShiID：装修公司ID
+        ///     KeHuDianHuaID：客户电话ID
+        ///     Address：地址
+        ///     MianJi：面积
+        /// 返回：
+        ///     {"success": true, "message": "成功"}
+        /// </summary>   
+
+
+
+        /// <summary>   
+        ///上传带看确认单图片(进度说明第2条第3条中间)
+        ///
+        /// Url:
+        ///     /App/ZhuangXiuDaiKanQueRenImageUpLoad
+        /// 参数：
+        ///     ID：新房定单ID
+        ///     DaiKanQueRenImage：图片
+        /// 返回：
+        ///     {"success": true, "message": "成功", "DaiKanQueRenImage": "123456798.jpg"}
+        /// </summary>   
+
+
+        /// <summary>  
+        ///上传成交确认单图片(进度说明第3条第4条中间)
+        /// Url:
+        ///     /App/ZhuangXiuChengJiaoQueRenImageUpLoad
+        /// 参数：
+        ///     ID：新房定单ID
+        ///     DaiKanQueRenImage：图片
+
+        /// 返回：
+        ///     {"success": true, "message": "成功", "ChengJiaoQueRenImage": "123456798.jpg"}
+        /// </summary>  
+
+
+
+        /// <summary>  
+        /// 删除图片(带看和成交都是这个)
+        /// Url:
+        ///     /App/ZhuangXiuDaiKanQueRenImageDel
+        /// 参数：
+        ///     ID：图片ID
+        /// 返回：
+        ///     {"success": true, "message": "成功"}
+        /// </summary>  
+        
+        #endregion
+
+
+
+        #region ================= 金融 =================
+
+        #endregion
+
     }
 }
 

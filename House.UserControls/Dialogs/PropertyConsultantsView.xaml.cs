@@ -29,28 +29,28 @@ namespace House.UserControls
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             var result = DataRepository.Instance.GetPropertyConsultantList(Bid);
-            if (result.success)
+            if (result.success && result.data.Count > 0)
             {
-                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
-                {
-                    DianHua = "13840050000",
-                    ZhiWu = "职业顾问",
-                    Name = "唐老大"
-                });
+                //result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                //{
+                //    DianHua = "13840050000",
+                //    ZhiWu = "职业顾问",
+                //    Name = "唐老大"
+                //});
 
-                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
-                {
-                    DianHua = "13840050001",
-                    ZhiWu = "职业顾问",
-                    Name = "唐老二"
-                });
+                //result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                //{
+                //    DianHua = "13840050001",
+                //    ZhiWu = "职业顾问",
+                //    Name = "唐老二"
+                //});
 
-                result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
-                {
-                    DianHua = "13840050002",
-                    ZhiWu = "职业顾问",
-                    Name = "唐老三"
-                });
+                //result.data.Add(new FangChan.WPFModel.ZhiYeGuWenListItem()
+                //{
+                //    DianHua = "13840050002",
+                //    ZhiWu = "职业顾问",
+                //    Name = "唐老三"
+                //});
 
                 listView.ItemsSource = result.data;
 

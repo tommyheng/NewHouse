@@ -120,7 +120,11 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:LouPanItem x:Name="louPanItem"/>
+                    <StackPanel>
+                        <uc:LouPanItem x:Name="louPanItem"/>
+                        <StackPanel Height="1" Background="Black"></StackPanel>
+                    </StackPanel>
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemContainerStyle>

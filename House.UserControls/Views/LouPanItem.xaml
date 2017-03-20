@@ -60,20 +60,22 @@
                 </StackPanel>
                 <StackPanel Grid.Row="3" Orientation="Horizontal">
                     <Border CornerRadius="{DynamicResource ControlCornerRadius}" Background="{DynamicResource OrangeColorBrush}" VerticalAlignment="Center">
-                        <TextBlock Text="佣" Margin="2,0,2,0" Foreground="White"/>
-                    </Border>
-                    <TextBlock Text="{Binding YongJin}" Foreground="{DynamicResource OrangeColorBrush}"  Margin="4,0,4,0"/>
-                </StackPanel>
-                <StackPanel Grid.Row="4" Orientation="Horizontal">
-                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Background="{DynamicResource OrangeColorBrush}" VerticalAlignment="Center">
                         <TextBlock Text="带" Margin="2,0,2,0" Foreground="White"/>
                     </Border>
                     <TextBlock Text="{Binding DaiKanYongJin}" Foreground="{DynamicResource OrangeColorBrush}" Margin="4,0,4,0"/>
                 </StackPanel>
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Background="{DynamicResource OrangeColorBrush}" VerticalAlignment="Center">
+                        <TextBlock Text="佣" Margin="2,0,2,0" Foreground="White"/>
+                    </Border>
+                    <TextBlock Text="{Binding YongJin}" Foreground="{DynamicResource OrangeColorBrush}"  Margin="4,0,4,0"/>
+                </StackPanel>
+
             </Grid>
         </Grid>
-        <Line Grid.Column="0" Grid.ColumnSpan="2" X1="0" Y1="0" X2="{Binding ElementName=mainGrid, Path=ActualWidth}" Y2="0"
-               StrokeThickness="1.5"  VerticalAlignment="Bottom" Stroke="Gray"/>
+        
+        <!--<Line Grid.Column="0" Grid.ColumnSpan="2" X1="0" Y1="0" X2="{Binding ElementName=mainGrid, Path=ActualWidth}" Y2="0"
+               StrokeThickness="1"  VerticalAlignment="Bottom" Stroke="Gray"/>-->
         <!--Stroke="{DynamicResource SeperatorColor}"-->
     </Grid>
 </House:MyUserControlBase>

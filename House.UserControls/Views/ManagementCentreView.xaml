@@ -178,7 +178,7 @@
                                                 <WrapPanel Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Center">
                                                     <TextBlock  Foreground="#959595" Text="{Binding LastTime}"></TextBlock>
                                                     <TextBlock Margin="3 0 0 0" Foreground="#959595">通过报备</TextBlock>
-                                                    <Button Style="{DynamicResource BaoBeiXiangqingButtonStyle}" Margin="110 0 0 0" Width="113" Height="23"></Button>
+                                                    <Button Click="OnClickBaoBeiXiangQingBtn" Tag="{Binding ID}"  Style="{DynamicResource BaoBeiXiangqingButtonStyle}" Margin="110 0 0 0" Width="113" Height="23"></Button>
                                                 </WrapPanel>
                                             </Grid>
                                         </Border>
